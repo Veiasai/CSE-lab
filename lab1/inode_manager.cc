@@ -62,7 +62,7 @@ block_manager::free_block(uint32_t id)
 {
   char bitmap[BLOCK_SIZE];
   d->read_block(BBLOCK(id), bitmap);
-  bitmap[(id % BPB) / 8] |= (1 << (id % BPB % 8));
+  bitmap[(id % BPB) / 8] &= ~(1 << (id % BPB % 8));
   d->write_block(BBLOCK(id), bitmap);
   /* 
    * your code goes here.
