@@ -180,9 +180,7 @@ release:
 int
 yfs_client::setattr(inum ino, size_t size)
 {
-    if (!isfile(ino))
-        return EXIST;
-
+    lc->acquire(ino);
     int r = OK;
     std::string buf;
     r = ec->get(ino, buf);
@@ -193,7 +191,7 @@ yfs_client::setattr(inum ino, size_t size)
      * note: get the content of inode ino, and modify its content
      * according to the size (<, =, or >) content length.
      */
-
+    lc->release(ino);
     return r;
 }
 
@@ -203,11 +201,14 @@ yfs_client::create(inum parent, const char *name, mode_t mode, inum &ino_out)
     printf("create name: %s \n", name);
     int r = OK;
     bool found = false;
-    lookup(parent, name, found, ino_out);
-    if (found == true)
-        return EXIST;
 
     lc->acquire(parent);
+
+    lookup(parent, name, found, ino_out);
+    if (found == true){
+        lc->release(parent);
+        return EXIST;
+    }
     ec->create(extent_protocol::T_FILE, ino_out);
     std::string buf;
     r = ec->get(parent, buf);
@@ -230,14 +231,14 @@ yfs_client::create(inum parent, const char *name, mode_t mode, inum &ino_out)
 int
 yfs_client::mkdir(inum parent, const char *name, mode_t mode, inum &ino_out)
 {
-    bool found = false;
-    if (!isdir(parent))
-        return EXIST;
-    lookup(parent, name, found, ino_out);
-    if (found == true)
-        return EXIST;
     lc->acquire(parent);
-    printf("make dir name: %s \n", name);
+    bool found = false;
+    lookup(parent, name, found, ino_out);
+    if (found == true){
+        lc->release(parent);
+        return EXIST;
+    }
+
     int r = OK;
     r = ec->create(extent_protocol::T_DIR, ino_out);
     std::string buf;
@@ -264,9 +265,6 @@ yfs_client::lookup(inum parent, const char *name, bool &found, inum &ino_out)
     
     int r = OK;
     std::string buf;
-    if (!isdir(parent))
-        return EXIST;
-    lc->acquire(parent);
     r = ec->get(parent, buf);
 
     int pos = 0;
@@ -283,7 +281,6 @@ yfs_client::lookup(inum parent, const char *name, bool &found, inum &ino_out)
     found = false;
     std::cout << "lookup fail" << "name: " << name << "\n";
     std::cout << "parent: " << parent << "\n";
-    lc->release(parent);
     /*
      * your code goes here.
      * note: lookup file from parent dir according to name;
@@ -295,9 +292,6 @@ yfs_client::lookup(inum parent, const char *name, bool &found, inum &ino_out)
 int
 yfs_client::readdir(inum dir, std::list<dirent> &list)
 {
-    if (!isdir(dir)){
-        return EXIST;
-    }
     lc->acquire(dir);
     int r = OK;
     std::string buf;
@@ -324,9 +318,6 @@ yfs_client::readdir(inum dir, std::list<dirent> &list)
 int
 yfs_client::read(inum ino, size_t size, off_t off, std::string &data)
 {
-    if (!isfile(ino))
-        return EXIST;
-    
     lc->acquire(ino);
     int r = OK;
     r = ec->get(ino, data);
@@ -398,11 +389,6 @@ int yfs_client::unlink(inum parent,const char *name)
     
     int r = OK;
     std::string buf;
-    if (strlen(name) < 1)
-        return EXIST;
-    if (!isdir(parent)){
-        return EXIST;
-    }
     lc->acquire(parent);
 
     r = ec->get(parent, buf);
@@ -438,15 +424,8 @@ int yfs_client::symlink(const char *link, inum parent, const char *name, inum &i
 {
     
     int r = OK;
-    bool found = false;
     inum inode;
     std::string buf;
-
-    std::cout << "create link: " << link << " name: " << name << "\n";
-    std::cout << "parent: " << parent << "\n";
-    lookup(parent, name, found, inode);
-    if (found == true)
-        return EXIST;
 
     lc->acquire(parent);
     ec->create(extent_protocol::T_SYMLK, ino);
