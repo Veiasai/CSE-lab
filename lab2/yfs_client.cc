@@ -428,6 +428,13 @@ int yfs_client::symlink(const char *link, inum parent, const char *name, inum &i
     std::string buf;
 
     lc->acquire(parent);
+    bool found = false;
+    lookup(parent, name, found, inode);
+    if (found == true)
+    {
+        lc->release(parent);
+        return EXIST;
+    }
     ec->create(extent_protocol::T_SYMLK, ino);
     
     r = ec->get(parent, buf);
