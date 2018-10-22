@@ -1,0 +1,5107 @@
+FUSE library version: 2.9.4
+unique: 1, opcode: INIT (26), nodeid: 0, insize: 56, pid: 0
+INIT: 7.26
+flags=0x001ffffb
+max_readahead=0x00020000
+   INIT: 7.19
+   flags=0x00000000
+   max_readahead=0x00020000
+   max_write=0x00020000
+   max_background=0
+   congestion_threshold=0
+   unique: 1, success, outsize: 40
+unique: 2, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4474
+lookup ok, ino: 255
+isfile: 255 is a symlink
+getattr 00000000000000ff 0
+isfile: 255 is a symlink
+isfile: 255 is a symlink
+getlink 00000000000000ff
+getlink 00000000000000ff -> sz 10
+   getattr -> 10
+   unique: 2, success, outsize: 144
+unique: 3, opcode: GETATTR (3), nodeid: 255, insize: 56, pid: 4474
+isfile: 255 is a symlink
+getattr 00000000000000ff 0
+isfile: 255 is a symlink
+isfile: 255 is a symlink
+getlink 00000000000000ff
+getlink 00000000000000ff -> sz 10
+   getattr -> 10
+   unique: 3, success, outsize: 120
+unique: 4, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4474
+lookup ok, ino: 255
+isfile: 255 is a symlink
+getattr 00000000000000ff 0
+isfile: 255 is a symlink
+isfile: 255 is a symlink
+getlink 00000000000000ff
+getlink 00000000000000ff -> sz 10
+   getattr -> 10
+   unique: 4, success, outsize: 144
+unique: 5, opcode: GETATTR (3), nodeid: 255, insize: 56, pid: 4474
+isfile: 255 is a symlink
+getattr 00000000000000ff 0
+isfile: 255 is a symlink
+isfile: 255 is a symlink
+getlink 00000000000000ff
+getlink 00000000000000ff -> sz 10
+   getattr -> 10
+   unique: 5, success, outsize: 120
+unique: 6, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4474
+lookup ok, ino: 255
+isfile: 255 is a symlink
+getattr 00000000000000ff 0
+isfile: 255 is a symlink
+isfile: 255 is a symlink
+getlink 00000000000000ff
+getlink 00000000000000ff -> sz 10
+   getattr -> 10
+   unique: 6, success, outsize: 144
+unique: 7, opcode: UNLINK (10), nodeid: 1, insize: 46, pid: 4474
+unlink: hosts parent: 1
+isfile: 255 is not a dir
+   unique: 7, success, outsize: 16
+unique: 8, opcode: FORGET (2), nodeid: 255, insize: 48, pid: 0
+unique: 9, opcode: LOOKUP (1), nodeid: 1, insize: 54, pid: 4474
+lookup ok, ino: 257
+isfile: 257 is a symlink
+getattr 0000000000000101 0
+isfile: 257 is a symlink
+isfile: 257 is a symlink
+getlink 0000000000000101
+getlink 0000000000000101 -> sz 10
+   getattr -> 10
+   unique: 9, success, outsize: 144
+unique: 10, opcode: GETATTR (3), nodeid: 257, insize: 56, pid: 4474
+isfile: 257 is a symlink
+getattr 0000000000000101 0
+isfile: 257 is a symlink
+isfile: 257 is a symlink
+getlink 0000000000000101
+getlink 0000000000000101 -> sz 10
+   getattr -> 10
+   unique: 10, success, outsize: 120
+unique: 11, opcode: LOOKUP (1), nodeid: 1, insize: 54, pid: 4474
+lookup ok, ino: 257
+isfile: 257 is a symlink
+getattr 0000000000000101 0
+isfile: 257 is a symlink
+isfile: 257 is a symlink
+getlink 0000000000000101
+getlink 0000000000000101 -> sz 10
+   getattr -> 10
+   unique: 11, success, outsize: 144
+unique: 12, opcode: GETATTR (3), nodeid: 257, insize: 56, pid: 4474
+isfile: 257 is a symlink
+getattr 0000000000000101 0
+isfile: 257 is a symlink
+isfile: 257 is a symlink
+getlink 0000000000000101
+getlink 0000000000000101 -> sz 10
+   getattr -> 10
+   unique: 12, success, outsize: 120
+unique: 13, opcode: LOOKUP (1), nodeid: 1, insize: 54, pid: 4474
+lookup ok, ino: 257
+isfile: 257 is a symlink
+getattr 0000000000000101 0
+isfile: 257 is a symlink
+isfile: 257 is a symlink
+getlink 0000000000000101
+getlink 0000000000000101 -> sz 10
+   getattr -> 10
+   unique: 13, success, outsize: 144
+unique: 14, opcode: UNLINK (10), nodeid: 1, insize: 54, pid: 4474
+unlink: testhostslink parent: 1
+isfile: 257 is not a dir
+   unique: 14, success, outsize: 16
+unique: 15, opcode: FORGET (2), nodeid: 257, insize: 48, pid: 0
+unique: 16, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4474
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 16, success, outsize: 144
+unique: 17, opcode: GETATTR (3), nodeid: 256, insize: 56, pid: 4474
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 17, success, outsize: 120
+unique: 18, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4474
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 18, success, outsize: 144
+unique: 19, opcode: GETATTR (3), nodeid: 256, insize: 56, pid: 4474
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 19, success, outsize: 120
+unique: 20, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4474
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 20, success, outsize: 144
+unique: 21, opcode: ACCESS (34), nodeid: 256, insize: 48, pid: 4474
+   unique: 21, error: -38 (Function not implemented), outsize: 16
+unique: 22, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4474
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 22, success, outsize: 144
+unique: 23, opcode: UNLINK (10), nodeid: 1, insize: 51, pid: 4474
+unlink: hosts_copy parent: 1
+isfile: 256 is not a dir
+   unique: 23, success, outsize: 16
+unique: 24, opcode: FORGET (2), nodeid: 256, insize: 48, pid: 0
+unique: 25, opcode: LOOKUP (1), nodeid: 1, insize: 52, pid: 4474
+lookup failname: hosts_copy2
+parent: 1
+   unique: 25, error: -2 (No such file or directory), outsize: 16
+unique: 26, opcode: LOOKUP (1), nodeid: 1, insize: 52, pid: 4474
+lookup failname: hosts_copy2
+parent: 1
+   unique: 26, error: -2 (No such file or directory), outsize: 16
+unique: 27, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4475
+lookup failname: hosts
+parent: 1
+   unique: 27, error: -2 (No such file or directory), outsize: 16
+unique: 28, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4475
+lookup failname: hosts
+parent: 1
+   unique: 28, error: -2 (No such file or directory), outsize: 16
+unique: 29, opcode: SYMLINK (6), nodeid: 1, insize: 57, pid: 4475
+lookup failname: hosts
+parent: 1
+isfile: 255 is a symlink
+getattr 00000000000000ff 0
+isfile: 255 is a symlink
+isfile: 255 is a symlink
+getlink 00000000000000ff
+getlink 00000000000000ff -> sz 10
+   getattr -> 10
+   unique: 29, success, outsize: 144
+unique: 30, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4476
+lookup ok, ino: 255
+isfile: 255 is a symlink
+getattr 00000000000000ff 0
+isfile: 255 is a symlink
+isfile: 255 is a symlink
+getlink 00000000000000ff
+getlink 00000000000000ff -> sz 10
+   getattr -> 10
+   unique: 30, success, outsize: 144
+unique: 31, opcode: READLINK (5), nodeid: 255, insize: 40, pid: 4476
+   unique: 31, success, outsize: 26
+unique: 32, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4477
+lookup failname: hosts_copy
+parent: 1
+   unique: 32, error: -2 (No such file or directory), outsize: 16
+unique: 33, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4477
+lookup failname: hosts_copy
+parent: 1
+   unique: 33, error: -2 (No such file or directory), outsize: 16
+unique: 34, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4477
+lookup failname: hosts_copy
+parent: 1
+   unique: 34, error: -2 (No such file or directory), outsize: 16
+unique: 35, opcode: CREATE (35), nodeid: 1, insize: 67, pid: 4477
+create name: hosts_copy 
+lookup failname: hosts_copy
+parent: 1
+create inum 256 buf size 16320
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 35, success, outsize: 160
+OK: create returns.
+unique: 36, opcode: GETATTR (3), nodeid: 256, insize: 56, pid: 4477
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 36, success, outsize: 120
+unique: 37, opcode: GETXATTR (22), nodeid: 256, insize: 68, pid: 4477
+   unique: 37, error: -38 (Function not implemented), outsize: 16
+unique: 38, opcode: WRITE (16), nodeid: 256, insize: 254, pid: 4477
+write file size: 174 buf size0 off 0
+ino 256 bytes written: 174result size: 174   unique: 38, success, outsize: 24
+unique: 39, opcode: FLUSH (25), nodeid: 256, insize: 64, pid: 4477
+   unique: 39, error: -38 (Function not implemented), outsize: 16
+unique: 40, opcode: RELEASE (18), nodeid: 256, insize: 64, pid: 0
+   unique: 40, success, outsize: 16
+unique: 41, opcode: LOOKUP (1), nodeid: 1, insize: 54, pid: 4478
+lookup failname: testhostslink
+parent: 1
+   unique: 41, error: -2 (No such file or directory), outsize: 16
+unique: 42, opcode: LOOKUP (1), nodeid: 1, insize: 54, pid: 4478
+lookup failname: testhostslink
+parent: 1
+   unique: 42, error: -2 (No such file or directory), outsize: 16
+unique: 43, opcode: SYMLINK (6), nodeid: 1, insize: 65, pid: 4478
+lookup failname: testhostslink
+parent: 1
+isfile: 257 is a symlink
+getattr 0000000000000101 0
+isfile: 257 is a symlink
+isfile: 257 is a symlink
+getlink 0000000000000101
+getlink 0000000000000101 -> sz 10
+   getattr -> 10
+   unique: 43, success, outsize: 144
+unique: 44, opcode: LOOKUP (1), nodeid: 1, insize: 54, pid: 4479
+lookup ok, ino: 257
+isfile: 257 is a symlink
+getattr 0000000000000101 0
+isfile: 257 is a symlink
+isfile: 257 is a symlink
+getlink 0000000000000101
+getlink 0000000000000101 -> sz 10
+   getattr -> 10
+   unique: 44, success, outsize: 144
+unique: 45, opcode: READLINK (5), nodeid: 257, insize: 40, pid: 4479
+   unique: 45, success, outsize: 26
+unique: 46, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4479
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 174
+   getattr -> 174
+   unique: 46, success, outsize: 144
+unique: 47, opcode: GETATTR (3), nodeid: 256, insize: 56, pid: 4479
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 174
+   getattr -> 174
+   unique: 47, success, outsize: 120
+unique: 48, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4479
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 174
+   getattr -> 174
+   unique: 48, success, outsize: 144
+unique: 49, opcode: GETATTR (3), nodeid: 256, insize: 56, pid: 4479
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 174
+   getattr -> 174
+   unique: 49, success, outsize: 120
+unique: 50, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4480
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 174
+   getattr -> 174
+   unique: 50, success, outsize: 144
+unique: 51, opcode: GETATTR (3), nodeid: 256, insize: 56, pid: 4480
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 174
+   getattr -> 174
+   unique: 51, success, outsize: 120
+unique: 52, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4480
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 174
+   getattr -> 174
+   unique: 52, success, outsize: 144
+unique: 53, opcode: GETATTR (3), nodeid: 256, insize: 56, pid: 4480
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 174
+   getattr -> 174
+   unique: 53, success, outsize: 120
+unique: 54, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4480
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 174
+   getattr -> 174
+   unique: 54, success, outsize: 144
+unique: 55, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4480
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 174
+   getattr -> 174
+   unique: 55, success, outsize: 144
+unique: 56, opcode: UNLINK (10), nodeid: 1, insize: 51, pid: 4480
+unlink: hosts_copy parent: 1
+isfile: 256 is not a dir
+   unique: 56, success, outsize: 16
+unique: 57, opcode: FORGET (2), nodeid: 256, insize: 48, pid: 0
+unique: 58, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4481
+lookup failname: hosts_copy
+parent: 1
+   unique: 58, error: -2 (No such file or directory), outsize: 16
+unique: 59, opcode: CREATE (35), nodeid: 1, insize: 67, pid: 4481
+create name: hosts_copy 
+lookup failname: hosts_copy
+parent: 1
+create inum 256 buf size 16384
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 59, success, outsize: 160
+OK: create returns.
+unique: 60, opcode: SETATTR (4), nodeid: 256, insize: 128, pid: 4481
+fuseserver_setattr 0x1b0
+   unique: 60, error: -38 (Function not implemented), outsize: 16
+unique: 61, opcode: SETATTR (4), nodeid: 256, insize: 128, pid: 4481
+fuseserver_setattr 0x1b0
+   unique: 61, error: -38 (Function not implemented), outsize: 16
+unique: 62, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4481
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 62, success, outsize: 144
+unique: 63, opcode: SETATTR (4), nodeid: 256, insize: 128, pid: 4481
+fuseserver_setattr 0x1b0
+   unique: 63, error: -38 (Function not implemented), outsize: 16
+unique: 64, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4481
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 64, success, outsize: 144
+unique: 65, opcode: SETATTR (4), nodeid: 256, insize: 128, pid: 4481
+fuseserver_setattr 0x1b0
+   unique: 65, error: -38 (Function not implemented), outsize: 16
+unique: 66, opcode: RELEASE (18), nodeid: 256, insize: 64, pid: 0
+   unique: 66, success, outsize: 16
+unique: 67, opcode: LOOKUP (1), nodeid: 1, insize: 54, pid: 4482
+lookup ok, ino: 257
+isfile: 257 is a symlink
+getattr 0000000000000101 0
+isfile: 257 is a symlink
+isfile: 257 is a symlink
+getlink 0000000000000101
+getlink 0000000000000101 -> sz 10
+   getattr -> 10
+   unique: 67, success, outsize: 144
+unique: 68, opcode: READLINK (5), nodeid: 257, insize: 40, pid: 4482
+   unique: 68, success, outsize: 26
+unique: 69, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4482
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 69, success, outsize: 144
+unique: 70, opcode: GETATTR (3), nodeid: 256, insize: 56, pid: 4482
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 70, success, outsize: 120
+unique: 71, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 4482
+lookup ok, ino: 256
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 71, success, outsize: 144
+unique: 72, opcode: GETATTR (3), nodeid: 256, insize: 56, pid: 4482
+isfile: 256 is a file
+getattr 0000000000000100 1
+isfile: 256 is a file
+getfile 0000000000000100
+getfile 0000000000000100 -> sz 0
+   getattr -> 0
+   unique: 72, success, outsize: 120
+unique: 73, opcode: LOOKUP (1), nodeid: 1, insize: 53, pid: 4517
+lookup failname: foo.txt.yfs2
+parent: 1
+   unique: 73, error: -2 (No such file or directory), outsize: 16
+unique: 74, opcode: CREATE (35), nodeid: 1, insize: 69, pid: 4517
+create name: foo.txt.yfs2 
+lookup failname: foo.txt.yfs2
+parent: 1
+create inum 258 buf size 16448
+isfile: 258 is a file
+getattr 0000000000000102 1
+isfile: 258 is a file
+getfile 0000000000000102
+getfile 0000000000000102 -> sz 0
+   getattr -> 0
+   unique: 74, success, outsize: 160
+OK: create returns.
+unique: 75, opcode: SETATTR (4), nodeid: 258, insize: 128, pid: 4517
+fuseserver_setattr 0x8
+   fuseserver_setattr set size to 3072
+isfile: 258 is a file
+getattr 0000000000000102 1
+isfile: 258 is a file
+getfile 0000000000000102
+getfile 0000000000000102 -> sz 3072
+   getattr -> 3072
+   unique: 75, success, outsize: 120
+unique: 76, opcode: IOCTL (39), nodeid: 258, insize: 72, pid: 4517
+   unique: 76, error: -38 (Function not implemented), outsize: 16
+unique: 77, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size3072 off 3072
+ino 258 bytes written: 1024result size: 4096   unique: 77, success, outsize: 24
+unique: 78, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size4096 off 4096
+ino 258 bytes written: 1024result size: 5120   unique: 78, success, outsize: 24
+unique: 79, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size5120 off 5120
+ino 258 bytes written: 1024result size: 6144   unique: 79, success, outsize: 24
+unique: 80, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size6144 off 6144
+ino 258 bytes written: 1024result size: 7168   unique: 80, success, outsize: 24
+unique: 81, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size7168 off 7168
+ino 258 bytes written: 1024result size: 8192   unique: 81, success, outsize: 24
+unique: 82, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size8192 off 8192
+ino 258 bytes written: 1024result size: 9216   unique: 82, success, outsize: 24
+unique: 83, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size9216 off 9216
+ino 258 bytes written: 1024result size: 10240   unique: 83, success, outsize: 24
+unique: 84, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size10240 off 10240
+ino 258 bytes written: 1024result size: 11264   unique: 84, success, outsize: 24
+unique: 85, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size11264 off 11264
+ino 258 bytes written: 1024result size: 12288   unique: 85, success, outsize: 24
+unique: 86, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size12288 off 12288
+ino 258 bytes written: 1024result size: 13312   unique: 86, success, outsize: 24
+unique: 87, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size13312 off 13312
+ino 258 bytes written: 1024result size: 14336   unique: 87, success, outsize: 24
+unique: 88, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size14336 off 14336
+ino 258 bytes written: 1024result size: 15360   unique: 88, success, outsize: 24
+unique: 89, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size15360 off 15360
+ino 258 bytes written: 1024result size: 16384   unique: 89, success, outsize: 24
+unique: 90, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size16384 off 16384
+ino 258 bytes written: 1024result size: 17408   unique: 90, success, outsize: 24
+unique: 91, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size17408 off 17408
+ino 258 bytes written: 1024result size: 18432   unique: 91, success, outsize: 24
+unique: 92, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size18432 off 18432
+ino 258 bytes written: 1024result size: 19456   unique: 92, success, outsize: 24
+unique: 93, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size19456 off 19456
+ino 258 bytes written: 1024result size: 20480   unique: 93, success, outsize: 24
+unique: 94, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size20480 off 20480
+ino 258 bytes written: 1024result size: 21504   unique: 94, success, outsize: 24
+unique: 95, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size21504 off 21504
+ino 258 bytes written: 1024result size: 22528   unique: 95, success, outsize: 24
+unique: 96, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size22528 off 22528
+ino 258 bytes written: 1024result size: 23552   unique: 96, success, outsize: 24
+unique: 97, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size23552 off 23552
+ino 258 bytes written: 1024result size: 24576   unique: 97, success, outsize: 24
+unique: 98, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size24576 off 24576
+ino 258 bytes written: 1024result size: 25600   unique: 98, success, outsize: 24
+unique: 99, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size25600 off 25600
+ino 258 bytes written: 1024result size: 26624   unique: 99, success, outsize: 24
+unique: 100, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size26624 off 26624
+ino 258 bytes written: 1024result size: 27648   unique: 100, success, outsize: 24
+unique: 101, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size27648 off 27648
+ino 258 bytes written: 1024result size: 28672   unique: 101, success, outsize: 24
+unique: 102, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size28672 off 28672
+ino 258 bytes written: 1024result size: 29696   unique: 102, success, outsize: 24
+unique: 103, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size29696 off 29696
+ino 258 bytes written: 1024result size: 30720   unique: 103, success, outsize: 24
+unique: 104, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size30720 off 30720
+ino 258 bytes written: 1024result size: 31744   unique: 104, success, outsize: 24
+unique: 105, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size31744 off 31744
+ino 258 bytes written: 1024result size: 32768   unique: 105, success, outsize: 24
+unique: 106, opcode: WRITE (16), nodeid: 258, insize: 1104, pid: 4517
+write file size: 1024 buf size32768 off 32768
+ino 258 bytes written: 1024result size: 33792   unique: 106, success, outsize: 24
+unique: 107, opcode: RELEASE (18), nodeid: 258, insize: 64, pid: 0
+   unique: 107, success, outsize: 16
+unique: 108, opcode: LOOKUP (1), nodeid: 1, insize: 53, pid: 4518
+lookup ok, ino: 258
+isfile: 258 is a file
+getattr 0000000000000102 1
+isfile: 258 is a file
+getfile 0000000000000102
+getfile 0000000000000102 -> sz 33792
+   getattr -> 33792
+   unique: 108, success, outsize: 144
+unique: 109, opcode: GETATTR (3), nodeid: 258, insize: 56, pid: 4518
+isfile: 258 is a file
+getattr 0000000000000102 1
+isfile: 258 is a file
+getfile 0000000000000102
+getfile 0000000000000102 -> sz 33792
+   getattr -> 33792
+   unique: 109, success, outsize: 120
+unique: 110, opcode: LOOKUP (1), nodeid: 1, insize: 53, pid: 4518
+lookup ok, ino: 258
+isfile: 258 is a file
+getattr 0000000000000102 1
+isfile: 258 is a file
+getfile 0000000000000102
+getfile 0000000000000102 -> sz 33792
+   getattr -> 33792
+   unique: 110, success, outsize: 144
+unique: 111, opcode: OPEN (14), nodeid: 258, insize: 48, pid: 4518
+   unique: 111, success, outsize: 32
+unique: 112, opcode: GETATTR (3), nodeid: 258, insize: 56, pid: 4518
+isfile: 258 is a file
+getattr 0000000000000102 1
+isfile: 258 is a file
+getfile 0000000000000102
+getfile 0000000000000102 -> sz 33792
+   getattr -> 33792
+   unique: 112, success, outsize: 120
+unique: 113, opcode: READ (15), nodeid: 258, insize: 80, pid: 4518
+read file size: 36864 data size: 33792
+read file off: 0
+result size: 33792
+   unique: 113, success, outsize: 33808
+unique: 114, opcode: GETATTR (3), nodeid: 258, insize: 56, pid: 4518
+isfile: 258 is a file
+getattr 0000000000000102 1
+isfile: 258 is a file
+getfile 0000000000000102
+getfile 0000000000000102 -> sz 33792
+   getattr -> 33792
+   unique: 114, success, outsize: 120
+unique: 115, opcode: RELEASE (18), nodeid: 258, insize: 64, pid: 0
+   unique: 115, success, outsize: 16
+unique: 116, opcode: LOOKUP (1), nodeid: 1, insize: 53, pid: 4519
+lookup ok, ino: 258
+isfile: 258 is a file
+getattr 0000000000000102 1
+isfile: 258 is a file
+getfile 0000000000000102
+getfile 0000000000000102 -> sz 33792
+   getattr -> 33792
+   unique: 116, success, outsize: 144
+unique: 117, opcode: GETATTR (3), nodeid: 258, insize: 56, pid: 4519
+isfile: 258 is a file
+getattr 0000000000000102 1
+isfile: 258 is a file
+getfile 0000000000000102
+getfile 0000000000000102 -> sz 33792
+   getattr -> 33792
+   unique: 117, success, outsize: 120
+unique: 118, opcode: LOOKUP (1), nodeid: 1, insize: 53, pid: 4519
+lookup ok, ino: 258
+isfile: 258 is a file
+getattr 0000000000000102 1
+isfile: 258 is a file
+getfile 0000000000000102
+getfile 0000000000000102 -> sz 33792
+   getattr -> 33792
+   unique: 118, success, outsize: 144
+unique: 119, opcode: GETATTR (3), nodeid: 258, insize: 56, pid: 4519
+isfile: 258 is a file
+getattr 0000000000000102 1
+isfile: 258 is a file
+getfile 0000000000000102
+getfile 0000000000000102 -> sz 33792
+   getattr -> 33792
+   unique: 119, success, outsize: 120
+unique: 120, opcode: LOOKUP (1), nodeid: 1, insize: 53, pid: 4519
+lookup ok, ino: 258
+isfile: 258 is a file
+getattr 0000000000000102 1
+isfile: 258 is a file
+getfile 0000000000000102
+getfile 0000000000000102 -> sz 33792
+   getattr -> 33792
+   unique: 120, success, outsize: 144
+unique: 121, opcode: LOOKUP (1), nodeid: 1, insize: 53, pid: 4519
+lookup ok, ino: 258
+isfile: 258 is a file
+getattr 0000000000000102 1
+isfile: 258 is a file
+getfile 0000000000000102
+getfile 0000000000000102 -> sz 33792
+   getattr -> 33792
+   unique: 121, success, outsize: 144
+unique: 122, opcode: UNLINK (10), nodeid: 1, insize: 53, pid: 4519
+unlink: foo.txt.yfs2 parent: 1
+isfile: 258 is not a dir
+   unique: 122, success, outsize: 16
+unique: 123, opcode: FORGET (2), nodeid: 258, insize: 48, pid: 0
+unique: 124, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538703 32765 1251
+   unique: 124, success, outsize: 144
+unique: 125, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538706 1255 1256
+   unique: 125, success, outsize: 144
+unique: 126, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup ok, ino: 259
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 3
+   getattr -> 3
+   unique: 126, success, outsize: 144
+unique: 127, opcode: OPEN (14), nodeid: 259, insize: 48, pid: 4537
+   unique: 127, success, outsize: 32
+unique: 128, opcode: GETATTR (3), nodeid: 259, insize: 56, pid: 4537
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 3
+   getattr -> 3
+   unique: 128, success, outsize: 120
+unique: 129, opcode: READ (15), nodeid: 259, insize: 80, pid: 4537
+read file size: 4096 data size: 3
+read file off: 0
+result size: 3
+   unique: 129, success, outsize: 19
+unique: 130, opcode: RELEASE (18), nodeid: 259, insize: 64, pid: 0
+   unique: 130, success, outsize: 16
+unique: 131, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538708 1255 1256
+   unique: 131, success, outsize: 144
+unique: 132, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup ok, ino: 259
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 3
+   getattr -> 3
+   unique: 132, success, outsize: 144
+unique: 133, opcode: UNLINK (10), nodeid: 258, insize: 43, pid: 4537
+unlink: f1 parent: 258
+isfile: 259 is not a dir
+   unique: 133, success, outsize: 16
+unique: 134, opcode: FORGET (2), nodeid: 259, insize: 48, pid: 0
+unique: 135, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538717 1266 1267
+   unique: 135, success, outsize: 144
+unique: 136, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup failname: f1
+parent: 258
+   unique: 136, error: -2 (No such file or directory), outsize: 16
+unique: 137, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538721 1269 1270
+   unique: 137, success, outsize: 144
+unique: 138, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup ok, ino: 259
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 3
+   getattr -> 3
+   unique: 138, success, outsize: 144
+unique: 139, opcode: UNLINK (10), nodeid: 258, insize: 43, pid: 4537
+unlink: f2 parent: 258
+isfile: 259 is not a dir
+   unique: 139, success, outsize: 16
+unique: 140, opcode: FORGET (2), nodeid: 259, insize: 48, pid: 0
+unique: 141, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538725 1273 1274
+   unique: 141, success, outsize: 144
+unique: 142, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup failname: f2
+parent: 258
+   unique: 142, error: -2 (No such file or directory), outsize: 16
+unique: 143, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538729 1276 1277
+   unique: 143, success, outsize: 144
+unique: 144, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup ok, ino: 259
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 3
+   getattr -> 3
+   unique: 144, success, outsize: 144
+unique: 145, opcode: OPEN (14), nodeid: 259, insize: 48, pid: 4537
+   unique: 145, success, outsize: 32
+unique: 146, opcode: GETATTR (3), nodeid: 259, insize: 56, pid: 4537
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 3
+   getattr -> 3
+   unique: 146, success, outsize: 120
+unique: 147, opcode: READ (15), nodeid: 259, insize: 80, pid: 4537
+read file size: 4096 data size: 3
+read file off: 0
+result size: 3
+   unique: 147, success, outsize: 19
+unique: 148, opcode: RELEASE (18), nodeid: 259, insize: 64, pid: 0
+   unique: 148, success, outsize: 16
+unique: 149, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538733 1280 1281
+   unique: 149, success, outsize: 144
+unique: 150, opcode: LOOKUP (1), nodeid: 258, insize: 44, pid: 4537
+lookup failname: fx2
+parent: 258
+   unique: 150, error: -2 (No such file or directory), outsize: 16
+unique: 151, opcode: CREATE (35), nodeid: 258, insize: 60, pid: 4537
+create name: fx2 
+lookup failname: fx2
+parent: 258
+create inum 259 buf size 64
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 0
+   getattr -> 0
+   unique: 151, success, outsize: 160
+OK: create returns.
+unique: 152, opcode: WRITE (16), nodeid: 259, insize: 82, pid: 4537
+write file size: 2 buf size0 off 0
+ino 259 bytes written: 2result size: 2   unique: 152, success, outsize: 24
+unique: 153, opcode: RELEASE (18), nodeid: 259, insize: 64, pid: 0
+   unique: 153, success, outsize: 16
+unique: 154, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538736 1283 1284
+   unique: 154, success, outsize: 144
+unique: 155, opcode: LOOKUP (1), nodeid: 258, insize: 44, pid: 4537
+lookup ok, ino: 259
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 2
+   getattr -> 2
+   unique: 155, success, outsize: 144
+unique: 156, opcode: UNLINK (10), nodeid: 258, insize: 44, pid: 4537
+unlink: fx2 parent: 258
+isfile: 259 is not a dir
+   unique: 156, success, outsize: 16
+unique: 157, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538738 1287 1288
+   unique: 157, success, outsize: 144
+unique: 158, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup failname: f3
+parent: 258
+   unique: 158, error: -2 (No such file or directory), outsize: 16
+unique: 159, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup failname: f3
+parent: 258
+   unique: 159, error: -2 (No such file or directory), outsize: 16
+unique: 160, opcode: FORGET (2), nodeid: 259, insize: 48, pid: 0
+unique: 161, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538741 1287 1288
+   unique: 161, success, outsize: 144
+unique: 162, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup failname: f1
+parent: 258
+   unique: 162, error: -2 (No such file or directory), outsize: 16
+unique: 163, opcode: CREATE (35), nodeid: 258, insize: 59, pid: 4537
+create name: f1 
+lookup failname: f1
+parent: 258
+create inum 259 buf size 64
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 0
+   getattr -> 0
+   unique: 163, success, outsize: 160
+OK: create returns.
+unique: 164, opcode: WRITE (16), nodeid: 259, insize: 83, pid: 4537
+write file size: 3 buf size0 off 0
+ino 259 bytes written: 3result size: 3   unique: 164, success, outsize: 24
+unique: 165, opcode: RELEASE (18), nodeid: 259, insize: 64, pid: 0
+   unique: 165, success, outsize: 16
+unique: 166, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538745 1290 1291
+   unique: 166, success, outsize: 144
+unique: 167, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup ok, ino: 259
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 6
+   getattr -> 6
+   unique: 167, success, outsize: 144
+unique: 168, opcode: OPEN (14), nodeid: 259, insize: 48, pid: 4537
+   unique: 168, success, outsize: 32
+unique: 169, opcode: WRITE (16), nodeid: 259, insize: 83, pid: 4537
+write file size: 3 buf size6 off 6
+ino 259 bytes written: 3result size: 9   unique: 169, success, outsize: 24
+unique: 170, opcode: RELEASE (18), nodeid: 259, insize: 64, pid: 0
+   unique: 170, success, outsize: 16
+unique: 171, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538747 1290 1291
+   unique: 171, success, outsize: 144
+unique: 172, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup ok, ino: 259
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 9
+   getattr -> 9
+   unique: 172, success, outsize: 144
+unique: 173, opcode: OPEN (14), nodeid: 259, insize: 48, pid: 4537
+   unique: 173, success, outsize: 32
+unique: 174, opcode: GETATTR (3), nodeid: 259, insize: 56, pid: 4537
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 9
+   getattr -> 9
+   unique: 174, success, outsize: 120
+unique: 175, opcode: READ (15), nodeid: 259, insize: 80, pid: 4537
+read file size: 4096 data size: 9
+read file off: 0
+result size: 9
+   unique: 175, success, outsize: 25
+unique: 176, opcode: RELEASE (18), nodeid: 259, insize: 64, pid: 0
+   unique: 176, success, outsize: 16
+unique: 177, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538750 1290 1291
+   unique: 177, success, outsize: 144
+unique: 178, opcode: OPENDIR (27), nodeid: 258, insize: 48, pid: 4537
+   unique: 178, success, outsize: 32
+unique: 179, opcode: GETATTR (3), nodeid: 258, insize: 56, pid: 4537
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538750 1290 1291
+   unique: 179, success, outsize: 120
+unique: 180, opcode: READDIR (28), nodeid: 258, insize: 80, pid: 4537
+fuseserver_readdir
+isfile: 258 is a dir
+readdir name: f1                                                          
+pos:64
+   unique: 180, success, outsize: 48
+unique: 181, opcode: READDIR (28), nodeid: 258, insize: 80, pid: 4537
+fuseserver_readdir
+isfile: 258 is a dir
+readdir name: f1                                                          
+pos:64
+   unique: 181, success, outsize: 16
+unique: 182, opcode: RELEASEDIR (29), nodeid: 258, insize: 64, pid: 0
+   unique: 182, success, outsize: 16
+unique: 183, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538755 1298 1299
+   unique: 183, success, outsize: 144
+unique: 184, opcode: OPENDIR (27), nodeid: 258, insize: 48, pid: 4537
+   unique: 184, success, outsize: 32
+unique: 185, opcode: GETATTR (3), nodeid: 258, insize: 56, pid: 4537
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538755 1298 1299
+   unique: 185, success, outsize: 120
+unique: 186, opcode: READDIR (28), nodeid: 258, insize: 80, pid: 4537
+fuseserver_readdir
+isfile: 258 is a dir
+   unique: 186, success, outsize: 16
+unique: 187, opcode: RELEASEDIR (29), nodeid: 258, insize: 64, pid: 0
+   unique: 187, success, outsize: 16
+unique: 188, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538756 1298 1299
+   unique: 188, success, outsize: 144
+unique: 189, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup failname: f2
+parent: 258
+   unique: 189, error: -2 (No such file or directory), outsize: 16
+unique: 190, opcode: CREATE (35), nodeid: 258, insize: 59, pid: 4537
+create name: f2 
+lookup failname: f2
+parent: 258
+create inum 259 buf size 64
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 0
+   getattr -> 0
+   unique: 190, success, outsize: 160
+OK: create returns.
+unique: 191, opcode: WRITE (16), nodeid: 259, insize: 83, pid: 4537
+write file size: 3 buf size0 off 0
+ino 259 bytes written: 3result size: 3   unique: 191, success, outsize: 24
+unique: 192, opcode: RELEASE (18), nodeid: 259, insize: 64, pid: 0
+   unique: 192, success, outsize: 16
+unique: 193, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538764 1306 1307
+   unique: 193, success, outsize: 144
+unique: 194, opcode: OPENDIR (27), nodeid: 258, insize: 48, pid: 4537
+   unique: 194, success, outsize: 32
+unique: 195, opcode: GETATTR (3), nodeid: 258, insize: 56, pid: 4537
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538764 1306 1307
+   unique: 195, success, outsize: 120
+unique: 196, opcode: READDIR (28), nodeid: 258, insize: 80, pid: 4537
+fuseserver_readdir
+isfile: 258 is a dir
+readdir name: f2                                                          
+pos:64
+readdir name: f3                                                          
+pos:128
+   unique: 196, success, outsize: 80
+unique: 197, opcode: READDIR (28), nodeid: 258, insize: 80, pid: 4537
+fuseserver_readdir
+isfile: 258 is a dir
+readdir name: f2                                                          
+pos:64
+readdir name: f3                                                          
+pos:128
+   unique: 197, success, outsize: 16
+unique: 198, opcode: RELEASEDIR (29), nodeid: 258, insize: 64, pid: 0
+   unique: 198, success, outsize: 16
+unique: 199, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538766 1306 1307
+   unique: 199, success, outsize: 144
+unique: 200, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup ok, ino: 259
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 3
+   getattr -> 3
+   unique: 200, success, outsize: 144
+unique: 201, opcode: UNLINK (10), nodeid: 258, insize: 43, pid: 4537
+unlink: f2 parent: 258
+isfile: 259 is not a dir
+   unique: 201, success, outsize: 16
+unique: 202, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538768 1310 1311
+   unique: 202, success, outsize: 144
+unique: 203, opcode: OPENDIR (27), nodeid: 258, insize: 48, pid: 4537
+   unique: 203, success, outsize: 32
+unique: 204, opcode: GETATTR (3), nodeid: 258, insize: 56, pid: 4537
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538768 1310 1311
+   unique: 204, success, outsize: 120
+unique: 205, opcode: READDIR (28), nodeid: 258, insize: 80, pid: 4537
+fuseserver_readdir
+isfile: 258 is a dir
+readdir name: f3                                                          
+pos:64
+   unique: 205, success, outsize: 48
+unique: 206, opcode: READDIR (28), nodeid: 258, insize: 80, pid: 4537
+fuseserver_readdir
+isfile: 258 is a dir
+readdir name: f3                                                          
+pos:64
+   unique: 206, success, outsize: 16
+unique: 207, opcode: RELEASEDIR (29), nodeid: 258, insize: 64, pid: 0
+   unique: 207, success, outsize: 16
+unique: 208, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538772 1310 1311
+   unique: 208, success, outsize: 144
+unique: 209, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup ok, ino: 260
+isfile: 260 is a file
+getattr 0000000000000104 1
+isfile: 260 is a file
+getfile 0000000000000104
+getfile 0000000000000104 -> sz 3
+   getattr -> 3
+   unique: 209, success, outsize: 144
+unique: 210, opcode: UNLINK (10), nodeid: 258, insize: 43, pid: 4537
+unlink: f3 parent: 258
+isfile: 260 is not a dir
+   unique: 210, success, outsize: 16
+unique: 211, opcode: FORGET (2), nodeid: 260, insize: 48, pid: 0
+unique: 212, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538775 1312 1313
+   unique: 212, success, outsize: 144
+unique: 213, opcode: OPENDIR (27), nodeid: 258, insize: 48, pid: 4537
+   unique: 213, success, outsize: 32
+unique: 214, opcode: GETATTR (3), nodeid: 258, insize: 56, pid: 4537
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538775 1312 1313
+   unique: 214, success, outsize: 120
+unique: 215, opcode: READDIR (28), nodeid: 258, insize: 80, pid: 4537
+fuseserver_readdir
+isfile: 258 is a dir
+   unique: 215, success, outsize: 16
+unique: 216, opcode: RELEASEDIR (29), nodeid: 258, insize: 64, pid: 0
+   unique: 216, success, outsize: 16
+unique: 217, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538806 1360 1361
+   unique: 217, success, outsize: 144
+unique: 218, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup failname: bb-0
+parent: 258
+   unique: 218, error: -2 (No such file or directory), outsize: 16
+unique: 219, opcode: CREATE (35), nodeid: 258, insize: 61, pid: 4537
+create name: bb-0 
+lookup failname: bb-0
+parent: 258
+create inum 269 buf size 704
+isfile: 269 is a file
+getattr 000000000000010d 1
+isfile: 269 is a file
+getfile 000000000000010d
+getfile 000000000000010d -> sz 0
+   getattr -> 0
+   unique: 219, success, outsize: 160
+OK: create returns.
+unique: 220, opcode: WRITE (16), nodeid: 269, insize: 84, pid: 4537
+write file size: 4 buf size0 off 0
+ino 269 bytes written: 4result size: 4   unique: 220, success, outsize: 24
+unique: 221, opcode: RELEASE (18), nodeid: 269, insize: 64, pid: 0
+   unique: 221, success, outsize: 16
+unique: 222, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538809 1365 1366
+   unique: 222, success, outsize: 144
+unique: 223, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup failname: bb-1
+parent: 258
+   unique: 223, error: -2 (No such file or directory), outsize: 16
+unique: 224, opcode: CREATE (35), nodeid: 258, insize: 61, pid: 4537
+create name: bb-1 
+lookup failname: bb-1
+parent: 258
+create inum 270 buf size 768
+isfile: 270 is a file
+getattr 000000000000010e 1
+isfile: 270 is a file
+getfile 000000000000010e
+getfile 000000000000010e -> sz 0
+   getattr -> 0
+   unique: 224, success, outsize: 160
+OK: create returns.
+unique: 225, opcode: WRITE (16), nodeid: 270, insize: 84, pid: 4537
+write file size: 4 buf size0 off 0
+ino 270 bytes written: 4result size: 4   unique: 225, success, outsize: 24
+unique: 226, opcode: RELEASE (18), nodeid: 270, insize: 64, pid: 0
+   unique: 226, success, outsize: 16
+unique: 227, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538812 1370 1371
+   unique: 227, success, outsize: 144
+unique: 228, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup failname: bb-2
+parent: 258
+   unique: 228, error: -2 (No such file or directory), outsize: 16
+unique: 229, opcode: CREATE (35), nodeid: 258, insize: 61, pid: 4537
+create name: bb-2 
+lookup failname: bb-2
+parent: 258
+create inum 271 buf size 832
+isfile: 271 is a file
+getattr 000000000000010f 1
+isfile: 271 is a file
+getfile 000000000000010f
+getfile 000000000000010f -> sz 0
+   getattr -> 0
+   unique: 229, success, outsize: 160
+OK: create returns.
+unique: 230, opcode: WRITE (16), nodeid: 271, insize: 84, pid: 4537
+write file size: 4 buf size0 off 0
+ino 271 bytes written: 4result size: 4   unique: 230, success, outsize: 24
+unique: 231, opcode: RELEASE (18), nodeid: 271, insize: 64, pid: 0
+   unique: 231, success, outsize: 16
+unique: 232, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538815 1375 1376
+   unique: 232, success, outsize: 144
+unique: 233, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup failname: bb-3
+parent: 258
+   unique: 233, error: -2 (No such file or directory), outsize: 16
+unique: 234, opcode: CREATE (35), nodeid: 258, insize: 61, pid: 4537
+create name: bb-3 
+lookup failname: bb-3
+parent: 258
+create inum 272 buf size 896
+isfile: 272 is a file
+getattr 0000000000000110 1
+isfile: 272 is a file
+getfile 0000000000000110
+getfile 0000000000000110 -> sz 0
+   getattr -> 0
+   unique: 234, success, outsize: 160
+OK: create returns.
+unique: 235, opcode: WRITE (16), nodeid: 272, insize: 84, pid: 4537
+write file size: 4 buf size0 off 0
+ino 272 bytes written: 4result size: 4   unique: 235, success, outsize: 24
+unique: 236, opcode: RELEASE (18), nodeid: 272, insize: 64, pid: 0
+   unique: 236, success, outsize: 16
+unique: 237, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538818 1380 1381
+   unique: 237, success, outsize: 144
+unique: 238, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup failname: bb-4
+parent: 258
+   unique: 238, error: -2 (No such file or directory), outsize: 16
+unique: 239, opcode: CREATE (35), nodeid: 258, insize: 61, pid: 4537
+create name: bb-4 
+lookup failname: bb-4
+parent: 258
+create inum 273 buf size 960
+isfile: 273 is a file
+getattr 0000000000000111 1
+isfile: 273 is a file
+getfile 0000000000000111
+getfile 0000000000000111 -> sz 0
+   getattr -> 0
+   unique: 239, success, outsize: 160
+OK: create returns.
+unique: 240, opcode: WRITE (16), nodeid: 273, insize: 84, pid: 4537
+write file size: 4 buf size0 off 0
+ino 273 bytes written: 4result size: 4   unique: 240, success, outsize: 24
+unique: 241, opcode: RELEASE (18), nodeid: 273, insize: 64, pid: 0
+   unique: 241, success, outsize: 16
+unique: 242, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538821 1385 1386
+   unique: 242, success, outsize: 144
+unique: 243, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup failname: bb-5
+parent: 258
+   unique: 243, error: -2 (No such file or directory), outsize: 16
+unique: 244, opcode: CREATE (35), nodeid: 258, insize: 61, pid: 4537
+create name: bb-5 
+lookup failname: bb-5
+parent: 258
+create inum 274 buf size 1024
+isfile: 274 is a file
+getattr 0000000000000112 1
+isfile: 274 is a file
+getfile 0000000000000112
+getfile 0000000000000112 -> sz 0
+   getattr -> 0
+   unique: 244, success, outsize: 160
+OK: create returns.
+unique: 245, opcode: WRITE (16), nodeid: 274, insize: 84, pid: 4537
+write file size: 4 buf size0 off 0
+ino 274 bytes written: 4result size: 4   unique: 245, success, outsize: 24
+unique: 246, opcode: RELEASE (18), nodeid: 274, insize: 64, pid: 0
+   unique: 246, success, outsize: 16
+unique: 247, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538824 1390 1391
+   unique: 247, success, outsize: 144
+unique: 248, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup failname: bb-6
+parent: 258
+   unique: 248, error: -2 (No such file or directory), outsize: 16
+unique: 249, opcode: CREATE (35), nodeid: 258, insize: 61, pid: 4537
+create name: bb-6 
+lookup failname: bb-6
+parent: 258
+create inum 275 buf size 1088
+isfile: 275 is a file
+getattr 0000000000000113 1
+isfile: 275 is a file
+getfile 0000000000000113
+getfile 0000000000000113 -> sz 0
+   getattr -> 0
+   unique: 249, success, outsize: 160
+OK: create returns.
+unique: 250, opcode: WRITE (16), nodeid: 275, insize: 84, pid: 4537
+write file size: 4 buf size0 off 0
+ino 275 bytes written: 4result size: 4   unique: 250, success, outsize: 24
+unique: 251, opcode: RELEASE (18), nodeid: 275, insize: 64, pid: 0
+   unique: 251, success, outsize: 16
+unique: 252, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538827 1395 1396
+   unique: 252, success, outsize: 144
+unique: 253, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup failname: bb-7
+parent: 258
+   unique: 253, error: -2 (No such file or directory), outsize: 16
+unique: 254, opcode: CREATE (35), nodeid: 258, insize: 61, pid: 4537
+create name: bb-7 
+lookup failname: bb-7
+parent: 258
+create inum 276 buf size 1152
+isfile: 276 is a file
+getattr 0000000000000114 1
+isfile: 276 is a file
+getfile 0000000000000114
+getfile 0000000000000114 -> sz 0
+   getattr -> 0
+   unique: 254, success, outsize: 160
+OK: create returns.
+unique: 255, opcode: WRITE (16), nodeid: 276, insize: 84, pid: 4537
+write file size: 4 buf size0 off 0
+ino 276 bytes written: 4result size: 4   unique: 255, success, outsize: 24
+unique: 256, opcode: RELEASE (18), nodeid: 276, insize: 64, pid: 0
+   unique: 256, success, outsize: 16
+unique: 257, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538830 1400 1401
+   unique: 257, success, outsize: 144
+unique: 258, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup failname: bb-8
+parent: 258
+   unique: 258, error: -2 (No such file or directory), outsize: 16
+unique: 259, opcode: CREATE (35), nodeid: 258, insize: 61, pid: 4537
+create name: bb-8 
+lookup failname: bb-8
+parent: 258
+create inum 277 buf size 1216
+isfile: 277 is a file
+getattr 0000000000000115 1
+isfile: 277 is a file
+getfile 0000000000000115
+getfile 0000000000000115 -> sz 0
+   getattr -> 0
+   unique: 259, success, outsize: 160
+OK: create returns.
+unique: 260, opcode: WRITE (16), nodeid: 277, insize: 84, pid: 4537
+write file size: 4 buf size0 off 0
+ino 277 bytes written: 4result size: 4   unique: 260, success, outsize: 24
+unique: 261, opcode: RELEASE (18), nodeid: 277, insize: 64, pid: 0
+   unique: 261, success, outsize: 16
+unique: 262, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538833 1405 1406
+   unique: 262, success, outsize: 144
+unique: 263, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup failname: bb-9
+parent: 258
+   unique: 263, error: -2 (No such file or directory), outsize: 16
+unique: 264, opcode: CREATE (35), nodeid: 258, insize: 61, pid: 4537
+create name: bb-9 
+lookup failname: bb-9
+parent: 258
+create inum 278 buf size 1280
+isfile: 278 is a file
+getattr 0000000000000116 1
+isfile: 278 is a file
+getfile 0000000000000116
+getfile 0000000000000116 -> sz 0
+   getattr -> 0
+   unique: 264, success, outsize: 160
+OK: create returns.
+unique: 265, opcode: WRITE (16), nodeid: 278, insize: 84, pid: 4537
+write file size: 4 buf size0 off 0
+ino 278 bytes written: 4result size: 4   unique: 265, success, outsize: 24
+unique: 266, opcode: RELEASE (18), nodeid: 278, insize: 64, pid: 0
+   unique: 266, success, outsize: 16
+unique: 267, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538836 1410 1411
+   unique: 267, success, outsize: 144
+unique: 268, opcode: OPENDIR (27), nodeid: 258, insize: 48, pid: 4537
+   unique: 268, success, outsize: 32
+unique: 269, opcode: GETATTR (3), nodeid: 258, insize: 56, pid: 4537
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538836 1410 1411
+   unique: 269, success, outsize: 120
+unique: 270, opcode: READDIR (28), nodeid: 258, insize: 80, pid: 4537
+fuseserver_readdir
+isfile: 258 is a dir
+readdir name: aa-0                                                        
+pos:64
+readdir name: aa-1                                                        
+pos:128
+readdir name: aa-2                                                        
+pos:192
+readdir name: aa-3                                                        
+pos:256
+readdir name: aa-4                                                        
+pos:320
+readdir name: aa-5                                                        
+pos:384
+readdir name: aa-6                                                        
+pos:448
+readdir name: aa-7                                                        
+pos:512
+readdir name: aa-8                                                        
+pos:576
+readdir name: aa-9                                                        
+pos:640
+readdir name: bb-0                                                        
+pos:704
+readdir name: bb-1                                                        
+pos:768
+readdir name: bb-2                                                        
+pos:832
+readdir name: bb-3                                                        
+pos:896
+readdir name: bb-4                                                        
+pos:960
+readdir name: bb-5                                                        
+pos:1024
+readdir name: bb-6                                                        
+pos:1088
+readdir name: bb-7                                                        
+pos:1152
+readdir name: bb-8                                                        
+pos:1216
+readdir name: bb-9                                                        
+pos:1280
+   unique: 270, success, outsize: 656
+unique: 271, opcode: READDIR (28), nodeid: 258, insize: 80, pid: 4537
+fuseserver_readdir
+isfile: 258 is a dir
+readdir name: aa-0                                                        
+pos:64
+readdir name: aa-1                                                        
+pos:128
+readdir name: aa-2                                                        
+pos:192
+readdir name: aa-3                                                        
+pos:256
+readdir name: aa-4                                                        
+pos:320
+readdir name: aa-5                                                        
+pos:384
+readdir name: aa-6                                                        
+pos:448
+readdir name: aa-7                                                        
+pos:512
+readdir name: aa-8                                                        
+pos:576
+readdir name: aa-9                                                        
+pos:640
+readdir name: bb-0                                                        
+pos:704
+readdir name: bb-1                                                        
+pos:768
+readdir name: bb-2                                                        
+pos:832
+readdir name: bb-3                                                        
+pos:896
+readdir name: bb-4                                                        
+pos:960
+readdir name: bb-5                                                        
+pos:1024
+readdir name: bb-6                                                        
+pos:1088
+readdir name: bb-7                                                        
+pos:1152
+readdir name: bb-8                                                        
+pos:1216
+readdir name: bb-9                                                        
+pos:1280
+   unique: 271, success, outsize: 16
+unique: 272, opcode: RELEASEDIR (29), nodeid: 258, insize: 64, pid: 0
+   unique: 272, success, outsize: 16
+unique: 273, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538838 1410 1411
+   unique: 273, success, outsize: 144
+unique: 274, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 269
+isfile: 269 is a file
+getattr 000000000000010d 1
+isfile: 269 is a file
+getfile 000000000000010d
+getfile 000000000000010d -> sz 4
+   getattr -> 4
+   unique: 274, success, outsize: 144
+unique: 275, opcode: OPEN (14), nodeid: 269, insize: 48, pid: 4537
+   unique: 275, success, outsize: 32
+unique: 276, opcode: READ (15), nodeid: 269, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 276, success, outsize: 20
+unique: 277, opcode: RELEASE (18), nodeid: 269, insize: 64, pid: 0
+   unique: 277, success, outsize: 16
+unique: 278, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538839 1410 1411
+   unique: 278, success, outsize: 144
+unique: 279, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 270
+isfile: 270 is a file
+getattr 000000000000010e 1
+isfile: 270 is a file
+getfile 000000000000010e
+getfile 000000000000010e -> sz 4
+   getattr -> 4
+   unique: 279, success, outsize: 144
+unique: 280, opcode: OPEN (14), nodeid: 270, insize: 48, pid: 4537
+   unique: 280, success, outsize: 32
+unique: 281, opcode: READ (15), nodeid: 270, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 281, success, outsize: 20
+unique: 282, opcode: RELEASE (18), nodeid: 270, insize: 64, pid: 0
+   unique: 282, success, outsize: 16
+unique: 283, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538840 1410 1411
+   unique: 283, success, outsize: 144
+unique: 284, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 271
+isfile: 271 is a file
+getattr 000000000000010f 1
+isfile: 271 is a file
+getfile 000000000000010f
+getfile 000000000000010f -> sz 4
+   getattr -> 4
+   unique: 284, success, outsize: 144
+unique: 285, opcode: OPEN (14), nodeid: 271, insize: 48, pid: 4537
+   unique: 285, success, outsize: 32
+unique: 286, opcode: READ (15), nodeid: 271, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 286, success, outsize: 20
+unique: 287, opcode: RELEASE (18), nodeid: 271, insize: 64, pid: 0
+   unique: 287, success, outsize: 16
+unique: 288, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538841 1410 1411
+   unique: 288, success, outsize: 144
+unique: 289, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 272
+isfile: 272 is a file
+getattr 0000000000000110 1
+isfile: 272 is a file
+getfile 0000000000000110
+getfile 0000000000000110 -> sz 4
+   getattr -> 4
+   unique: 289, success, outsize: 144
+unique: 290, opcode: OPEN (14), nodeid: 272, insize: 48, pid: 4537
+   unique: 290, success, outsize: 32
+unique: 291, opcode: READ (15), nodeid: 272, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 291, success, outsize: 20
+unique: 292, opcode: RELEASE (18), nodeid: 272, insize: 64, pid: 0
+   unique: 292, success, outsize: 16
+unique: 293, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538842 1410 1411
+   unique: 293, success, outsize: 144
+unique: 294, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 273
+isfile: 273 is a file
+getattr 0000000000000111 1
+isfile: 273 is a file
+getfile 0000000000000111
+getfile 0000000000000111 -> sz 4
+   getattr -> 4
+   unique: 294, success, outsize: 144
+unique: 295, opcode: OPEN (14), nodeid: 273, insize: 48, pid: 4537
+   unique: 295, success, outsize: 32
+unique: 296, opcode: READ (15), nodeid: 273, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 296, success, outsize: 20
+unique: 297, opcode: RELEASE (18), nodeid: 273, insize: 64, pid: 0
+   unique: 297, success, outsize: 16
+unique: 298, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538843 1410 1411
+   unique: 298, success, outsize: 144
+unique: 299, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 274
+isfile: 274 is a file
+getattr 0000000000000112 1
+isfile: 274 is a file
+getfile 0000000000000112
+getfile 0000000000000112 -> sz 4
+   getattr -> 4
+   unique: 299, success, outsize: 144
+unique: 300, opcode: OPEN (14), nodeid: 274, insize: 48, pid: 4537
+   unique: 300, success, outsize: 32
+unique: 301, opcode: READ (15), nodeid: 274, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 301, success, outsize: 20
+unique: 302, opcode: RELEASE (18), nodeid: 274, insize: 64, pid: 0
+   unique: 302, success, outsize: 16
+unique: 303, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538844 1410 1411
+   unique: 303, success, outsize: 144
+unique: 304, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 275
+isfile: 275 is a file
+getattr 0000000000000113 1
+isfile: 275 is a file
+getfile 0000000000000113
+getfile 0000000000000113 -> sz 4
+   getattr -> 4
+   unique: 304, success, outsize: 144
+unique: 305, opcode: OPEN (14), nodeid: 275, insize: 48, pid: 4537
+   unique: 305, success, outsize: 32
+unique: 306, opcode: READ (15), nodeid: 275, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 306, success, outsize: 20
+unique: 307, opcode: RELEASE (18), nodeid: 275, insize: 64, pid: 0
+   unique: 307, success, outsize: 16
+unique: 308, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538845 1410 1411
+   unique: 308, success, outsize: 144
+unique: 309, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 276
+isfile: 276 is a file
+getattr 0000000000000114 1
+isfile: 276 is a file
+getfile 0000000000000114
+getfile 0000000000000114 -> sz 4
+   getattr -> 4
+   unique: 309, success, outsize: 144
+unique: 310, opcode: OPEN (14), nodeid: 276, insize: 48, pid: 4537
+   unique: 310, success, outsize: 32
+unique: 311, opcode: READ (15), nodeid: 276, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 311, success, outsize: 20
+unique: 312, opcode: RELEASE (18), nodeid: 276, insize: 64, pid: 0
+   unique: 312, success, outsize: 16
+unique: 313, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538846 1410 1411
+   unique: 313, success, outsize: 144
+unique: 314, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 277
+isfile: 277 is a file
+getattr 0000000000000115 1
+isfile: 277 is a file
+getfile 0000000000000115
+getfile 0000000000000115 -> sz 4
+   getattr -> 4
+   unique: 314, success, outsize: 144
+unique: 315, opcode: OPEN (14), nodeid: 277, insize: 48, pid: 4537
+   unique: 315, success, outsize: 32
+unique: 316, opcode: READ (15), nodeid: 277, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 316, success, outsize: 20
+unique: 317, opcode: RELEASE (18), nodeid: 277, insize: 64, pid: 0
+   unique: 317, success, outsize: 16
+unique: 318, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538847 1410 1411
+   unique: 318, success, outsize: 144
+unique: 319, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 278
+isfile: 278 is a file
+getattr 0000000000000116 1
+isfile: 278 is a file
+getfile 0000000000000116
+getfile 0000000000000116 -> sz 4
+   getattr -> 4
+   unique: 319, success, outsize: 144
+unique: 320, opcode: OPEN (14), nodeid: 278, insize: 48, pid: 4537
+   unique: 320, success, outsize: 32
+unique: 321, opcode: READ (15), nodeid: 278, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 321, success, outsize: 20
+unique: 322, opcode: RELEASE (18), nodeid: 278, insize: 64, pid: 0
+   unique: 322, success, outsize: 16
+unique: 323, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538848 1410 1411
+   unique: 323, success, outsize: 144
+unique: 324, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 259
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 4
+   getattr -> 4
+   unique: 324, success, outsize: 144
+unique: 325, opcode: OPEN (14), nodeid: 259, insize: 48, pid: 4537
+   unique: 325, success, outsize: 32
+unique: 326, opcode: READ (15), nodeid: 259, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 326, success, outsize: 20
+unique: 327, opcode: RELEASE (18), nodeid: 259, insize: 64, pid: 0
+   unique: 327, success, outsize: 16
+unique: 328, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538849 1410 1411
+   unique: 328, success, outsize: 144
+unique: 329, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 260
+isfile: 260 is a file
+getattr 0000000000000104 1
+isfile: 260 is a file
+getfile 0000000000000104
+getfile 0000000000000104 -> sz 4
+   getattr -> 4
+   unique: 329, success, outsize: 144
+unique: 330, opcode: OPEN (14), nodeid: 260, insize: 48, pid: 4537
+   unique: 330, success, outsize: 32
+unique: 331, opcode: READ (15), nodeid: 260, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 331, success, outsize: 20
+unique: 332, opcode: RELEASE (18), nodeid: 260, insize: 64, pid: 0
+   unique: 332, success, outsize: 16
+unique: 333, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538850 1410 1411
+   unique: 333, success, outsize: 144
+unique: 334, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 261
+isfile: 261 is a file
+getattr 0000000000000105 1
+isfile: 261 is a file
+getfile 0000000000000105
+getfile 0000000000000105 -> sz 4
+   getattr -> 4
+   unique: 334, success, outsize: 144
+unique: 335, opcode: OPEN (14), nodeid: 261, insize: 48, pid: 4537
+   unique: 335, success, outsize: 32
+unique: 336, opcode: READ (15), nodeid: 261, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 336, success, outsize: 20
+unique: 337, opcode: RELEASE (18), nodeid: 261, insize: 64, pid: 0
+   unique: 337, success, outsize: 16
+unique: 338, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538851 1410 1411
+   unique: 338, success, outsize: 144
+unique: 339, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 262
+isfile: 262 is a file
+getattr 0000000000000106 1
+isfile: 262 is a file
+getfile 0000000000000106
+getfile 0000000000000106 -> sz 4
+   getattr -> 4
+   unique: 339, success, outsize: 144
+unique: 340, opcode: OPEN (14), nodeid: 262, insize: 48, pid: 4537
+   unique: 340, success, outsize: 32
+unique: 341, opcode: READ (15), nodeid: 262, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 341, success, outsize: 20
+unique: 342, opcode: RELEASE (18), nodeid: 262, insize: 64, pid: 0
+   unique: 342, success, outsize: 16
+unique: 343, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538852 1410 1411
+   unique: 343, success, outsize: 144
+unique: 344, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 263
+isfile: 263 is a file
+getattr 0000000000000107 1
+isfile: 263 is a file
+getfile 0000000000000107
+getfile 0000000000000107 -> sz 4
+   getattr -> 4
+   unique: 344, success, outsize: 144
+unique: 345, opcode: OPEN (14), nodeid: 263, insize: 48, pid: 4537
+   unique: 345, success, outsize: 32
+unique: 346, opcode: READ (15), nodeid: 263, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 346, success, outsize: 20
+unique: 347, opcode: RELEASE (18), nodeid: 263, insize: 64, pid: 0
+   unique: 347, success, outsize: 16
+unique: 348, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538853 1410 1411
+   unique: 348, success, outsize: 144
+unique: 349, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 264
+isfile: 264 is a file
+getattr 0000000000000108 1
+isfile: 264 is a file
+getfile 0000000000000108
+getfile 0000000000000108 -> sz 4
+   getattr -> 4
+   unique: 349, success, outsize: 144
+unique: 350, opcode: OPEN (14), nodeid: 264, insize: 48, pid: 4537
+   unique: 350, success, outsize: 32
+unique: 351, opcode: READ (15), nodeid: 264, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 351, success, outsize: 20
+unique: 352, opcode: RELEASE (18), nodeid: 264, insize: 64, pid: 0
+   unique: 352, success, outsize: 16
+unique: 353, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538854 1410 1411
+   unique: 353, success, outsize: 144
+unique: 354, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 265
+isfile: 265 is a file
+getattr 0000000000000109 1
+isfile: 265 is a file
+getfile 0000000000000109
+getfile 0000000000000109 -> sz 4
+   getattr -> 4
+   unique: 354, success, outsize: 144
+unique: 355, opcode: OPEN (14), nodeid: 265, insize: 48, pid: 4537
+   unique: 355, success, outsize: 32
+unique: 356, opcode: READ (15), nodeid: 265, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 356, success, outsize: 20
+unique: 357, opcode: RELEASE (18), nodeid: 265, insize: 64, pid: 0
+   unique: 357, success, outsize: 16
+unique: 358, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538855 1410 1411
+   unique: 358, success, outsize: 144
+unique: 359, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 266
+isfile: 266 is a file
+getattr 000000000000010a 1
+isfile: 266 is a file
+getfile 000000000000010a
+getfile 000000000000010a -> sz 4
+   getattr -> 4
+   unique: 359, success, outsize: 144
+unique: 360, opcode: OPEN (14), nodeid: 266, insize: 48, pid: 4537
+   unique: 360, success, outsize: 32
+unique: 361, opcode: READ (15), nodeid: 266, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 361, success, outsize: 20
+unique: 362, opcode: RELEASE (18), nodeid: 266, insize: 64, pid: 0
+   unique: 362, success, outsize: 16
+unique: 363, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538856 1410 1411
+   unique: 363, success, outsize: 144
+unique: 364, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 267
+isfile: 267 is a file
+getattr 000000000000010b 1
+isfile: 267 is a file
+getfile 000000000000010b
+getfile 000000000000010b -> sz 4
+   getattr -> 4
+   unique: 364, success, outsize: 144
+unique: 365, opcode: OPEN (14), nodeid: 267, insize: 48, pid: 4537
+   unique: 365, success, outsize: 32
+unique: 366, opcode: READ (15), nodeid: 267, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 366, success, outsize: 20
+unique: 367, opcode: RELEASE (18), nodeid: 267, insize: 64, pid: 0
+   unique: 367, success, outsize: 16
+unique: 368, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538857 1410 1411
+   unique: 368, success, outsize: 144
+unique: 369, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 268
+isfile: 268 is a file
+getattr 000000000000010c 1
+isfile: 268 is a file
+getfile 000000000000010c
+getfile 000000000000010c -> sz 4
+   getattr -> 4
+   unique: 369, success, outsize: 144
+unique: 370, opcode: OPEN (14), nodeid: 268, insize: 48, pid: 4537
+   unique: 370, success, outsize: 32
+unique: 371, opcode: READ (15), nodeid: 268, insize: 80, pid: 4537
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 371, success, outsize: 20
+unique: 372, opcode: RELEASE (18), nodeid: 268, insize: 64, pid: 0
+   unique: 372, success, outsize: 16
+unique: 373, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538898 1432 1433
+   unique: 373, success, outsize: 144
+unique: 374, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 269
+isfile: 269 is a file
+getattr 000000000000010d 1
+isfile: 269 is a file
+getfile 000000000000010d
+getfile 000000000000010d -> sz 4
+   getattr -> 4
+   unique: 374, success, outsize: 144
+unique: 375, opcode: UNLINK (10), nodeid: 258, insize: 45, pid: 4537
+unlink: bb-0 parent: 258
+isfile: 269 is not a dir
+   unique: 375, success, outsize: 16
+unique: 376, opcode: FORGET (2), nodeid: 269, insize: 48, pid: 0
+unique: 377, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538900 1434 1435
+   unique: 377, success, outsize: 144
+unique: 378, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 270
+isfile: 270 is a file
+getattr 000000000000010e 1
+isfile: 270 is a file
+getfile 000000000000010e
+getfile 000000000000010e -> sz 4
+   getattr -> 4
+   unique: 378, success, outsize: 144
+unique: 379, opcode: UNLINK (10), nodeid: 258, insize: 45, pid: 4537
+unlink: bb-1 parent: 258
+isfile: 270 is not a dir
+   unique: 379, success, outsize: 16
+unique: 380, opcode: FORGET (2), nodeid: 270, insize: 48, pid: 0
+unique: 381, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538902 1436 1437
+   unique: 381, success, outsize: 144
+unique: 382, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 271
+isfile: 271 is a file
+getattr 000000000000010f 1
+isfile: 271 is a file
+getfile 000000000000010f
+getfile 000000000000010f -> sz 4
+   getattr -> 4
+   unique: 382, success, outsize: 144
+unique: 383, opcode: UNLINK (10), nodeid: 258, insize: 45, pid: 4537
+unlink: bb-2 parent: 258
+isfile: 271 is not a dir
+   unique: 383, success, outsize: 16
+unique: 384, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538904 1438 1439
+   unique: 384, success, outsize: 144
+unique: 385, opcode: FORGET (2), nodeid: 271, insize: 48, pid: 0
+unique: 386, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 272
+isfile: 272 is a file
+getattr 0000000000000110 1
+isfile: 272 is a file
+getfile 0000000000000110
+getfile 0000000000000110 -> sz 4
+   getattr -> 4
+   unique: 386, success, outsize: 144
+unique: 387, opcode: UNLINK (10), nodeid: 258, insize: 45, pid: 4537
+unlink: bb-3 parent: 258
+isfile: 272 is not a dir
+   unique: 387, success, outsize: 16
+unique: 388, opcode: FORGET (2), nodeid: 272, insize: 48, pid: 0
+unique: 389, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538906 1440 1441
+   unique: 389, success, outsize: 144
+unique: 390, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 273
+isfile: 273 is a file
+getattr 0000000000000111 1
+isfile: 273 is a file
+getfile 0000000000000111
+getfile 0000000000000111 -> sz 4
+   getattr -> 4
+   unique: 390, success, outsize: 144
+unique: 391, opcode: UNLINK (10), nodeid: 258, insize: 45, pid: 4537
+unlink: bb-4 parent: 258
+isfile: 273 is not a dir
+   unique: 391, success, outsize: 16
+unique: 392, opcode: FORGET (2), nodeid: 273, insize: 48, pid: 0
+unique: 393, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538908 1442 1443
+   unique: 393, success, outsize: 144
+unique: 394, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 274
+isfile: 274 is a file
+getattr 0000000000000112 1
+isfile: 274 is a file
+getfile 0000000000000112
+getfile 0000000000000112 -> sz 4
+   getattr -> 4
+   unique: 394, success, outsize: 144
+unique: 395, opcode: UNLINK (10), nodeid: 258, insize: 45, pid: 4537
+unlink: bb-5 parent: 258
+isfile: 274 is not a dir
+   unique: 395, success, outsize: 16
+unique: 396, opcode: FORGET (2), nodeid: 274, insize: 48, pid: 0
+unique: 397, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538910 1444 1445
+   unique: 397, success, outsize: 144
+unique: 398, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 275
+isfile: 275 is a file
+getattr 0000000000000113 1
+isfile: 275 is a file
+getfile 0000000000000113
+getfile 0000000000000113 -> sz 4
+   getattr -> 4
+   unique: 398, success, outsize: 144
+unique: 399, opcode: UNLINK (10), nodeid: 258, insize: 45, pid: 4537
+unlink: bb-6 parent: 258
+isfile: 275 is not a dir
+   unique: 399, success, outsize: 16
+unique: 400, opcode: FORGET (2), nodeid: 275, insize: 48, pid: 0
+unique: 401, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538912 1446 1447
+   unique: 401, success, outsize: 144
+unique: 402, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 276
+isfile: 276 is a file
+getattr 0000000000000114 1
+isfile: 276 is a file
+getfile 0000000000000114
+getfile 0000000000000114 -> sz 4
+   getattr -> 4
+   unique: 402, success, outsize: 144
+unique: 403, opcode: UNLINK (10), nodeid: 258, insize: 45, pid: 4537
+unlink: bb-7 parent: 258
+isfile: 276 is not a dir
+   unique: 403, success, outsize: 16
+unique: 404, opcode: FORGET (2), nodeid: 276, insize: 48, pid: 0
+unique: 405, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538914 1448 1449
+   unique: 405, success, outsize: 144
+unique: 406, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 277
+isfile: 277 is a file
+getattr 0000000000000115 1
+isfile: 277 is a file
+getfile 0000000000000115
+getfile 0000000000000115 -> sz 4
+   getattr -> 4
+   unique: 406, success, outsize: 144
+unique: 407, opcode: UNLINK (10), nodeid: 258, insize: 45, pid: 4537
+unlink: bb-8 parent: 258
+isfile: 277 is not a dir
+   unique: 407, success, outsize: 16
+unique: 408, opcode: FORGET (2), nodeid: 277, insize: 48, pid: 0
+unique: 409, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538916 1450 1451
+   unique: 409, success, outsize: 144
+unique: 410, opcode: LOOKUP (1), nodeid: 258, insize: 45, pid: 4537
+lookup ok, ino: 278
+isfile: 278 is a file
+getattr 0000000000000116 1
+isfile: 278 is a file
+getfile 0000000000000116
+getfile 0000000000000116 -> sz 4
+   getattr -> 4
+   unique: 410, success, outsize: 144
+unique: 411, opcode: UNLINK (10), nodeid: 258, insize: 45, pid: 4537
+unlink: bb-9 parent: 258
+isfile: 278 is not a dir
+   unique: 411, success, outsize: 16
+unique: 412, opcode: FORGET (2), nodeid: 278, insize: 48, pid: 0
+unique: 413, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4537
+lookup ok, ino: 258
+isfile: 258 is a dir
+getattr 0000000000000102 0
+isfile: 258 is a dir
+isfile: 258 is not a symlink
+getdir 0000000000000102
+   getattr -> 58538922 1455 1456
+   unique: 413, success, outsize: 144
+unique: 414, opcode: LOOKUP (1), nodeid: 258, insize: 43, pid: 4537
+lookup ok, ino: 259
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 20000
+   getattr -> 20000
+   unique: 414, success, outsize: 144
+unique: 415, opcode: OPEN (14), nodeid: 259, insize: 48, pid: 4537
+   unique: 415, success, outsize: 32
+unique: 416, opcode: GETATTR (3), nodeid: 259, insize: 56, pid: 4537
+isfile: 259 is a file
+getattr 0000000000000103 1
+isfile: 259 is a file
+getfile 0000000000000103
+getfile 0000000000000103 -> sz 20000
+   getattr -> 20000
+   unique: 416, success, outsize: 120
+unique: 417, opcode: READ (15), nodeid: 259, insize: 80, pid: 4537
+read file size: 20480 data size: 20000
+read file off: 0
+result size: 20000
+   unique: 417, success, outsize: 20016
+unique: 418, opcode: RELEASE (18), nodeid: 259, insize: 64, pid: 0
+   unique: 418, success, outsize: 16
+unique: 419, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538703 32765 1469
+   unique: 419, success, outsize: 144
+unique: 420, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4553
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538703 32765 1469
+   unique: 420, success, outsize: 144
+unique: 421, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4553
+lookup failname: xx-0
+parent: 259
+   unique: 421, error: -2 (No such file or directory), outsize: 16
+unique: 422, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4553
+create name: xx-0 
+lookup failname: xx-0
+parent: 259
+create inum 260 buf size 64
+isfile: 260 is a file
+getattr 0000000000000104 1
+isfile: 260 is a file
+getfile 0000000000000104
+getfile 0000000000000104 -> sz 0
+   getattr -> 0
+   unique: 422, success, outsize: 160
+OK: create returns.
+unique: 423, opcode: WRITE (16), nodeid: 260, insize: 84, pid: 4553
+write file size: 4 buf size0 off 0
+ino 260 bytes written: 4result size: 4   unique: 423, success, outsize: 24
+unique: 424, opcode: RELEASE (18), nodeid: 260, insize: 64, pid: 0
+   unique: 424, success, outsize: 16
+unique: 425, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4553
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538709 1476 1477
+   unique: 425, success, outsize: 144
+unique: 426, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4553
+lookup failname: xx-1
+parent: 259
+   unique: 426, error: -2 (No such file or directory), outsize: 16
+unique: 427, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4553
+create name: xx-1 
+lookup failname: xx-1
+parent: 259
+create inum 262 buf size 192
+isfile: 262 is a file
+getattr 0000000000000106 1
+isfile: 262 is a file
+getfile 0000000000000106
+getfile 0000000000000106 -> sz 0
+   getattr -> 0
+   unique: 427, success, outsize: 160
+OK: create returns.
+unique: 428, opcode: WRITE (16), nodeid: 262, insize: 84, pid: 4553
+write file size: 4 buf size0 off 0
+ino 262 bytes written: 4result size: 4   unique: 428, success, outsize: 24
+unique: 429, opcode: RELEASE (18), nodeid: 262, insize: 64, pid: 0
+   unique: 429, success, outsize: 16
+unique: 430, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4553
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538715 1488 1489
+   unique: 430, success, outsize: 144
+unique: 431, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4553
+lookup failname: xx-2
+parent: 259
+   unique: 431, error: -2 (No such file or directory), outsize: 16
+unique: 432, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4553
+create name: xx-2 
+lookup failname: xx-2
+parent: 259
+create inum 264 buf size 320
+isfile: 264 is a file
+getattr 0000000000000108 1
+isfile: 264 is a file
+getfile 0000000000000108
+getfile 0000000000000108 -> sz 0
+   getattr -> 0
+   unique: 432, success, outsize: 160
+OK: create returns.
+unique: 433, opcode: WRITE (16), nodeid: 264, insize: 84, pid: 4553
+write file size: 4 buf size0 off 0
+ino 264 bytes written: 4result size: 4   unique: 433, success, outsize: 24
+unique: 434, opcode: RELEASE (18), nodeid: 264, insize: 64, pid: 0
+   unique: 434, success, outsize: 16
+unique: 435, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4553
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538721 1498 1499
+   unique: 435, success, outsize: 144
+unique: 436, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4553
+lookup failname: xx-3
+parent: 259
+   unique: 436, error: -2 (No such file or directory), outsize: 16
+unique: 437, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4553
+create name: xx-3 
+lookup failname: xx-3
+parent: 259
+create inum 266 buf size 448
+isfile: 266 is a file
+getattr 000000000000010a 1
+isfile: 266 is a file
+getfile 000000000000010a
+getfile 000000000000010a -> sz 0
+   getattr -> 0
+   unique: 437, success, outsize: 160
+OK: create returns.
+unique: 438, opcode: WRITE (16), nodeid: 266, insize: 84, pid: 4553
+write file size: 4 buf size0 off 0
+ino 266 bytes written: 4result size: 4   unique: 438, success, outsize: 24
+unique: 439, opcode: RELEASE (18), nodeid: 266, insize: 64, pid: 0
+   unique: 439, success, outsize: 16
+unique: 440, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4553
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538727 1508 1509
+   unique: 440, success, outsize: 144
+unique: 441, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4553
+lookup failname: xx-4
+parent: 259
+   unique: 441, error: -2 (No such file or directory), outsize: 16
+unique: 442, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4553
+create name: xx-4 
+lookup failname: xx-4
+parent: 259
+create inum 268 buf size 576
+isfile: 268 is a file
+getattr 000000000000010c 1
+isfile: 268 is a file
+getfile 000000000000010c
+getfile 000000000000010c -> sz 0
+   getattr -> 0
+   unique: 442, success, outsize: 160
+OK: create returns.
+unique: 443, opcode: WRITE (16), nodeid: 268, insize: 84, pid: 4553
+write file size: 4 buf size0 off 0
+ino 268 bytes written: 4result size: 4   unique: 443, success, outsize: 24
+unique: 444, opcode: RELEASE (18), nodeid: 268, insize: 64, pid: 0
+   unique: 444, success, outsize: 16
+unique: 445, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4553
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538733 1518 1519
+   unique: 445, success, outsize: 144
+unique: 446, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4553
+lookup failname: xx-5
+parent: 259
+   unique: 446, error: -2 (No such file or directory), outsize: 16
+unique: 447, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4553
+create name: xx-5 
+lookup failname: xx-5
+parent: 259
+create inum 270 buf size 704
+isfile: 270 is a file
+getattr 000000000000010e 1
+isfile: 270 is a file
+getfile 000000000000010e
+getfile 000000000000010e -> sz 0
+   getattr -> 0
+   unique: 447, success, outsize: 160
+OK: create returns.
+unique: 448, opcode: WRITE (16), nodeid: 270, insize: 84, pid: 4553
+write file size: 4 buf size0 off 0
+ino 270 bytes written: 4result size: 4   unique: 448, success, outsize: 24
+unique: 449, opcode: RELEASE (18), nodeid: 270, insize: 64, pid: 0
+   unique: 449, success, outsize: 16
+unique: 450, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4553
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538739 1528 1529
+   unique: 450, success, outsize: 144
+unique: 451, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4553
+lookup failname: xx-6
+parent: 259
+   unique: 451, error: -2 (No such file or directory), outsize: 16
+unique: 452, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4553
+create name: xx-6 
+lookup failname: xx-6
+parent: 259
+create inum 272 buf size 832
+isfile: 272 is a file
+getattr 0000000000000110 1
+isfile: 272 is a file
+getfile 0000000000000110
+getfile 0000000000000110 -> sz 0
+   getattr -> 0
+   unique: 452, success, outsize: 160
+OK: create returns.
+unique: 453, opcode: WRITE (16), nodeid: 272, insize: 84, pid: 4553
+write file size: 4 buf size0 off 0
+ino 272 bytes written: 4result size: 4   unique: 453, success, outsize: 24
+unique: 454, opcode: RELEASE (18), nodeid: 272, insize: 64, pid: 0
+   unique: 454, success, outsize: 16
+unique: 455, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4553
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538745 1538 1539
+   unique: 455, success, outsize: 144
+unique: 456, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4553
+lookup failname: xx-7
+parent: 259
+   unique: 456, error: -2 (No such file or directory), outsize: 16
+unique: 457, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4553
+create name: xx-7 
+lookup failname: xx-7
+parent: 259
+create inum 274 buf size 960
+isfile: 274 is a file
+getattr 0000000000000112 1
+isfile: 274 is a file
+getfile 0000000000000112
+getfile 0000000000000112 -> sz 0
+   getattr -> 0
+   unique: 457, success, outsize: 160
+OK: create returns.
+unique: 458, opcode: WRITE (16), nodeid: 274, insize: 84, pid: 4553
+write file size: 4 buf size0 off 0
+ino 274 bytes written: 4result size: 4   unique: 458, success, outsize: 24
+unique: 459, opcode: RELEASE (18), nodeid: 274, insize: 64, pid: 0
+   unique: 459, success, outsize: 16
+unique: 460, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4553
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538751 1548 1549
+   unique: 460, success, outsize: 144
+unique: 461, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4553
+lookup failname: xx-8
+parent: 259
+   unique: 461, error: -2 (No such file or directory), outsize: 16
+unique: 462, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4553
+create name: xx-8 
+lookup failname: xx-8
+parent: 259
+create inum 276 buf size 1088
+isfile: 276 is a file
+getattr 0000000000000114 1
+isfile: 276 is a file
+getfile 0000000000000114
+getfile 0000000000000114 -> sz 0
+   getattr -> 0
+   unique: 462, success, outsize: 160
+OK: create returns.
+unique: 463, opcode: WRITE (16), nodeid: 276, insize: 84, pid: 4553
+write file size: 4 buf size0 off 0
+ino 276 bytes written: 4result size: 4   unique: 463, success, outsize: 24
+unique: 464, opcode: RELEASE (18), nodeid: 276, insize: 64, pid: 0
+   unique: 464, success, outsize: 16
+unique: 465, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4553
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538757 1558 1559
+   unique: 465, success, outsize: 144
+unique: 466, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4553
+lookup failname: xx-9
+parent: 259
+   unique: 466, error: -2 (No such file or directory), outsize: 16
+unique: 467, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4553
+create name: xx-9 
+lookup failname: xx-9
+parent: 259
+create inum 278 buf size 1216
+isfile: 278 is a file
+getattr 0000000000000116 1
+isfile: 278 is a file
+getfile 0000000000000116
+getfile 0000000000000116 -> sz 0
+   getattr -> 0
+   unique: 467, success, outsize: 160
+OK: create returns.
+unique: 468, opcode: WRITE (16), nodeid: 278, insize: 84, pid: 4553
+write file size: 4 buf size0 off 0
+ino 278 bytes written: 4result size: 4   unique: 468, success, outsize: 24
+unique: 469, opcode: RELEASE (18), nodeid: 278, insize: 64, pid: 0
+   unique: 469, success, outsize: 16
+unique: 470, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538775 1568 1569
+   unique: 470, success, outsize: 144
+unique: 471, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 261
+isfile: 261 is a file
+getattr 0000000000000105 1
+isfile: 261 is a file
+getfile 0000000000000105
+getfile 0000000000000105 -> sz 4
+   getattr -> 4
+   unique: 471, success, outsize: 144
+unique: 472, opcode: OPEN (14), nodeid: 261, insize: 48, pid: 4551
+   unique: 472, success, outsize: 32
+unique: 473, opcode: READ (15), nodeid: 261, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 473, success, outsize: 20
+unique: 474, opcode: RELEASE (18), nodeid: 261, insize: 64, pid: 0
+   unique: 474, success, outsize: 16
+unique: 475, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538776 1568 1569
+   unique: 475, success, outsize: 144
+unique: 476, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 263
+isfile: 263 is a file
+getattr 0000000000000107 1
+isfile: 263 is a file
+getfile 0000000000000107
+getfile 0000000000000107 -> sz 4
+   getattr -> 4
+   unique: 476, success, outsize: 144
+unique: 477, opcode: OPEN (14), nodeid: 263, insize: 48, pid: 4551
+   unique: 477, success, outsize: 32
+unique: 478, opcode: READ (15), nodeid: 263, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 478, success, outsize: 20
+unique: 479, opcode: RELEASE (18), nodeid: 263, insize: 64, pid: 0
+   unique: 479, success, outsize: 16
+unique: 480, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538777 1568 1569
+   unique: 480, success, outsize: 144
+unique: 481, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 265
+isfile: 265 is a file
+getattr 0000000000000109 1
+isfile: 265 is a file
+getfile 0000000000000109
+getfile 0000000000000109 -> sz 4
+   getattr -> 4
+   unique: 481, success, outsize: 144
+unique: 482, opcode: OPEN (14), nodeid: 265, insize: 48, pid: 4551
+   unique: 482, success, outsize: 32
+unique: 483, opcode: READ (15), nodeid: 265, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 483, success, outsize: 20
+unique: 484, opcode: RELEASE (18), nodeid: 265, insize: 64, pid: 0
+   unique: 484, success, outsize: 16
+unique: 485, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538778 1568 1569
+   unique: 485, success, outsize: 144
+unique: 486, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 267
+isfile: 267 is a file
+getattr 000000000000010b 1
+isfile: 267 is a file
+getfile 000000000000010b
+getfile 000000000000010b -> sz 4
+   getattr -> 4
+   unique: 486, success, outsize: 144
+unique: 487, opcode: OPEN (14), nodeid: 267, insize: 48, pid: 4551
+   unique: 487, success, outsize: 32
+unique: 488, opcode: READ (15), nodeid: 267, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 488, success, outsize: 20
+unique: 489, opcode: RELEASE (18), nodeid: 267, insize: 64, pid: 0
+   unique: 489, success, outsize: 16
+unique: 490, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538779 1568 1569
+   unique: 490, success, outsize: 144
+unique: 491, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 269
+isfile: 269 is a file
+getattr 000000000000010d 1
+isfile: 269 is a file
+getfile 000000000000010d
+getfile 000000000000010d -> sz 4
+   getattr -> 4
+   unique: 491, success, outsize: 144
+unique: 492, opcode: OPEN (14), nodeid: 269, insize: 48, pid: 4551
+   unique: 492, success, outsize: 32
+unique: 493, opcode: READ (15), nodeid: 269, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 493, success, outsize: 20
+unique: 494, opcode: RELEASE (18), nodeid: 269, insize: 64, pid: 0
+   unique: 494, success, outsize: 16
+unique: 495, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538780 1568 1569
+   unique: 495, success, outsize: 144
+unique: 496, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 271
+isfile: 271 is a file
+getattr 000000000000010f 1
+isfile: 271 is a file
+getfile 000000000000010f
+getfile 000000000000010f -> sz 4
+   getattr -> 4
+   unique: 496, success, outsize: 144
+unique: 497, opcode: OPEN (14), nodeid: 271, insize: 48, pid: 4551
+   unique: 497, success, outsize: 32
+unique: 498, opcode: READ (15), nodeid: 271, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 498, success, outsize: 20
+unique: 499, opcode: RELEASE (18), nodeid: 271, insize: 64, pid: 0
+   unique: 499, success, outsize: 16
+unique: 500, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538781 1568 1569
+   unique: 500, success, outsize: 144
+unique: 501, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 273
+isfile: 273 is a file
+getattr 0000000000000111 1
+isfile: 273 is a file
+getfile 0000000000000111
+getfile 0000000000000111 -> sz 4
+   getattr -> 4
+   unique: 501, success, outsize: 144
+unique: 502, opcode: OPEN (14), nodeid: 273, insize: 48, pid: 4551
+   unique: 502, success, outsize: 32
+unique: 503, opcode: READ (15), nodeid: 273, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 503, success, outsize: 20
+unique: 504, opcode: RELEASE (18), nodeid: 273, insize: 64, pid: 0
+   unique: 504, success, outsize: 16
+unique: 505, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538782 1568 1569
+   unique: 505, success, outsize: 144
+unique: 506, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 275
+isfile: 275 is a file
+getattr 0000000000000113 1
+isfile: 275 is a file
+getfile 0000000000000113
+getfile 0000000000000113 -> sz 4
+   getattr -> 4
+   unique: 506, success, outsize: 144
+unique: 507, opcode: OPEN (14), nodeid: 275, insize: 48, pid: 4551
+   unique: 507, success, outsize: 32
+unique: 508, opcode: READ (15), nodeid: 275, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 508, success, outsize: 20
+unique: 509, opcode: RELEASE (18), nodeid: 275, insize: 64, pid: 0
+   unique: 509, success, outsize: 16
+unique: 510, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538783 1568 1569
+   unique: 510, success, outsize: 144
+unique: 511, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 277
+isfile: 277 is a file
+getattr 0000000000000115 1
+isfile: 277 is a file
+getfile 0000000000000115
+getfile 0000000000000115 -> sz 4
+   getattr -> 4
+   unique: 511, success, outsize: 144
+unique: 512, opcode: OPEN (14), nodeid: 277, insize: 48, pid: 4551
+   unique: 512, success, outsize: 32
+unique: 513, opcode: READ (15), nodeid: 277, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 513, success, outsize: 20
+unique: 514, opcode: RELEASE (18), nodeid: 277, insize: 64, pid: 0
+   unique: 514, success, outsize: 16
+unique: 515, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538784 1568 1569
+   unique: 515, success, outsize: 144
+unique: 516, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 279
+isfile: 279 is a file
+getattr 0000000000000117 1
+isfile: 279 is a file
+getfile 0000000000000117
+getfile 0000000000000117 -> sz 4
+   getattr -> 4
+   unique: 516, success, outsize: 144
+unique: 517, opcode: OPEN (14), nodeid: 279, insize: 48, pid: 4551
+   unique: 517, success, outsize: 32
+unique: 518, opcode: READ (15), nodeid: 279, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 518, success, outsize: 20
+unique: 519, opcode: RELEASE (18), nodeid: 279, insize: 64, pid: 0
+   unique: 519, success, outsize: 16
+unique: 520, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4554
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538825 1610 1611
+   unique: 520, success, outsize: 144
+unique: 521, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4554
+lookup failname: zz-0
+parent: 259
+   unique: 521, error: -2 (No such file or directory), outsize: 16
+unique: 522, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4554
+create name: zz-0 
+lookup failname: zz-0
+parent: 259
+create inum 260 buf size 64
+isfile: 260 is a file
+getattr 0000000000000104 1
+isfile: 260 is a file
+getfile 0000000000000104
+getfile 0000000000000104 -> sz 0
+   getattr -> 0
+   unique: 522, success, outsize: 160
+OK: create returns.
+unique: 523, opcode: WRITE (16), nodeid: 260, insize: 84, pid: 4554
+write file size: 4 buf size0 off 0
+ino 260 bytes written: 4result size: 4   unique: 523, success, outsize: 24
+unique: 524, opcode: RELEASE (18), nodeid: 260, insize: 64, pid: 0
+   unique: 524, success, outsize: 16
+unique: 525, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4554
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538833 1618 1619
+   unique: 525, success, outsize: 144
+unique: 526, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4554
+lookup ok, ino: 261
+isfile: 261 is a file
+getattr 0000000000000105 1
+isfile: 261 is a file
+getfile 0000000000000105
+getfile 0000000000000105 -> sz 4
+   getattr -> 4
+   unique: 526, success, outsize: 144
+unique: 527, opcode: OPEN (14), nodeid: 261, insize: 48, pid: 4554
+   unique: 527, success, outsize: 32
+unique: 528, opcode: SETATTR (4), nodeid: 261, insize: 128, pid: 4554
+fuseserver_setattr 0x8
+   fuseserver_setattr set size to 0
+isfile: 261 is a file
+getattr 0000000000000105 1
+isfile: 261 is a file
+getfile 0000000000000105
+getfile 0000000000000105 -> sz 0
+   getattr -> 0
+   unique: 528, success, outsize: 120
+unique: 529, opcode: WRITE (16), nodeid: 261, insize: 84, pid: 4554
+write file size: 4 buf size0 off 0
+ino 261 bytes written: 4result size: 4   unique: 529, success, outsize: 24
+unique: 530, opcode: RELEASE (18), nodeid: 261, insize: 64, pid: 0
+   unique: 530, success, outsize: 16
+unique: 531, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4554
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538837 1625 1626
+   unique: 531, success, outsize: 144
+unique: 532, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4554
+lookup ok, ino: 262
+isfile: 262 is a file
+getattr 0000000000000106 1
+isfile: 262 is a file
+getfile 0000000000000106
+getfile 0000000000000106 -> sz 4
+   getattr -> 4
+   unique: 532, success, outsize: 144
+unique: 533, opcode: OPEN (14), nodeid: 262, insize: 48, pid: 4554
+   unique: 533, success, outsize: 32
+unique: 534, opcode: SETATTR (4), nodeid: 262, insize: 128, pid: 4554
+fuseserver_setattr 0x8
+   fuseserver_setattr set size to 0
+isfile: 262 is a file
+getattr 0000000000000106 1
+isfile: 262 is a file
+getfile 0000000000000106
+getfile 0000000000000106 -> sz 0
+   getattr -> 0
+   unique: 534, success, outsize: 120
+unique: 535, opcode: WRITE (16), nodeid: 262, insize: 84, pid: 4554
+write file size: 4 buf size0 off 0
+ino 262 bytes written: 4result size: 4   unique: 535, success, outsize: 24
+unique: 536, opcode: RELEASE (18), nodeid: 262, insize: 64, pid: 0
+   unique: 536, success, outsize: 16
+unique: 537, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4554
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538841 1636 1637
+   unique: 537, success, outsize: 144
+unique: 538, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4554
+lookup ok, ino: 263
+isfile: 263 is a file
+getattr 0000000000000107 1
+isfile: 263 is a file
+getfile 0000000000000107
+getfile 0000000000000107 -> sz 4
+   getattr -> 4
+   unique: 538, success, outsize: 144
+unique: 539, opcode: OPEN (14), nodeid: 263, insize: 48, pid: 4554
+   unique: 539, success, outsize: 32
+unique: 540, opcode: SETATTR (4), nodeid: 263, insize: 128, pid: 4554
+fuseserver_setattr 0x8
+   fuseserver_setattr set size to 0
+isfile: 263 is a file
+getattr 0000000000000107 1
+isfile: 263 is a file
+getfile 0000000000000107
+getfile 0000000000000107 -> sz 0
+   getattr -> 0
+   unique: 540, success, outsize: 120
+unique: 541, opcode: WRITE (16), nodeid: 263, insize: 84, pid: 4554
+write file size: 4 buf size0 off 0
+ino 263 bytes written: 4result size: 4   unique: 541, success, outsize: 24
+unique: 542, opcode: RELEASE (18), nodeid: 263, insize: 64, pid: 0
+   unique: 542, success, outsize: 16
+unique: 543, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4554
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538845 1645 1646
+   unique: 543, success, outsize: 144
+unique: 544, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4554
+lookup ok, ino: 264
+isfile: 264 is a file
+getattr 0000000000000108 1
+isfile: 264 is a file
+getfile 0000000000000108
+getfile 0000000000000108 -> sz 4
+   getattr -> 4
+   unique: 544, success, outsize: 144
+unique: 545, opcode: OPEN (14), nodeid: 264, insize: 48, pid: 4554
+   unique: 545, success, outsize: 32
+unique: 546, opcode: SETATTR (4), nodeid: 264, insize: 128, pid: 4554
+fuseserver_setattr 0x8
+   fuseserver_setattr set size to 0
+isfile: 264 is a file
+getattr 0000000000000108 1
+isfile: 264 is a file
+getfile 0000000000000108
+getfile 0000000000000108 -> sz 0
+   getattr -> 0
+   unique: 546, success, outsize: 120
+unique: 547, opcode: WRITE (16), nodeid: 264, insize: 84, pid: 4554
+write file size: 4 buf size0 off 0
+ino 264 bytes written: 4result size: 4   unique: 547, success, outsize: 24
+unique: 548, opcode: RELEASE (18), nodeid: 264, insize: 64, pid: 0
+   unique: 548, success, outsize: 16
+unique: 549, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4554
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538849 1654 1655
+   unique: 549, success, outsize: 144
+unique: 550, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4554
+lookup ok, ino: 265
+isfile: 265 is a file
+getattr 0000000000000109 1
+isfile: 265 is a file
+getfile 0000000000000109
+getfile 0000000000000109 -> sz 4
+   getattr -> 4
+   unique: 550, success, outsize: 144
+unique: 551, opcode: OPEN (14), nodeid: 265, insize: 48, pid: 4554
+   unique: 551, success, outsize: 32
+unique: 552, opcode: SETATTR (4), nodeid: 265, insize: 128, pid: 4554
+fuseserver_setattr 0x8
+   fuseserver_setattr set size to 0
+isfile: 265 is a file
+getattr 0000000000000109 1
+isfile: 265 is a file
+getfile 0000000000000109
+getfile 0000000000000109 -> sz 0
+   getattr -> 0
+   unique: 552, success, outsize: 120
+unique: 553, opcode: WRITE (16), nodeid: 265, insize: 84, pid: 4554
+write file size: 4 buf size0 off 0
+ino 265 bytes written: 4result size: 4   unique: 553, success, outsize: 24
+unique: 554, opcode: RELEASE (18), nodeid: 265, insize: 64, pid: 0
+   unique: 554, success, outsize: 16
+unique: 555, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4554
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538853 1663 1664
+   unique: 555, success, outsize: 144
+unique: 556, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4554
+lookup ok, ino: 266
+isfile: 266 is a file
+getattr 000000000000010a 1
+isfile: 266 is a file
+getfile 000000000000010a
+getfile 000000000000010a -> sz 4
+   getattr -> 4
+   unique: 556, success, outsize: 144
+unique: 557, opcode: OPEN (14), nodeid: 266, insize: 48, pid: 4554
+   unique: 557, success, outsize: 32
+unique: 558, opcode: SETATTR (4), nodeid: 266, insize: 128, pid: 4554
+fuseserver_setattr 0x8
+   fuseserver_setattr set size to 0
+isfile: 266 is a file
+getattr 000000000000010a 1
+isfile: 266 is a file
+getfile 000000000000010a
+getfile 000000000000010a -> sz 0
+   getattr -> 0
+   unique: 558, success, outsize: 120
+unique: 559, opcode: WRITE (16), nodeid: 266, insize: 84, pid: 4554
+write file size: 4 buf size0 off 0
+ino 266 bytes written: 4result size: 4   unique: 559, success, outsize: 24
+unique: 560, opcode: RELEASE (18), nodeid: 266, insize: 64, pid: 0
+   unique: 560, success, outsize: 16
+unique: 561, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4554
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538857 1672 1673
+   unique: 561, success, outsize: 144
+unique: 562, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4554
+lookup ok, ino: 267
+isfile: 267 is a file
+getattr 000000000000010b 1
+isfile: 267 is a file
+getfile 000000000000010b
+getfile 000000000000010b -> sz 4
+   getattr -> 4
+   unique: 562, success, outsize: 144
+unique: 563, opcode: OPEN (14), nodeid: 267, insize: 48, pid: 4554
+   unique: 563, success, outsize: 32
+unique: 564, opcode: SETATTR (4), nodeid: 267, insize: 128, pid: 4554
+fuseserver_setattr 0x8
+   fuseserver_setattr set size to 0
+isfile: 267 is a file
+getattr 000000000000010b 1
+isfile: 267 is a file
+getfile 000000000000010b
+getfile 000000000000010b -> sz 0
+   getattr -> 0
+   unique: 564, success, outsize: 120
+unique: 565, opcode: WRITE (16), nodeid: 267, insize: 84, pid: 4554
+write file size: 4 buf size0 off 0
+ino 267 bytes written: 4result size: 4   unique: 565, success, outsize: 24
+unique: 566, opcode: RELEASE (18), nodeid: 267, insize: 64, pid: 0
+   unique: 566, success, outsize: 16
+unique: 567, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4554
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538861 1681 1682
+   unique: 567, success, outsize: 144
+unique: 568, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4554
+lookup ok, ino: 268
+isfile: 268 is a file
+getattr 000000000000010c 1
+isfile: 268 is a file
+getfile 000000000000010c
+getfile 000000000000010c -> sz 4
+   getattr -> 4
+   unique: 568, success, outsize: 144
+unique: 569, opcode: OPEN (14), nodeid: 268, insize: 48, pid: 4554
+   unique: 569, success, outsize: 32
+unique: 570, opcode: SETATTR (4), nodeid: 268, insize: 128, pid: 4554
+fuseserver_setattr 0x8
+   fuseserver_setattr set size to 0
+isfile: 268 is a file
+getattr 000000000000010c 1
+isfile: 268 is a file
+getfile 000000000000010c
+getfile 000000000000010c -> sz 0
+   getattr -> 0
+   unique: 570, success, outsize: 120
+unique: 571, opcode: WRITE (16), nodeid: 268, insize: 84, pid: 4554
+write file size: 4 buf size0 off 0
+ino 268 bytes written: 4result size: 4   unique: 571, success, outsize: 24
+unique: 572, opcode: RELEASE (18), nodeid: 268, insize: 64, pid: 0
+   unique: 572, success, outsize: 16
+unique: 573, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4554
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538865 1690 1691
+   unique: 573, success, outsize: 144
+unique: 574, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4554
+lookup ok, ino: 269
+isfile: 269 is a file
+getattr 000000000000010d 1
+isfile: 269 is a file
+getfile 000000000000010d
+getfile 000000000000010d -> sz 4
+   getattr -> 4
+   unique: 574, success, outsize: 144
+unique: 575, opcode: OPEN (14), nodeid: 269, insize: 48, pid: 4554
+   unique: 575, success, outsize: 32
+unique: 576, opcode: SETATTR (4), nodeid: 269, insize: 128, pid: 4554
+fuseserver_setattr 0x8
+   fuseserver_setattr set size to 0
+isfile: 269 is a file
+getattr 000000000000010d 1
+isfile: 269 is a file
+getfile 000000000000010d
+getfile 000000000000010d -> sz 0
+   getattr -> 0
+   unique: 576, success, outsize: 120
+unique: 577, opcode: WRITE (16), nodeid: 269, insize: 84, pid: 4554
+write file size: 4 buf size0 off 0
+ino 269 bytes written: 4result size: 4   unique: 577, success, outsize: 24
+unique: 578, opcode: RELEASE (18), nodeid: 269, insize: 64, pid: 0
+   unique: 578, success, outsize: 16
+unique: 579, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538878 1690 1691
+   unique: 579, success, outsize: 144
+unique: 580, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 260
+isfile: 260 is a file
+getattr 0000000000000104 1
+isfile: 260 is a file
+getfile 0000000000000104
+getfile 0000000000000104 -> sz 4
+   getattr -> 4
+   unique: 580, success, outsize: 144
+unique: 581, opcode: OPEN (14), nodeid: 260, insize: 48, pid: 4551
+   unique: 581, success, outsize: 32
+unique: 582, opcode: READ (15), nodeid: 260, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 582, success, outsize: 20
+unique: 583, opcode: RELEASE (18), nodeid: 260, insize: 64, pid: 0
+   unique: 583, success, outsize: 16
+unique: 584, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538879 1690 1691
+   unique: 584, success, outsize: 144
+unique: 585, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 261
+isfile: 261 is a file
+getattr 0000000000000105 1
+isfile: 261 is a file
+getfile 0000000000000105
+getfile 0000000000000105 -> sz 4
+   getattr -> 4
+   unique: 585, success, outsize: 144
+unique: 586, opcode: OPEN (14), nodeid: 261, insize: 48, pid: 4551
+   unique: 586, success, outsize: 32
+unique: 587, opcode: READ (15), nodeid: 261, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 587, success, outsize: 20
+unique: 588, opcode: RELEASE (18), nodeid: 261, insize: 64, pid: 0
+   unique: 588, success, outsize: 16
+unique: 589, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538880 1690 1691
+   unique: 589, success, outsize: 144
+unique: 590, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 262
+isfile: 262 is a file
+getattr 0000000000000106 1
+isfile: 262 is a file
+getfile 0000000000000106
+getfile 0000000000000106 -> sz 4
+   getattr -> 4
+   unique: 590, success, outsize: 144
+unique: 591, opcode: OPEN (14), nodeid: 262, insize: 48, pid: 4551
+   unique: 591, success, outsize: 32
+unique: 592, opcode: READ (15), nodeid: 262, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 592, success, outsize: 20
+unique: 593, opcode: RELEASE (18), nodeid: 262, insize: 64, pid: 0
+   unique: 593, success, outsize: 16
+unique: 594, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538881 1690 1691
+   unique: 594, success, outsize: 144
+unique: 595, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 263
+isfile: 263 is a file
+getattr 0000000000000107 1
+isfile: 263 is a file
+getfile 0000000000000107
+getfile 0000000000000107 -> sz 4
+   getattr -> 4
+   unique: 595, success, outsize: 144
+unique: 596, opcode: OPEN (14), nodeid: 263, insize: 48, pid: 4551
+   unique: 596, success, outsize: 32
+unique: 597, opcode: READ (15), nodeid: 263, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 597, success, outsize: 20
+unique: 598, opcode: RELEASE (18), nodeid: 263, insize: 64, pid: 0
+   unique: 598, success, outsize: 16
+unique: 599, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538882 1690 1691
+   unique: 599, success, outsize: 144
+unique: 600, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 264
+isfile: 264 is a file
+getattr 0000000000000108 1
+isfile: 264 is a file
+getfile 0000000000000108
+getfile 0000000000000108 -> sz 4
+   getattr -> 4
+   unique: 600, success, outsize: 144
+unique: 601, opcode: OPEN (14), nodeid: 264, insize: 48, pid: 4551
+   unique: 601, success, outsize: 32
+unique: 602, opcode: READ (15), nodeid: 264, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 602, success, outsize: 20
+unique: 603, opcode: RELEASE (18), nodeid: 264, insize: 64, pid: 0
+   unique: 603, success, outsize: 16
+unique: 604, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538883 1690 1691
+   unique: 604, success, outsize: 144
+unique: 605, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 265
+isfile: 265 is a file
+getattr 0000000000000109 1
+isfile: 265 is a file
+getfile 0000000000000109
+getfile 0000000000000109 -> sz 4
+   getattr -> 4
+   unique: 605, success, outsize: 144
+unique: 606, opcode: OPEN (14), nodeid: 265, insize: 48, pid: 4551
+   unique: 606, success, outsize: 32
+unique: 607, opcode: READ (15), nodeid: 265, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 607, success, outsize: 20
+unique: 608, opcode: RELEASE (18), nodeid: 265, insize: 64, pid: 0
+   unique: 608, success, outsize: 16
+unique: 609, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538884 1690 1691
+   unique: 609, success, outsize: 144
+unique: 610, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 266
+isfile: 266 is a file
+getattr 000000000000010a 1
+isfile: 266 is a file
+getfile 000000000000010a
+getfile 000000000000010a -> sz 4
+   getattr -> 4
+   unique: 610, success, outsize: 144
+unique: 611, opcode: OPEN (14), nodeid: 266, insize: 48, pid: 4551
+   unique: 611, success, outsize: 32
+unique: 612, opcode: READ (15), nodeid: 266, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 612, success, outsize: 20
+unique: 613, opcode: RELEASE (18), nodeid: 266, insize: 64, pid: 0
+   unique: 613, success, outsize: 16
+unique: 614, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538885 1690 1691
+   unique: 614, success, outsize: 144
+unique: 615, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 267
+isfile: 267 is a file
+getattr 000000000000010b 1
+isfile: 267 is a file
+getfile 000000000000010b
+getfile 000000000000010b -> sz 4
+   getattr -> 4
+   unique: 615, success, outsize: 144
+unique: 616, opcode: OPEN (14), nodeid: 267, insize: 48, pid: 4551
+   unique: 616, success, outsize: 32
+unique: 617, opcode: READ (15), nodeid: 267, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 617, success, outsize: 20
+unique: 618, opcode: RELEASE (18), nodeid: 267, insize: 64, pid: 0
+   unique: 618, success, outsize: 16
+unique: 619, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538886 1690 1691
+   unique: 619, success, outsize: 144
+unique: 620, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 268
+isfile: 268 is a file
+getattr 000000000000010c 1
+isfile: 268 is a file
+getfile 000000000000010c
+getfile 000000000000010c -> sz 4
+   getattr -> 4
+   unique: 620, success, outsize: 144
+unique: 621, opcode: OPEN (14), nodeid: 268, insize: 48, pid: 4551
+   unique: 621, success, outsize: 32
+unique: 622, opcode: READ (15), nodeid: 268, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 622, success, outsize: 20
+unique: 623, opcode: RELEASE (18), nodeid: 268, insize: 64, pid: 0
+   unique: 623, success, outsize: 16
+unique: 624, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538887 1690 1691
+   unique: 624, success, outsize: 144
+unique: 625, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 269
+isfile: 269 is a file
+getattr 000000000000010d 1
+isfile: 269 is a file
+getfile 000000000000010d
+getfile 000000000000010d -> sz 4
+   getattr -> 4
+   unique: 625, success, outsize: 144
+unique: 626, opcode: OPEN (14), nodeid: 269, insize: 48, pid: 4551
+   unique: 626, success, outsize: 32
+unique: 627, opcode: READ (15), nodeid: 269, insize: 80, pid: 4551
+read file size: 4096 data size: 4
+read file off: 0
+result size: 4
+   unique: 627, success, outsize: 20
+unique: 628, opcode: RELEASE (18), nodeid: 269, insize: 64, pid: 0
+   unique: 628, success, outsize: 16
+unique: 629, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538923 1739 1740
+   unique: 629, success, outsize: 144
+unique: 630, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup failname: x2-0
+parent: 259
+   unique: 630, error: -2 (No such file or directory), outsize: 16
+unique: 631, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4551
+create name: x2-0 
+lookup failname: x2-0
+parent: 259
+create inum 265 buf size 384
+isfile: 265 is a file
+getattr 0000000000000109 1
+isfile: 265 is a file
+getfile 0000000000000109
+getfile 0000000000000109 -> sz 0
+   getattr -> 0
+   unique: 631, success, outsize: 160
+OK: create returns.
+unique: 632, opcode: WRITE (16), nodeid: 265, insize: 84, pid: 4551
+write file size: 4 buf size0 off 0
+ino 265 bytes written: 4result size: 4   unique: 632, success, outsize: 24
+unique: 633, opcode: RELEASE (18), nodeid: 265, insize: 64, pid: 0
+   unique: 633, success, outsize: 16
+unique: 634, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538926 1744 1745
+   unique: 634, success, outsize: 144
+unique: 635, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup failname: x2-1
+parent: 259
+   unique: 635, error: -2 (No such file or directory), outsize: 16
+unique: 636, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4551
+create name: x2-1 
+lookup failname: x2-1
+parent: 259
+create inum 266 buf size 448
+isfile: 266 is a file
+getattr 000000000000010a 1
+isfile: 266 is a file
+getfile 000000000000010a
+getfile 000000000000010a -> sz 0
+   getattr -> 0
+   unique: 636, success, outsize: 160
+OK: create returns.
+unique: 637, opcode: WRITE (16), nodeid: 266, insize: 84, pid: 4551
+write file size: 4 buf size0 off 0
+ino 266 bytes written: 4result size: 4   unique: 637, success, outsize: 24
+unique: 638, opcode: RELEASE (18), nodeid: 266, insize: 64, pid: 0
+   unique: 638, success, outsize: 16
+unique: 639, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538929 1749 1750
+   unique: 639, success, outsize: 144
+unique: 640, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup failname: x2-2
+parent: 259
+   unique: 640, error: -2 (No such file or directory), outsize: 16
+unique: 641, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4551
+create name: x2-2 
+lookup failname: x2-2
+parent: 259
+create inum 267 buf size 512
+isfile: 267 is a file
+getattr 000000000000010b 1
+isfile: 267 is a file
+getfile 000000000000010b
+getfile 000000000000010b -> sz 0
+   getattr -> 0
+   unique: 641, success, outsize: 160
+OK: create returns.
+unique: 642, opcode: WRITE (16), nodeid: 267, insize: 84, pid: 4551
+write file size: 4 buf size0 off 0
+ino 267 bytes written: 4result size: 4   unique: 642, success, outsize: 24
+unique: 643, opcode: RELEASE (18), nodeid: 267, insize: 64, pid: 0
+   unique: 643, success, outsize: 16
+unique: 644, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538932 1754 1755
+   unique: 644, success, outsize: 144
+unique: 645, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup failname: x2-3
+parent: 259
+   unique: 645, error: -2 (No such file or directory), outsize: 16
+unique: 646, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4551
+create name: x2-3 
+lookup failname: x2-3
+parent: 259
+create inum 268 buf size 576
+isfile: 268 is a file
+getattr 000000000000010c 1
+isfile: 268 is a file
+getfile 000000000000010c
+getfile 000000000000010c -> sz 0
+   getattr -> 0
+   unique: 646, success, outsize: 160
+OK: create returns.
+unique: 647, opcode: WRITE (16), nodeid: 268, insize: 84, pid: 4551
+write file size: 4 buf size0 off 0
+ino 268 bytes written: 4result size: 4   unique: 647, success, outsize: 24
+unique: 648, opcode: RELEASE (18), nodeid: 268, insize: 64, pid: 0
+   unique: 648, success, outsize: 16
+unique: 649, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538935 1759 1760
+   unique: 649, success, outsize: 144
+unique: 650, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup failname: x2-4
+parent: 259
+   unique: 650, error: -2 (No such file or directory), outsize: 16
+unique: 651, opcode: CREATE (35), nodeid: 259, insize: 61, pid: 4551
+create name: x2-4 
+lookup failname: x2-4
+parent: 259
+create inum 269 buf size 640
+isfile: 269 is a file
+getattr 000000000000010d 1
+isfile: 269 is a file
+getfile 000000000000010d
+getfile 000000000000010d -> sz 0
+   getattr -> 0
+   unique: 651, success, outsize: 160
+OK: create returns.
+unique: 652, opcode: WRITE (16), nodeid: 269, insize: 84, pid: 4551
+write file size: 4 buf size0 off 0
+ino 269 bytes written: 4result size: 4   unique: 652, success, outsize: 24
+unique: 653, opcode: RELEASE (18), nodeid: 269, insize: 64, pid: 0
+   unique: 653, success, outsize: 16
+unique: 654, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4555
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538939 1764 1765
+   unique: 654, success, outsize: 144
+unique: 655, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4555
+lookup ok, ino: 260
+isfile: 260 is a file
+getattr 0000000000000104 1
+isfile: 260 is a file
+getfile 0000000000000104
+getfile 0000000000000104 -> sz 4
+   getattr -> 4
+   unique: 655, success, outsize: 144
+unique: 656, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4555
+unlink: x1-0 parent: 259
+isfile: 260 is not a dir
+   unique: 656, success, outsize: 16
+unique: 657, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4555
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538943 1771 1772
+   unique: 657, success, outsize: 144
+unique: 658, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4555
+lookup ok, ino: 261
+isfile: 261 is a file
+getattr 0000000000000105 1
+isfile: 261 is a file
+getfile 0000000000000105
+getfile 0000000000000105 -> sz 4
+   getattr -> 4
+   unique: 658, success, outsize: 144
+unique: 659, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4555
+unlink: x1-1 parent: 259
+isfile: 261 is not a dir
+   unique: 659, success, outsize: 16
+unique: 660, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4555
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538948 1778 1779
+   unique: 660, success, outsize: 144
+unique: 661, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4555
+lookup ok, ino: 262
+isfile: 262 is a file
+getattr 0000000000000106 1
+isfile: 262 is a file
+getfile 0000000000000106
+getfile 0000000000000106 -> sz 4
+   getattr -> 4
+   unique: 661, success, outsize: 144
+unique: 662, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4555
+unlink: x1-2 parent: 259
+isfile: 262 is not a dir
+   unique: 662, success, outsize: 16
+unique: 663, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4555
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538951 1782 1783
+   unique: 663, success, outsize: 144
+unique: 664, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4555
+lookup ok, ino: 263
+isfile: 263 is a file
+getattr 0000000000000107 1
+isfile: 263 is a file
+getfile 0000000000000107
+getfile 0000000000000107 -> sz 4
+   getattr -> 4
+   unique: 664, success, outsize: 144
+unique: 665, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4555
+unlink: x1-3 parent: 259
+isfile: 263 is not a dir
+   unique: 665, success, outsize: 16
+unique: 666, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4555
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538955 1787 1788
+   unique: 666, success, outsize: 144
+unique: 667, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4555
+lookup ok, ino: 264
+isfile: 264 is a file
+getattr 0000000000000108 1
+isfile: 264 is a file
+getfile 0000000000000108
+getfile 0000000000000108 -> sz 4
+   getattr -> 4
+   unique: 667, success, outsize: 144
+unique: 668, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4555
+unlink: x1-4 parent: 259
+isfile: 264 is not a dir
+   unique: 668, success, outsize: 16
+unique: 669, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538978 1824 1825
+   unique: 669, success, outsize: 144
+unique: 670, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 265
+isfile: 265 is a file
+getattr 0000000000000109 1
+isfile: 265 is a file
+getfile 0000000000000109
+getfile 0000000000000109 -> sz 4
+   getattr -> 4
+   unique: 670, success, outsize: 144
+unique: 671, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x2-0 parent: 259
+isfile: 265 is not a dir
+   unique: 671, success, outsize: 16
+unique: 672, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538980 1828 1829
+   unique: 672, success, outsize: 144
+unique: 673, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 266
+isfile: 266 is a file
+getattr 000000000000010a 1
+isfile: 266 is a file
+getfile 000000000000010a
+getfile 000000000000010a -> sz 4
+   getattr -> 4
+   unique: 673, success, outsize: 144
+unique: 674, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x2-1 parent: 259
+isfile: 266 is not a dir
+   unique: 674, success, outsize: 16
+unique: 675, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538982 1830 1831
+   unique: 675, success, outsize: 144
+unique: 676, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 267
+isfile: 267 is a file
+getattr 000000000000010b 1
+isfile: 267 is a file
+getfile 000000000000010b
+getfile 000000000000010b -> sz 4
+   getattr -> 4
+   unique: 676, success, outsize: 144
+unique: 677, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x2-2 parent: 259
+isfile: 267 is not a dir
+   unique: 677, success, outsize: 16
+unique: 678, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538984 1832 1833
+   unique: 678, success, outsize: 144
+unique: 679, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 268
+isfile: 268 is a file
+getattr 000000000000010c 1
+isfile: 268 is a file
+getfile 000000000000010c
+getfile 000000000000010c -> sz 4
+   getattr -> 4
+   unique: 679, success, outsize: 144
+unique: 680, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x2-3 parent: 259
+isfile: 268 is not a dir
+   unique: 680, success, outsize: 16
+unique: 681, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538986 1834 1835
+   unique: 681, success, outsize: 144
+unique: 682, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 269
+isfile: 269 is a file
+getattr 000000000000010d 1
+isfile: 269 is a file
+getfile 000000000000010d
+getfile 000000000000010d -> sz 4
+   getattr -> 4
+   unique: 682, success, outsize: 144
+unique: 683, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x2-4 parent: 259
+isfile: 269 is not a dir
+   unique: 683, success, outsize: 16
+unique: 684, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538988 1836 1837
+   unique: 684, success, outsize: 144
+unique: 685, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 270
+isfile: 270 is a file
+getattr 000000000000010e 1
+isfile: 270 is a file
+getfile 000000000000010e
+getfile 000000000000010e -> sz 4
+   getattr -> 4
+   unique: 685, success, outsize: 144
+unique: 686, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x4-0 parent: 259
+isfile: 270 is not a dir
+   unique: 686, success, outsize: 16
+unique: 687, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538990 1838 1839
+   unique: 687, success, outsize: 144
+unique: 688, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 260
+isfile: 260 is a file
+getattr 0000000000000104 1
+isfile: 260 is a file
+getfile 0000000000000104
+getfile 0000000000000104 -> sz 4
+   getattr -> 4
+   unique: 688, success, outsize: 144
+unique: 689, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x4-1 parent: 259
+isfile: 260 is not a dir
+   unique: 689, success, outsize: 16
+unique: 690, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538992 1840 1841
+   unique: 690, success, outsize: 144
+unique: 691, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 261
+isfile: 261 is a file
+getattr 0000000000000105 1
+isfile: 261 is a file
+getfile 0000000000000105
+getfile 0000000000000105 -> sz 4
+   getattr -> 4
+   unique: 691, success, outsize: 144
+unique: 692, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x4-2 parent: 259
+isfile: 261 is not a dir
+   unique: 692, success, outsize: 16
+unique: 693, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538994 1842 1843
+   unique: 693, success, outsize: 144
+unique: 694, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 262
+isfile: 262 is a file
+getattr 0000000000000106 1
+isfile: 262 is a file
+getfile 0000000000000106
+getfile 0000000000000106 -> sz 4
+   getattr -> 4
+   unique: 694, success, outsize: 144
+unique: 695, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x4-3 parent: 259
+isfile: 262 is not a dir
+   unique: 695, success, outsize: 16
+unique: 696, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538996 1844 1845
+   unique: 696, success, outsize: 144
+unique: 697, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 263
+isfile: 263 is a file
+getattr 0000000000000107 1
+isfile: 263 is a file
+getfile 0000000000000107
+getfile 0000000000000107 -> sz 4
+   getattr -> 4
+   unique: 697, success, outsize: 144
+unique: 698, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x4-4 parent: 259
+isfile: 263 is not a dir
+   unique: 698, success, outsize: 16
+unique: 699, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58538998 1846 1847
+   unique: 699, success, outsize: 144
+unique: 700, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 264
+isfile: 264 is a file
+getattr 0000000000000108 1
+isfile: 264 is a file
+getfile 0000000000000108
+getfile 0000000000000108 -> sz 4
+   getattr -> 4
+   unique: 700, success, outsize: 144
+unique: 701, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x3-0 parent: 259
+isfile: 264 is not a dir
+   unique: 701, success, outsize: 16
+unique: 702, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58539000 1848 1849
+   unique: 702, success, outsize: 144
+unique: 703, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 271
+isfile: 271 is a file
+getattr 000000000000010f 1
+isfile: 271 is a file
+getfile 000000000000010f
+getfile 000000000000010f -> sz 4
+   getattr -> 4
+   unique: 703, success, outsize: 144
+unique: 704, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x3-1 parent: 259
+isfile: 271 is not a dir
+   unique: 704, success, outsize: 16
+unique: 705, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58539002 1850 1851
+   unique: 705, success, outsize: 144
+unique: 706, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 272
+isfile: 272 is a file
+getattr 0000000000000110 1
+isfile: 272 is a file
+getfile 0000000000000110
+getfile 0000000000000110 -> sz 4
+   getattr -> 4
+   unique: 706, success, outsize: 144
+unique: 707, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x3-2 parent: 259
+isfile: 272 is not a dir
+   unique: 707, success, outsize: 16
+unique: 708, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58539004 1852 1853
+   unique: 708, success, outsize: 144
+unique: 709, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 273
+isfile: 273 is a file
+getattr 0000000000000111 1
+isfile: 273 is a file
+getfile 0000000000000111
+getfile 0000000000000111 -> sz 4
+   getattr -> 4
+   unique: 709, success, outsize: 144
+unique: 710, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x3-3 parent: 259
+isfile: 273 is not a dir
+   unique: 710, success, outsize: 16
+unique: 711, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58539006 1854 1855
+   unique: 711, success, outsize: 144
+unique: 712, opcode: LOOKUP (1), nodeid: 259, insize: 45, pid: 4551
+lookup ok, ino: 274
+isfile: 274 is a file
+getattr 0000000000000112 1
+isfile: 274 is a file
+getfile 0000000000000112
+getfile 0000000000000112 -> sz 4
+   getattr -> 4
+   unique: 712, success, outsize: 144
+unique: 713, opcode: UNLINK (10), nodeid: 259, insize: 45, pid: 4551
+unlink: x3-4 parent: 259
+isfile: 274 is not a dir
+   unique: 713, success, outsize: 16
+unique: 714, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4557
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58539085 1969 1970
+   unique: 714, success, outsize: 144
+unique: 715, opcode: LOOKUP (1), nodeid: 259, insize: 44, pid: 4557
+lookup ok, ino: 260
+isfile: 260 is a file
+getattr 0000000000000104 1
+isfile: 260 is a file
+getfile 0000000000000104
+getfile 0000000000000104 -> sz 65535
+   getattr -> 65535
+   unique: 715, success, outsize: 144
+unique: 716, opcode: OPEN (14), nodeid: 260, insize: 48, pid: 4557
+   unique: 716, success, outsize: 32
+unique: 717, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10000
+ino 260 bytes written: 1result size: 65535   unique: 717, success, outsize: 24
+unique: 718, opcode: FSYNC (20), nodeid: 260, insize: 56, pid: 4557
+   unique: 718, error: -38 (Function not implemented), outsize: 16
+unique: 719, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10001
+ino 260 bytes written: 1result size: 65535   unique: 719, success, outsize: 24
+unique: 720, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10002
+ino 260 bytes written: 1result size: 65535   unique: 720, success, outsize: 24
+unique: 721, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10003
+ino 260 bytes written: 1result size: 65535   unique: 721, success, outsize: 24
+unique: 722, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10004
+ino 260 bytes written: 1result size: 65535   unique: 722, success, outsize: 24
+unique: 723, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10005
+ino 260 bytes written: 1result size: 65535   unique: 723, success, outsize: 24
+unique: 724, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10006
+ino 260 bytes written: 1result size: 65535   unique: 724, success, outsize: 24
+unique: 725, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10007
+ino 260 bytes written: 1result size: 65535   unique: 725, success, outsize: 24
+unique: 726, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10008
+ino 260 bytes written: 1result size: 65535   unique: 726, success, outsize: 24
+unique: 727, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10009
+ino 260 bytes written: 1result size: 65535   unique: 727, success, outsize: 24
+unique: 728, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10010
+ino 260 bytes written: 1result size: 65535   unique: 728, success, outsize: 24
+unique: 729, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10011
+ino 260 bytes written: 1result size: 65535   unique: 729, success, outsize: 24
+unique: 730, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10012
+ino 260 bytes written: 1result size: 65535   unique: 730, success, outsize: 24
+unique: 731, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10013
+ino 260 bytes written: 1result size: 65535   unique: 731, success, outsize: 24
+unique: 732, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10014
+ino 260 bytes written: 1result size: 65535   unique: 732, success, outsize: 24
+unique: 733, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10015
+ino 260 bytes written: 1result size: 65535   unique: 733, success, outsize: 24
+unique: 734, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10016
+ino 260 bytes written: 1result size: 65535   unique: 734, success, outsize: 24
+unique: 735, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10017
+ino 260 bytes written: 1result size: 65535   unique: 735, success, outsize: 24
+unique: 736, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10018
+ino 260 bytes written: 1result size: 65535   unique: 736, success, outsize: 24
+unique: 737, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10019
+ino 260 bytes written: 1result size: 65535   unique: 737, success, outsize: 24
+unique: 738, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10020
+ino 260 bytes written: 1result size: 65535   unique: 738, success, outsize: 24
+unique: 739, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10021
+ino 260 bytes written: 1result size: 65535   unique: 739, success, outsize: 24
+unique: 740, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10022
+ino 260 bytes written: 1result size: 65535   unique: 740, success, outsize: 24
+unique: 741, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10023
+ino 260 bytes written: 1result size: 65535   unique: 741, success, outsize: 24
+unique: 742, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10024
+ino 260 bytes written: 1result size: 65535   unique: 742, success, outsize: 24
+unique: 743, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10025
+ino 260 bytes written: 1result size: 65535   unique: 743, success, outsize: 24
+unique: 744, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10026
+ino 260 bytes written: 1result size: 65535   unique: 744, success, outsize: 24
+unique: 745, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10027
+ino 260 bytes written: 1result size: 65535   unique: 745, success, outsize: 24
+unique: 746, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10028
+ino 260 bytes written: 1result size: 65535   unique: 746, success, outsize: 24
+unique: 747, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10029
+ino 260 bytes written: 1result size: 65535   unique: 747, success, outsize: 24
+unique: 748, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10030
+ino 260 bytes written: 1result size: 65535   unique: 748, success, outsize: 24
+unique: 749, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10031
+ino 260 bytes written: 1result size: 65535   unique: 749, success, outsize: 24
+unique: 750, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10032
+ino 260 bytes written: 1result size: 65535   unique: 750, success, outsize: 24
+unique: 751, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10033
+ino 260 bytes written: 1result size: 65535   unique: 751, success, outsize: 24
+unique: 752, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10034
+ino 260 bytes written: 1result size: 65535   unique: 752, success, outsize: 24
+unique: 753, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10035
+ino 260 bytes written: 1result size: 65535   unique: 753, success, outsize: 24
+unique: 754, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10036
+ino 260 bytes written: 1result size: 65535   unique: 754, success, outsize: 24
+unique: 755, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10037
+ino 260 bytes written: 1result size: 65535   unique: 755, success, outsize: 24
+unique: 756, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10038
+ino 260 bytes written: 1result size: 65535   unique: 756, success, outsize: 24
+unique: 757, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10039
+ino 260 bytes written: 1result size: 65535   unique: 757, success, outsize: 24
+unique: 758, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10040
+ino 260 bytes written: 1result size: 65535   unique: 758, success, outsize: 24
+unique: 759, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10041
+ino 260 bytes written: 1result size: 65535   unique: 759, success, outsize: 24
+unique: 760, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10042
+ino 260 bytes written: 1result size: 65535   unique: 760, success, outsize: 24
+unique: 761, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10043
+ino 260 bytes written: 1result size: 65535   unique: 761, success, outsize: 24
+unique: 762, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10044
+ino 260 bytes written: 1result size: 65535   unique: 762, success, outsize: 24
+unique: 763, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10045
+ino 260 bytes written: 1result size: 65535   unique: 763, success, outsize: 24
+unique: 764, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10046
+ino 260 bytes written: 1result size: 65535   unique: 764, success, outsize: 24
+unique: 765, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10047
+ino 260 bytes written: 1result size: 65535   unique: 765, success, outsize: 24
+unique: 766, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10048
+ino 260 bytes written: 1result size: 65535   unique: 766, success, outsize: 24
+unique: 767, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10049
+ino 260 bytes written: 1result size: 65535   unique: 767, success, outsize: 24
+unique: 768, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10050
+ino 260 bytes written: 1result size: 65535   unique: 768, success, outsize: 24
+unique: 769, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10051
+ino 260 bytes written: 1result size: 65535   unique: 769, success, outsize: 24
+unique: 770, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10052
+ino 260 bytes written: 1result size: 65535   unique: 770, success, outsize: 24
+unique: 771, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10053
+ino 260 bytes written: 1result size: 65535   unique: 771, success, outsize: 24
+unique: 772, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10054
+ino 260 bytes written: 1result size: 65535   unique: 772, success, outsize: 24
+unique: 773, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10055
+ino 260 bytes written: 1result size: 65535   unique: 773, success, outsize: 24
+unique: 774, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10056
+ino 260 bytes written: 1result size: 65535   unique: 774, success, outsize: 24
+unique: 775, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10057
+ino 260 bytes written: 1result size: 65535   unique: 775, success, outsize: 24
+unique: 776, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10058
+ino 260 bytes written: 1result size: 65535   unique: 776, success, outsize: 24
+unique: 777, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10059
+ino 260 bytes written: 1result size: 65535   unique: 777, success, outsize: 24
+unique: 778, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10060
+ino 260 bytes written: 1result size: 65535   unique: 778, success, outsize: 24
+unique: 779, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10061
+ino 260 bytes written: 1result size: 65535   unique: 779, success, outsize: 24
+unique: 780, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10062
+ino 260 bytes written: 1result size: 65535   unique: 780, success, outsize: 24
+unique: 781, opcode: WRITE (16), nodeid: 260, insize: 81, pid: 4557
+write file size: 1 buf size65535 off 10063
+ino 260 bytes written: 1result size: 65535   unique: 781, success, outsize: 24
+unique: 782, opcode: RELEASE (18), nodeid: 260, insize: 64, pid: 0
+   unique: 782, success, outsize: 16
+unique: 783, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58539087 1969 1970
+   unique: 783, success, outsize: 144
+unique: 784, opcode: LOOKUP (1), nodeid: 259, insize: 44, pid: 4551
+lookup ok, ino: 260
+isfile: 260 is a file
+getattr 0000000000000104 1
+isfile: 260 is a file
+getfile 0000000000000104
+getfile 0000000000000104 -> sz 65535
+   getattr -> 65535
+   unique: 784, success, outsize: 144
+unique: 785, opcode: OPEN (14), nodeid: 260, insize: 48, pid: 4551
+   unique: 785, success, outsize: 32
+unique: 786, opcode: READ (15), nodeid: 260, insize: 80, pid: 4551
+read file size: 16384 data size: 65535
+read file off: 0
+result size: 16384
+   unique: 786, success, outsize: 16400
+unique: 787, opcode: RELEASE (18), nodeid: 260, insize: 64, pid: 0
+   unique: 787, success, outsize: 16
+unique: 788, opcode: LOOKUP (1), nodeid: 1, insize: 46, pid: 4551
+lookup ok, ino: 259
+isfile: 259 is a dir
+getattr 0000000000000103 0
+isfile: 259 is a dir
+isfile: 259 is not a symlink
+getdir 0000000000000103
+   getattr -> 58539089 1969 1970
+   unique: 788, success, outsize: 144
+unique: 789, opcode: LOOKUP (1), nodeid: 259, insize: 44, pid: 4551
+lookup ok, ino: 260
+isfile: 260 is a file
+getattr 0000000000000104 1
+isfile: 260 is a file
+getfile 0000000000000104
+getfile 0000000000000104 -> sz 65535
+   getattr -> 65535
+   unique: 789, success, outsize: 144
+unique: 790, opcode: OPEN (14), nodeid: 260, insize: 48, pid: 4551
+   unique: 790, success, outsize: 32
+unique: 791, opcode: READ (15), nodeid: 260, insize: 80, pid: 4551
+read file size: 4096 data size: 65535
+read file off: 8192
+result size: 4096
+   unique: 791, success, outsize: 4112
+unique: 792, opcode: RELEASE (18), nodeid: 260, insize: 64, pid: 0
+   unique: 792, success, outsize: 16
+unique: 793, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4575
+lookup failname: db1949
+parent: 1
+   unique: 793, error: -2 (No such file or directory), outsize: 16
+unique: 794, opcode: MKDIR (9), nodeid: 1, insize: 55, pid: 4575
+lookup failname: db1949
+parent: 1
+make dir inum262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538703 32765 2262
+   unique: 794, success, outsize: 144
+unique: 795, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4575
+lookup ok, ino: 261
+isfile: 261 is a dir
+getattr 0000000000000105 0
+isfile: 261 is a dir
+isfile: 261 is not a symlink
+getdir 0000000000000105
+   getattr -> 58538703 32765 2259
+   unique: 795, success, outsize: 144
+unique: 796, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538703 32765 2262
+   unique: 796, success, outsize: 144
+unique: 797, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup failname: xx-0
+parent: 262
+   unique: 797, error: -2 (No such file or directory), outsize: 16
+unique: 798, opcode: CREATE (35), nodeid: 262, insize: 61, pid: 4577
+create name: xx-0 
+lookup failname: xx-0
+parent: 262
+create inum 264 buf size 64
+isfile: 264 is a file
+getattr 0000000000000108 1
+isfile: 264 is a file
+getfile 0000000000000108
+getfile 0000000000000108 -> sz 0
+   getattr -> 0
+   unique: 798, success, outsize: 160
+OK: create returns.
+unique: 799, opcode: WRITE (16), nodeid: 264, insize: 84, pid: 4577
+write file size: 4 buf size0 off 0
+ino 264 bytes written: 4result size: 4   unique: 799, success, outsize: 24
+unique: 800, opcode: RELEASE (18), nodeid: 264, insize: 64, pid: 0
+   unique: 800, success, outsize: 16
+unique: 801, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538706 2269 2270
+   unique: 801, success, outsize: 144
+unique: 802, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup failname: xx-1
+parent: 262
+   unique: 802, error: -2 (No such file or directory), outsize: 16
+unique: 803, opcode: CREATE (35), nodeid: 262, insize: 61, pid: 4577
+create name: xx-1 
+lookup failname: xx-1
+parent: 262
+create inum 266 buf size 128
+isfile: 266 is a file
+getattr 000000000000010a 1
+isfile: 266 is a file
+getfile 000000000000010a
+getfile 000000000000010a -> sz 0
+   getattr -> 0
+   unique: 803, success, outsize: 160
+OK: create returns.
+unique: 804, opcode: WRITE (16), nodeid: 266, insize: 84, pid: 4577
+write file size: 4 buf size0 off 0
+ino 266 bytes written: 4result size: 4   unique: 804, success, outsize: 24
+unique: 805, opcode: RELEASE (18), nodeid: 266, insize: 64, pid: 0
+   unique: 805, success, outsize: 16
+unique: 806, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538709 2279 2280
+   unique: 806, success, outsize: 144
+unique: 807, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup failname: xx-2
+parent: 262
+   unique: 807, error: -2 (No such file or directory), outsize: 16
+unique: 808, opcode: CREATE (35), nodeid: 262, insize: 61, pid: 4577
+create name: xx-2 
+lookup failname: xx-2
+parent: 262
+create inum 268 buf size 192
+isfile: 268 is a file
+getattr 000000000000010c 1
+isfile: 268 is a file
+getfile 000000000000010c
+getfile 000000000000010c -> sz 0
+   getattr -> 0
+   unique: 808, success, outsize: 160
+OK: create returns.
+unique: 809, opcode: WRITE (16), nodeid: 268, insize: 84, pid: 4577
+write file size: 4 buf size0 off 0
+ino 268 bytes written: 4result size: 4   unique: 809, success, outsize: 24
+unique: 810, opcode: RELEASE (18), nodeid: 268, insize: 64, pid: 0
+   unique: 810, success, outsize: 16
+unique: 811, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538712 2289 2290
+   unique: 811, success, outsize: 144
+unique: 812, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup failname: xx-3
+parent: 262
+   unique: 812, error: -2 (No such file or directory), outsize: 16
+unique: 813, opcode: CREATE (35), nodeid: 262, insize: 61, pid: 4577
+create name: xx-3 
+lookup failname: xx-3
+parent: 262
+create inum 270 buf size 256
+isfile: 270 is a file
+getattr 000000000000010e 1
+isfile: 270 is a file
+getfile 000000000000010e
+getfile 000000000000010e -> sz 0
+   getattr -> 0
+   unique: 813, success, outsize: 160
+OK: create returns.
+unique: 814, opcode: WRITE (16), nodeid: 270, insize: 84, pid: 4577
+write file size: 4 buf size0 off 0
+ino 270 bytes written: 4result size: 4   unique: 814, success, outsize: 24
+unique: 815, opcode: RELEASE (18), nodeid: 270, insize: 64, pid: 0
+   unique: 815, success, outsize: 16
+unique: 816, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538715 2299 2300
+   unique: 816, success, outsize: 144
+unique: 817, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup failname: xx-4
+parent: 262
+   unique: 817, error: -2 (No such file or directory), outsize: 16
+unique: 818, opcode: CREATE (35), nodeid: 262, insize: 61, pid: 4577
+create name: xx-4 
+lookup failname: xx-4
+parent: 262
+create inum 272 buf size 320
+isfile: 272 is a file
+getattr 0000000000000110 1
+isfile: 272 is a file
+getfile 0000000000000110
+getfile 0000000000000110 -> sz 0
+   getattr -> 0
+   unique: 818, success, outsize: 160
+OK: create returns.
+unique: 819, opcode: WRITE (16), nodeid: 272, insize: 84, pid: 4577
+write file size: 4 buf size0 off 0
+ino 272 bytes written: 4result size: 4   unique: 819, success, outsize: 24
+unique: 820, opcode: RELEASE (18), nodeid: 272, insize: 64, pid: 0
+   unique: 820, success, outsize: 16
+unique: 821, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538718 2309 2310
+   unique: 821, success, outsize: 144
+unique: 822, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup failname: xx-5
+parent: 262
+   unique: 822, error: -2 (No such file or directory), outsize: 16
+unique: 823, opcode: CREATE (35), nodeid: 262, insize: 61, pid: 4577
+create name: xx-5 
+lookup failname: xx-5
+parent: 262
+create inum 274 buf size 384
+isfile: 274 is a file
+getattr 0000000000000112 1
+isfile: 274 is a file
+getfile 0000000000000112
+getfile 0000000000000112 -> sz 0
+   getattr -> 0
+   unique: 823, success, outsize: 160
+OK: create returns.
+unique: 824, opcode: WRITE (16), nodeid: 274, insize: 84, pid: 4577
+write file size: 4 buf size0 off 0
+ino 274 bytes written: 4result size: 4   unique: 824, success, outsize: 24
+unique: 825, opcode: RELEASE (18), nodeid: 274, insize: 64, pid: 0
+   unique: 825, success, outsize: 16
+unique: 826, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538721 2321 2322
+   unique: 826, success, outsize: 144
+unique: 827, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup failname: xx-6
+parent: 262
+   unique: 827, error: -2 (No such file or directory), outsize: 16
+unique: 828, opcode: CREATE (35), nodeid: 262, insize: 61, pid: 4577
+create name: xx-6 
+lookup failname: xx-6
+parent: 262
+create inum 276 buf size 448
+isfile: 276 is a file
+getattr 0000000000000114 1
+isfile: 276 is a file
+getfile 0000000000000114
+getfile 0000000000000114 -> sz 0
+   getattr -> 0
+   unique: 828, success, outsize: 160
+OK: create returns.
+unique: 829, opcode: WRITE (16), nodeid: 276, insize: 84, pid: 4577
+write file size: 4 buf size0 off 0
+ino 276 bytes written: 4result size: 4   unique: 829, success, outsize: 24
+unique: 830, opcode: RELEASE (18), nodeid: 276, insize: 64, pid: 0
+   unique: 830, success, outsize: 16
+unique: 831, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538724 2331 2332
+   unique: 831, success, outsize: 144
+unique: 832, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup failname: xx-7
+parent: 262
+   unique: 832, error: -2 (No such file or directory), outsize: 16
+unique: 833, opcode: CREATE (35), nodeid: 262, insize: 61, pid: 4577
+create name: xx-7 
+lookup failname: xx-7
+parent: 262
+create inum 278 buf size 512
+isfile: 278 is a file
+getattr 0000000000000116 1
+isfile: 278 is a file
+getfile 0000000000000116
+getfile 0000000000000116 -> sz 0
+   getattr -> 0
+   unique: 833, success, outsize: 160
+OK: create returns.
+unique: 834, opcode: WRITE (16), nodeid: 278, insize: 84, pid: 4577
+write file size: 4 buf size0 off 0
+ino 278 bytes written: 4result size: 4   unique: 834, success, outsize: 24
+unique: 835, opcode: RELEASE (18), nodeid: 278, insize: 64, pid: 0
+   unique: 835, success, outsize: 16
+unique: 836, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538727 2341 2342
+   unique: 836, success, outsize: 144
+unique: 837, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup failname: xx-8
+parent: 262
+   unique: 837, error: -2 (No such file or directory), outsize: 16
+unique: 838, opcode: CREATE (35), nodeid: 262, insize: 61, pid: 4577
+create name: xx-8 
+lookup failname: xx-8
+parent: 262
+create inum 280 buf size 576
+isfile: 280 is a file
+getattr 0000000000000118 1
+isfile: 280 is a file
+getfile 0000000000000118
+getfile 0000000000000118 -> sz 0
+   getattr -> 0
+   unique: 838, success, outsize: 160
+OK: create returns.
+unique: 839, opcode: WRITE (16), nodeid: 280, insize: 84, pid: 4577
+write file size: 4 buf size0 off 0
+ino 280 bytes written: 4result size: 4   unique: 839, success, outsize: 24
+unique: 840, opcode: RELEASE (18), nodeid: 280, insize: 64, pid: 0
+   unique: 840, success, outsize: 16
+unique: 841, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538730 2351 2352
+   unique: 841, success, outsize: 144
+unique: 842, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup failname: xx-9
+parent: 262
+   unique: 842, error: -2 (No such file or directory), outsize: 16
+unique: 843, opcode: CREATE (35), nodeid: 262, insize: 61, pid: 4577
+create name: xx-9 
+lookup failname: xx-9
+parent: 262
+create inum 282 buf size 640
+isfile: 282 is a file
+getattr 000000000000011a 1
+isfile: 282 is a file
+getfile 000000000000011a
+getfile 000000000000011a -> sz 0
+   getattr -> 0
+   unique: 843, success, outsize: 160
+OK: create returns.
+unique: 844, opcode: WRITE (16), nodeid: 282, insize: 84, pid: 4577
+write file size: 4 buf size0 off 0
+ino 282 bytes written: 4result size: 4   unique: 844, success, outsize: 24
+unique: 845, opcode: RELEASE (18), nodeid: 282, insize: 64, pid: 0
+   unique: 845, success, outsize: 16
+unique: 846, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538733 2361 2362
+   unique: 846, success, outsize: 144
+unique: 847, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup ok, ino: 264
+isfile: 264 is a file
+getattr 0000000000000108 1
+isfile: 264 is a file
+getfile 0000000000000108
+getfile 0000000000000108 -> sz 4
+   getattr -> 4
+   unique: 847, success, outsize: 144
+unique: 848, opcode: UNLINK (10), nodeid: 262, insize: 45, pid: 4577
+unlink: xx-0 parent: 262
+isfile: 264 is not a dir
+   unique: 848, success, outsize: 16
+unique: 849, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538735 2367 2368
+   unique: 849, success, outsize: 144
+unique: 850, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup ok, ino: 266
+isfile: 266 is a file
+getattr 000000000000010a 1
+isfile: 266 is a file
+getfile 000000000000010a
+getfile 000000000000010a -> sz 4
+   getattr -> 4
+   unique: 850, success, outsize: 144
+unique: 851, opcode: UNLINK (10), nodeid: 262, insize: 45, pid: 4577
+unlink: xx-1 parent: 262
+isfile: 266 is not a dir
+   unique: 851, success, outsize: 16
+unique: 852, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538737 2371 2372
+   unique: 852, success, outsize: 144
+unique: 853, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup ok, ino: 268
+isfile: 268 is a file
+getattr 000000000000010c 1
+isfile: 268 is a file
+getfile 000000000000010c
+getfile 000000000000010c -> sz 4
+   getattr -> 4
+   unique: 853, success, outsize: 144
+unique: 854, opcode: UNLINK (10), nodeid: 262, insize: 45, pid: 4577
+unlink: xx-2 parent: 262
+isfile: 268 is not a dir
+   unique: 854, success, outsize: 16
+unique: 855, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538739 2375 2376
+   unique: 855, success, outsize: 144
+unique: 856, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup ok, ino: 270
+isfile: 270 is a file
+getattr 000000000000010e 1
+isfile: 270 is a file
+getfile 000000000000010e
+getfile 000000000000010e -> sz 4
+   getattr -> 4
+   unique: 856, success, outsize: 144
+unique: 857, opcode: UNLINK (10), nodeid: 262, insize: 45, pid: 4577
+unlink: xx-3 parent: 262
+isfile: 270 is not a dir
+   unique: 857, success, outsize: 16
+unique: 858, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538741 2379 2380
+   unique: 858, success, outsize: 144
+unique: 859, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup ok, ino: 272
+isfile: 272 is a file
+getattr 0000000000000110 1
+isfile: 272 is a file
+getfile 0000000000000110
+getfile 0000000000000110 -> sz 4
+   getattr -> 4
+   unique: 859, success, outsize: 144
+unique: 860, opcode: UNLINK (10), nodeid: 262, insize: 45, pid: 4577
+unlink: xx-4 parent: 262
+isfile: 272 is not a dir
+   unique: 860, success, outsize: 16
+unique: 861, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538743 2383 2384
+   unique: 861, success, outsize: 144
+unique: 862, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup ok, ino: 274
+isfile: 274 is a file
+getattr 0000000000000112 1
+isfile: 274 is a file
+getfile 0000000000000112
+getfile 0000000000000112 -> sz 4
+   getattr -> 4
+   unique: 862, success, outsize: 144
+unique: 863, opcode: UNLINK (10), nodeid: 262, insize: 45, pid: 4577
+unlink: xx-5 parent: 262
+isfile: 274 is not a dir
+   unique: 863, success, outsize: 16
+unique: 864, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538745 2387 2388
+   unique: 864, success, outsize: 144
+unique: 865, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup ok, ino: 276
+isfile: 276 is a file
+getattr 0000000000000114 1
+isfile: 276 is a file
+getfile 0000000000000114
+getfile 0000000000000114 -> sz 4
+   getattr -> 4
+   unique: 865, success, outsize: 144
+unique: 866, opcode: UNLINK (10), nodeid: 262, insize: 45, pid: 4577
+unlink: xx-6 parent: 262
+isfile: 276 is not a dir
+   unique: 866, success, outsize: 16
+unique: 867, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538747 2391 2392
+   unique: 867, success, outsize: 144
+unique: 868, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup ok, ino: 278
+isfile: 278 is a file
+getattr 0000000000000116 1
+isfile: 278 is a file
+getfile 0000000000000116
+getfile 0000000000000116 -> sz 4
+   getattr -> 4
+   unique: 868, success, outsize: 144
+unique: 869, opcode: UNLINK (10), nodeid: 262, insize: 45, pid: 4577
+unlink: xx-7 parent: 262
+isfile: 278 is not a dir
+   unique: 869, success, outsize: 16
+unique: 870, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4577
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538749 2395 2396
+   unique: 870, success, outsize: 144
+unique: 871, opcode: LOOKUP (1), nodeid: 262, insize: 45, pid: 4577
+lookup ok, ino: 280
+isfile: 280 is a file
+getattr 0000000000000118 1
+isfile: 280 is a file
+getfile 0000000000000118
+getfile 0000000000000118 -> sz 4
+   getattr -> 4
+   unique: 871, success, outsize: 144
+unique: 872, opcode: UNLINK (10), nodeid: 262, insize: 45, pid: 4577
+unlink: xx-8 parent: 262
+isfile: 280 is not a dir
+   unique: 872, success, outsize: 16
+unique: 873, opcode: FORGET (2), nodeid: 280, insize: 48, pid: 0
+unique: 874, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 4575
+lookup ok, ino: 262
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538751 2399 2400
+   unique: 874, success, outsize: 144
+unique: 875, opcode: OPENDIR (27), nodeid: 262, insize: 48, pid: 4575
+   unique: 875, success, outsize: 32
+unique: 876, opcode: GETATTR (3), nodeid: 262, insize: 56, pid: 4575
+isfile: 262 is a dir
+getattr 0000000000000106 0
+isfile: 262 is a dir
+isfile: 262 is not a symlink
+getdir 0000000000000106
+   getattr -> 58538751 2399 2400
+   unique: 876, success, outsize: 120
+unique: 877, opcode: READDIR (28), nodeid: 262, insize: 80, pid: 4575
+fuseserver_readdir
+isfile: 262 is a dir
+readdir name: xx-9                                                        
+pos:64
+   unique: 877, success, outsize: 48
+unique: 878, opcode: READDIR (28), nodeid: 262, insize: 80, pid: 4575
+fuseserver_readdir
+isfile: 262 is a dir
+readdir name: xx-9                                                        
+pos:64
+   unique: 878, success, outsize: 16
+unique: 879, opcode: RELEASEDIR (29), nodeid: 262, insize: 64, pid: 0
+   unique: 879, success, outsize: 16
+unique: 880, opcode: FORGET (2), nodeid: 261, insize: 48, pid: 0
