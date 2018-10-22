@@ -13,6 +13,8 @@ class extent_client {
 
  public:
   extent_client(std::string dst);
+  extent_server *es;
+  extent_client();
 
   extent_protocol::status create(uint32_t type, extent_protocol::extentid_t &eid);
   extent_protocol::status get(extent_protocol::extentid_t eid, 
