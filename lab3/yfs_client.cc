@@ -19,7 +19,8 @@ yfs_client::yfs_client()
 yfs_client::yfs_client(std::string extent_dst, std::string lock_dst)
 {
     ec = new extent_client(extent_dst);
-    lc = new lock_client(lock_dst);
+    //lc = new lock_client(lock_dst);
+    lc = new lock_client_cache(lock_dst, NULL);
     if (ec->put(1, "") != extent_protocol::OK)
         printf("error init root dir\n"); // XYB: init root dir
 }
