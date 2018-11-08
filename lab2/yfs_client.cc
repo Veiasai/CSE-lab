@@ -9,8 +9,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#define FILENAME_MAX 60
-
 yfs_client::yfs_client()
 {
     ec = new extent_client();
@@ -186,11 +184,6 @@ yfs_client::setattr(inum ino, size_t size)
     r = ec->get(ino, buf);
     buf.resize(size);
     ec->put(ino, buf);
-    /*
-     * your code goes here.
-     * note: get the content of inode ino, and modify its content
-     * according to the size (<, =, or >) content length.
-     */
     lc->release(ino);
     return r;
 }
@@ -213,17 +206,10 @@ yfs_client::create(inum parent, const char *name, mode_t mode, inum &ino_out)
     std::string buf;
     r = ec->get(parent, buf);
     buf.insert(buf.size(), name);
-    buf.resize(buf.size() + FILENAME_MAX + 4 - strlen(name), 0);
+    buf.resize(buf.size() + 5, 0);
     *(uint32_t *)(buf.c_str()+buf.size()-4) = ino_out;
 
-    std::cout << "create inum " << ino_out << " buf size " << buf.size() << '\n';
-    
     ec->put(parent, buf);
-    /*
-     * your code goes here.
-     * note: lookup is what you need to check if file exist;
-     * after create file or dir, you must remember to modify the parent infomation.
-     */
     lc->release(parent);
     return r;
 }
@@ -244,17 +230,10 @@ yfs_client::mkdir(inum parent, const char *name, mode_t mode, inum &ino_out)
     std::string buf;
     r = ec->get(parent, buf);
     buf.insert(buf.size(), name);
-    buf.resize(buf.size() + FILENAME_MAX + 4 - strlen(name), 0);
+    buf.resize(buf.size() + 5, 0);
     *(uint32_t *)(buf.c_str()+buf.size()-4) = ino_out;
 
-    std::cout << "make dir inum" << ino_out << '\n'; 
     ec->put(parent, buf);
-
-    /*
-     * your code goes here.
-     * note: lookup is what you need to check if directory exist;
-     * after create file or dir, you must remember to modify the parent infomation.
-     */
     lc->release(parent);
     return r;
 }
@@ -269,23 +248,16 @@ yfs_client::lookup(inum parent, const char *name, bool &found, inum &ino_out)
 
     int pos = 0;
     while(pos < buf.size()){
-        if (strcmp(buf.c_str()+pos, name) == 0){
-            ino_out = *(uint32_t *)(buf.c_str() + pos + FILENAME_MAX);
+        const char * t = buf.c_str()+pos;
+        if (strcmp(t, name) == 0){
+            ino_out = *(uint32_t *)(buf.c_str() + pos + strlen(t) + 1);
             found = true;
-            std::cout << "lookup ok, ino: " << ino_out << "\n";
             lc->release(parent);
             return r;
         }
-        pos += FILENAME_MAX + sizeof(uint);
+        pos += strlen(t) + 1 + sizeof(uint);
     }
     found = false;
-    std::cout << "lookup fail" << "name: " << name << "\n";
-    std::cout << "parent: " << parent << "\n";
-    /*
-     * your code goes here.
-     * note: lookup file from parent dir according to name;
-     * you should design the format of directory content.
-     */
     return r;
 }
 
@@ -299,18 +271,11 @@ yfs_client::readdir(inum dir, std::list<dirent> &list)
     int pos = 0;
     while(pos < buf.size()){
         struct dirent temp;
-        temp.name = buf.substr(pos, FILENAME_MAX);
-        temp.inum = *(uint32_t *)(buf.c_str() + pos + FILENAME_MAX);
+        temp.name = std::string(buf.c_str()+pos);
+        temp.inum = *(uint32_t *)(buf.c_str() + pos + temp.name.size() + 1);
         list.push_back(temp);
-        pos += FILENAME_MAX + sizeof(uint32_t);
-        std::cout << "readdir name: " << temp.name << "\n";
-        std::cout << "pos:" << pos << "\n";
+        pos += temp.name.size() + 1 + sizeof(uint32_t);
     }
-    /*
-     * your code goes here.
-     * note: you should parse the dirctory content using your defined format,
-     * and push the dirents to the list.
-     */
     lc->release(dir);
     return r;
 }
@@ -322,9 +287,6 @@ yfs_client::read(inum ino, size_t size, off_t off, std::string &data)
     int r = OK;
     r = ec->get(ino, data);
 
-    std::cout << "read file size: " << size << " data size: " << data.size() << "\n";
-    std::cout << "read file off: " << off << "\n";
-
     if (off < data.size()){
         data=data.substr(off);
     }else{
@@ -334,11 +296,6 @@ yfs_client::read(inum ino, size_t size, off_t off, std::string &data)
         data.resize(size);
     }
 
-    std::cout << "result size: " << data.size() << "\n";
-    /*
-     * your code goes here.
-     * note: read using ec->get().
-     */
     lc->release(ino);
     return r;
 }
@@ -353,8 +310,6 @@ yfs_client::write(inum ino, size_t size, off_t off, const char *data,
     std::string buf;
     bytes_written = 0;
     r = ec->get(ino, buf);
-
-    std::cout << "write file size: " << size << " buf size" << buf.size() << " off " << off << "\n";
 
     std::string temp(size, 0);
     for (int i=0;i<size;i++){
@@ -373,13 +328,6 @@ yfs_client::write(inum ino, size_t size, off_t off, const char *data,
     bytes_written += size;
     ec->put(ino, buf);
 
-    std::cout << "ino " << ino << " bytes written: " << bytes_written;
-    std::cout << "result size: " << buf.size();
-    /*
-     * your code goes here.
-     * note: write using ec->put().
-     * when off > length of original file, fill the holes with '\0'.
-     */
     lc->release(ino);
     return r;
 }
@@ -393,28 +341,22 @@ int yfs_client::unlink(inum parent,const char *name)
 
     r = ec->get(parent, buf);
 
-    std::cout << "unlink: " << name << " parent: " << parent << "\n";
     int pos = 0;
     while(pos < buf.size()){
-        if (strcmp(buf.c_str()+pos, name) == 0){
-            uint32_t ino = *(uint32_t *)(buf.c_str() + pos + FILENAME_MAX);
+        const char * t = buf.c_str()+pos;
+        if (strcmp(t, name) == 0){
+            uint32_t ino = *(uint32_t *)(buf.c_str() + pos + strlen(t) + 1);
             if (isdir(ino)){
                 lc->release(parent);
                 return EXIST;
             }
-                
-            ec->remove(ino);
-            buf.erase(pos, FILENAME_MAX + sizeof(uint32_t));
+            buf.erase(pos, strlen(t) + 1 + sizeof(uint32_t));
             ec->put(parent, buf);
+            ec->remove(ino);
             break;
         }
-        pos += FILENAME_MAX + sizeof(uint32_t);
+        pos += strlen(t) + 1 + sizeof(uint32_t);
     }
-    /*
-     * your code goes here.
-     * note: you should remove the file using ec->remove,
-     * and update the parent directory content.
-     */
     lc->release(parent);
     return r;
 }
@@ -439,14 +381,11 @@ int yfs_client::symlink(const char *link, inum parent, const char *name, inum &i
     
     r = ec->get(parent, buf);
     buf.insert(buf.size(), name);
-    buf.resize(buf.size() + FILENAME_MAX + 4 - strlen(name), 0);
+    buf.resize(buf.size() + 5, 0);
     *(uint32_t *)(buf.c_str()+buf.size()-4) = ino;
     
     ec->put(parent, buf);
-
-    buf = link;
-
-    ec->put(ino, buf);
+    ec->put(ino, link);
 
     lc->release(parent);
     return r;
