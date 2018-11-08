@@ -74,27 +74,25 @@ lock_client_cache::release(lock_protocol::lockid_t lid)
   pthread_mutex_lock(&mutex);
   if (!pthread_cond_destroy(&cond[lid])){
     pthread_cond_init(&cond[lid], NULL);
-    std::cerr << "release 1 " << lock[lid] << '\n';
     if (lock[lid] == revoke){
-      std::cerr << "release 2" << '\n';
       lock[lid] = discard;
       pthread_mutex_unlock(&mutex);
       int tr = 9;
       while (tr == 9) cl->call(lock_protocol::release, lid, id, tr);
       pthread_mutex_lock(&mutex);
       lock[lid] = unlock;
-      std::cerr << "release 3" << '\n';
+      //std::cerr << "release 3" << '\n';
     }else{
       lock[lid] = hold;
-      std::cerr << "release 4" << '\n';
+      //std::cerr << "release 4" << '\n';
     }
-    std::cerr << "release 5" << '\n';
+    //std::cerr << "release 5" << '\n';
   }
   else{
-    std::cerr << "release 6" << '\n';
+    //std::cerr << "release 6" << '\n';
     pthread_cond_signal(&cond[lid]);
   }
-  std::cerr << "release 7" << '\n';
+  //std::cerr << "release 7" << '\n';
   pthread_mutex_unlock(&mutex);
   return ret;
 }
@@ -125,13 +123,13 @@ lock_client_cache::revoke_handler(lock_protocol::lockid_t lid, int & r)
 }
 
 rlock_protocol::status
-lock_client_cache::retry_handler(lock_protocol::lockid_t lid, int & r)
+lock_client_cache::retry_handler(lock_protocol::lockid_t lid,  int state, int & r)
 {
-  std::cerr << "retry " << r << '\n';
+  std::cerr << "retry " << state << '\n';
   //pthread_mutex_lock(&mutex);
   int ret = rlock_protocol::OK;
   int n = locked;
-  if (r == 8)
+  if (state)
     n = revoke;
   if (__sync_bool_compare_and_swap(&lock[lid], 2, n)){
     pthread_cond_signal(&cond[lid]);

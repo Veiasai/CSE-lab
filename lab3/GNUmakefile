@@ -44,7 +44,7 @@ CXX = g++
 lab:  lab$(LAB)
 lab1: lab1_tester yfs_client 
 lab2: lock_server lock_tester lock_demo yfs_client extent_server test-lab2-part1-g test-lab2-part2-a test-lab2-part2-b
-lab3: yfs_client extent_server lock_server lock_tester test-lab-3-a    test-lab-3-b
+lab3: yfs_client extent_server lock_server lock_tester test-lab-3-a    test-lab-3-b test-lab2-part1-g test-lab2-part2-a test-lab2-part2-b
 lab5: yfs_client extent_server lock_server lock_tester test-lab2-part2-b\
 	 test-lab2-part2-c
 lab6: yfs_client extent_server lock_server test-lab2-part2-b test-lab2-part2-c
