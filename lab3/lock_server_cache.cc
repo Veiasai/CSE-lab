@@ -20,30 +20,40 @@ lock_server_cache::lock_server_cache():
 int lock_server_cache::acquire(lock_protocol::lockid_t lid, std::string id, int &r)
 {
   lock_protocol::status ret = lock_protocol::OK;
-  std::cout <<  lid << " "<< id <<" "<< "a\n";
   pthread_mutex_lock(&mutex);
   if (lock[lid].empty()){
     lock[lid].push(id);
     r = lock_protocol::OK;
     std::cout <<  lid << " "<< id <<" "<< "a1\n";
-  }else if (lock[lid].front() != id){
+
+  }else if (find(wait_set[lid].begin(), wait_set[lid].end(), id) == wait_set[lid].end()){
     std::cout <<  lid << " "<< id <<" "<< "a2\n";
-    if (find(wait_set[lid].begin(), wait_set[lid].end(), id) == wait_set[lid].end()){
-      sockaddr_in dstsock;
-      make_sockaddr(lock[lid].back().c_str(), &dstsock);
-      rpcc *cl = new rpcc(dstsock);
-      if (cl->bind() < 0) {
-        printf("lock_client: call bind\n");
-      }
-      lock[lid].push(id);
-      wait_set[lid].insert(id);
+    r = lock_protocol::RETRY;
+    lock[lid].push(id);
+    wait_set[lid].insert(id);
+    if (lock[lid].size() == 2){
+      std::cout <<  lid << " "<< id <<" "<< "a3\n";
+      std::string t = lock[lid].front();
+      handle h(t);
+      rpcc *cl = h.safebind();
       int tr = 9;
+      std::cout <<  lid << " "<< id <<" "<< "a4\n";
       pthread_mutex_unlock(&mutex);
-      while (tr == 9) cl->call(rlock_protocol::revoke, lid, tr);
-      delete cl;
+      cl->call(rlock_protocol::revoke, lid, tr);
+      pthread_mutex_lock(&mutex);
+      if (tr == 1) {
+        wait_set[lid].erase(lock[lid].front());
+        lock[lid].pop();
+        if (lock[lid].size() > 1) r = 2;
+        else r = 0;
+        tr = 9;
+        pthread_mutex_unlock(&mutex);
+        cl->call(rlock_protocol::revoke, lid, tr);
+        pthread_mutex_lock(&mutex);
+      }
+      pthread_mutex_unlock(&mutex);
       return ret;
     }
-    r = lock_protocol::RETRY;
   }else{
     r = lock_protocol::OK;
   }
@@ -64,23 +74,19 @@ int lock_server_cache::release(lock_protocol::lockid_t lid, std::string id, int 
     pthread_mutex_unlock(&mutex);
     return ret;
   }
-  //std::cout << "next\n";
+  std::cout << "next\n";
   if (!lock[lid].empty()){
     std::string t = lock[lid].front();
-    sockaddr_in dstsock;
-    make_sockaddr(t.c_str(), &dstsock);
-    rpcc *cl = new rpcc(dstsock);
-    if (cl->bind() < 0) {
-      printf("lock_client: call bind\n");
-    }
-    //std::cout << "next2\n";
+    int state = lock[lid].size() > 1;
+    handle h(t);
+    rpcc *cl = h.safebind();
+    std::cout << "next2\n";
     int tr = 9;
     pthread_mutex_unlock(&mutex);
-    while(tr == 9) cl->call(rlock_protocol::retry, lid, tr);
-    delete cl;
+    cl->call(rlock_protocol::retry, lid, state, tr);
     return ret;
   }
-  //std::cout << "next3\n";
+  std::cout << lid << "free\n";
   pthread_mutex_unlock(&mutex);
   return ret;
 }
