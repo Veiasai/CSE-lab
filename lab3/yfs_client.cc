@@ -26,6 +26,23 @@ yfs_client::yfs_client(std::string extent_dst, std::string lock_dst)
 }
 
 
+yfs_client::inum
+yfs_client::n2i(std::string n)
+{
+    std::istringstream ist(n);
+    unsigned long long finum;
+    ist >> finum;
+    return finum;
+}
+
+std::string
+yfs_client::filename(inum inum)
+{
+    std::ostringstream ost;
+    ost << inum;
+    return ost.str();
+}
+
 bool
 yfs_client::isfile(inum inum)
 {
@@ -245,9 +262,8 @@ yfs_client::lookup(inum parent, const char *name, bool &found, inum &ino_out)
     while(pos < buf.size()){
         const char * t = buf.c_str()+pos;
         if (strcmp(t, name) == 0){
-            ino_out = *(uint32_t *)(buf.c_str() + pos + strlen(t) + 1);
+            ino_out = *(uint32_t *)(t + strlen(t) + 1);
             found = true;
-            lc->release(parent);
             return r;
         }
         pos += strlen(t) + 1 + sizeof(uint);
