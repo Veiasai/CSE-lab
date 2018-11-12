@@ -9,11 +9,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-yfs_client::yfs_client()
-{
-    ec = new extent_client();
-}
-
 yfs_client::yfs_client(std::string extent_dst, std::string lock_dst)
 {
     ec = new extent_client(extent_dst);
@@ -363,8 +358,9 @@ int yfs_client::unlink(inum parent,const char *name)
             }
             buf.erase(pos, strlen(t) + 1 + sizeof(uint32_t));
             ec->put(parent, buf);
+            lc->acquire(ino);
             ec->remove(ino);
-            
+            lc->release(ino);
             break;
         }
         pos += strlen(t) + 1 + sizeof(uint32_t);

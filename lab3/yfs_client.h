@@ -6,7 +6,6 @@
 #include "lock_protocol.h"
 #include "lock_client.h"
 #include "lock_client_cache.h"
-
 //#include "yfs_protocol.h"
 #include "extent_client.h"
 #include <vector>
@@ -27,17 +26,20 @@ class yfs_client {
     unsigned long mtime;
     unsigned long ctime;
   };
+  struct symlinkinfo
+  {
+    /* data */
+    unsigned long long size;
+    unsigned int atime;
+    unsigned int mtime;
+    unsigned int ctime;
+  };
   struct dirinfo {
     unsigned long atime;
     unsigned long mtime;
     unsigned long ctime;
   };
-  struct symlinkinfo {
-    unsigned long long size;
-    unsigned long atime;
-    unsigned long mtime;
-    unsigned long ctime;
-  };
+
   struct dirent {
     std::string name;
     yfs_client::inum inum;
@@ -48,7 +50,6 @@ class yfs_client {
   static inum n2i(std::string);
 
  public:
-  yfs_client();
   yfs_client(std::string, std::string);
 
   bool isfile(inum);
@@ -56,8 +57,8 @@ class yfs_client {
   bool issymlink(inum);
 
   int getfile(inum, fileinfo &);
-  int getsymlink(inum inum, symlinkinfo &);
   int getdir(inum, dirinfo &);
+  int getsymlink(inum, symlinkinfo &);
 
   int setattr(inum, size_t);
   int lookup(inum, const char *, bool &, inum &);
@@ -69,7 +70,8 @@ class yfs_client {
   int mkdir(inum , const char *, mode_t , inum &);
   int symlink(const char *, inum, const char *, inum &);
   int readlink(inum, std::string &);
-  /** you may need to add symbolic link related methods here.*/
+  int pathToInum(const char *, inum);
+  int allPath(const char *, inum);
 };
 
 #endif 
