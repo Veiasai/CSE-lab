@@ -35,12 +35,19 @@ Ansible写了一个部署脚本，使用方法如下：
         - 在group_vars/cse文件中，预留了一个Test_pub，我们可以使用ssh-keygen生成自己的公私钥，然后将公钥内容copy到这里，私钥留作连接用。
         - 脚本中会使用hostname去连接，所以还需要配置运行测试脚本的机器上的hosts，但是更好的办法是配置ssh config，这个文件在~/.ssh/config。
         - 我给出了一份样例配置ssh-config。
-        - 填充了Test_pub，并在config中配置好私钥，运行部署脚本（第7步）后，可以在command中ssh app或者ssh name等，能连接上就算成功。
+        - 填充了Test_pub，并在config中配置好私钥，运行部署脚本（第8步）后，可以在command中ssh app或者ssh name等，能连接上就算成功。
         - 然后再运行测试。
         - 不过我听助教说，测试脚本是先跳到app在开始测试的，所以密钥在放到app机器的.ssh目录下（实际上，如果想要四台机器都能够通过part0测试，那么这份密钥应该在四个机器上都放好，这样四台机器就互相都可以连接了），以便它能够连接其他机器。
         - 经过我的踩坑，由于测试脚本使用了telnet，所以/etc/hosts还是需要配置一下的。
         - 所以建议还是app上跑测试吧。
-  7. 在根目录（lab4-deploy）下运行。
+  7. 有一个问题是，一般公钥认证都是开启的，所以第一次ssh连接，会出现一个ssh交互，yes or no，这让脚本无法运行，有两个办法。
+      - 手动先连上去一次。
+      - 配置文件/etc/ansible/ansible.cfg的[defaults]中打开注释
+        ``` yml
+        # uncomment this to disable SSH key host checking
+        host_key_checking = False
+        ```
+  8. 在根目录（lab4-deploy）下运行。
         ``` shell
         ansible-playbook -i hosts site.yml
         ```
