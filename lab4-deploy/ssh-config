@@ -1,0 +1,23 @@
+Host app
+	HostName 129.211.101.125
+	User cse
+	Port 22
+	IdentityFile /Users/veiasai/.ssh/csetest.isa
+
+Host name
+	HostName 129.211.101.244
+	User cse
+	Port 22
+	IdentityFile /Users/veiasai/.ssh/csetest.isa
+
+Host data1
+	HostName 212.129.143.248
+	User cse
+	Port 22
+	IdentityFile /Users/veiasai/.ssh/csetest.isa
+
+Host data2
+	HostName 129.211.102.206
+	User cse
+	Port 22
+	IdentityFile /Users/veiasai/.ssh/csetest.isa

@@ -1,0 +1,215 @@
+syntax = "proto2";
+
+import "common.proto";
+
+message HdfsFileStatusProto {
+  enum FileType {
+    IS_DIR = 1;
+    IS_FILE = 2;
+    IS_SYMLINK = 3;
+  }
+  required FileType fileType = 1;
+  required bytes path = 2;          // local name of inode encoded java UTF8
+  required uint64 length = 3;
+  required FsPermissionProto permission = 4;
+  required string owner = 5;
+  required string group = 6;
+  required uint64 modification_time = 7;
+  required uint64 access_time = 8;
+
+  // Optional fields for symlink
+  optional bytes symlink = 9;             // if symlink, target encoded java UTF8
+
+  // Optional fields for file
+  optional uint32 block_replication = 10 [default = 0]; // only 16bits used
+  optional uint64 blocksize = 11 [default = 0];
+  optional LocatedBlocksProto locations = 12;  // suppled only if asked by client
+
+  // Optional field for fileId
+  optional uint64 fileId = 13 [default = 0]; // default as an invalid id
+  optional int32 childrenNum = 14 [default = -1];
+  // Optional field for file encryption
+  optional FileEncryptionInfoProto fileEncryptionInfo = 15;
+
+  optional uint32 storagePolicy = 16 [default = 0]; // block storage policy id
+}
+
+/**
+ * Directory listing
+ */
+message DirectoryListingProto {
+  repeated HdfsFileStatusProto partialListing = 1;
+  required uint32 remainingEntries  = 2;
+}
+
+message GetFileInfoRequestProto {
+  required string src = 1;
+}
+
+message GetFileInfoResponseProto {
+  optional HdfsFileStatusProto fs = 1;
+}
+
+message GetListingRequestProto {
+  required string src = 1;
+  required bytes startAfter = 2;
+  required bool needLocation = 3;
+}
+
+message GetListingResponseProto {
+  optional DirectoryListingProto dirList = 1;
+}
+
+message GetBlockLocationsRequestProto {
+  required string src = 1;     // file name
+  required uint64 offset = 2;  // range start offset
+  required uint64 length = 3;  // range length
+}
+
+message GetBlockLocationsResponseProto {
+  optional LocatedBlocksProto locations = 1;
+}
+
+message FsServerDefaultsProto {
+  required uint64 blockSize = 1;
+  required uint32 bytesPerChecksum = 2;
+  required uint32 writePacketSize = 3;
+  required uint32 replication = 4; // Actually a short - only 16 bits used
+  required uint32 fileBufferSize = 5;
+  optional bool encryptDataTransfer = 6 [default = false];
+  optional uint64 trashInterval = 7 [default = 0];
+  optional ChecksumTypeProto checksumType = 8 [default = CHECKSUM_CRC32];
+  optional string keyProviderUri = 9;
+  optional uint32 policyId = 10 [default = 0];
+}
+
+message GetServerDefaultsRequestProto { // No parameters
+}
+
+message GetServerDefaultsResponseProto {
+  required FsServerDefaultsProto serverDefaults = 1;
+}
+
+message CreateRequestProto {
+  required string src = 1;
+  required FsPermissionProto masked = 2;
+  required string clientName = 3;
+  required uint32 createFlag = 4;  // bits set using CreateFlag
+  required bool createParent = 5;
+  required uint32 replication = 6; // Short: Only 16 bits used
+  required uint64 blockSize = 7;
+  repeated CryptoProtocolVersionProto cryptoProtocolVersion = 8;
+}
+
+message CreateResponseProto {
+  optional HdfsFileStatusProto fs = 1;
+}
+
+message CompleteRequestProto {
+  required string src = 1;
+  required string clientName = 2;
+  optional ExtendedBlockProto last = 3;
+  optional uint64 fileId = 4 [default = 0];  // default to GRANDFATHER_INODE_ID
+}
+
+message CompleteResponseProto {
+  required bool result = 1;
+}
+
+enum AddBlockFlagProto {
+  NO_LOCAL_WRITE = 1; // avoid writing to local node.
+}
+
+message AddBlockRequestProto {
+  required string src = 1;
+  required string clientName = 2;
+  optional ExtendedBlockProto previous = 3;
+  repeated DatanodeInfoProto excludeNodes = 4;
+  optional uint64 fileId = 5 [default = 0];  // default as a bogus id
+  repeated string favoredNodes = 6; //the set of datanodes to use for the block
+  repeated AddBlockFlagProto flags = 7; // default to empty.
+}
+
+message AddBlockResponseProto {
+  required LocatedBlockProto block = 1;
+}
+
+message RenewLeaseRequestProto {
+  required string clientName = 1;
+}
+
+message RenewLeaseResponseProto { //void response
+}
+
+message RenameRequestProto {
+  required string src = 1;
+  required string dst = 2;
+}
+
+message RenameResponseProto {
+  required bool result = 1;
+}
+
+message DeleteRequestProto {
+  required string src = 1;
+  required bool recursive = 2;
+}
+
+message DeleteResponseProto {
+    required bool result = 1;
+}
+
+message MkdirsRequestProto {
+  required string src = 1;
+  required FsPermissionProto masked = 2;
+  required bool createParent = 3;
+}
+message MkdirsResponseProto {
+    required bool result = 1;
+}
+
+message GetFsStatsRequestProto { // no input paramters
+}
+
+message GetFsStatsResponseProto {
+  required uint64 capacity = 1;
+  required uint64 used = 2;
+  required uint64 remaining = 3;
+  required uint64 under_replicated = 4;
+  required uint64 corrupt_blocks = 5;
+  required uint64 missing_blocks = 6;
+  optional uint64 missing_repl_one_blocks = 7;
+  optional uint64 blocks_in_future = 8;
+  optional uint64 pending_deletion_blocks = 9;
+}
+
+enum SafeModeActionProto {
+  SAFEMODE_LEAVE = 1;
+  SAFEMODE_ENTER = 2;
+  SAFEMODE_GET = 3;
+  SAFEMODE_FORCE_EXIT = 4;
+}
+
+message SetSafeModeRequestProto {
+  required SafeModeActionProto action = 1;
+  optional bool checked = 2 [default = false];
+}
+
+message SetSafeModeResponseProto {
+  required bool result = 1;
+}
+
+enum DatanodeReportTypeProto {  // type of the datanode report
+  ALL = 1;
+  LIVE = 2;
+  DEAD = 3;
+  DECOMMISSIONING = 4;
+}
+
+message GetDatanodeReportRequestProto {
+  required DatanodeReportTypeProto type = 1;
+}
+
+message GetDatanodeReportResponseProto {
+  repeated DatanodeInfoProto di = 1;
+}

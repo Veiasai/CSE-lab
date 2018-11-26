@@ -1,0 +1,42 @@
+---
+# - name: Download the tarball
+#   get_url: 
+#     url="http://mirrors.hust.edu.cn/apache/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz" 
+#     dest=~/
+
+- name: Copy the tarball from local
+  copy:
+    src=hadoop-2.8.5.tar.gz 
+    dest=~/
+
+- name: judge a file or dir is exits
+  shell: ls ~/hadoop-2.8.5
+  ignore_errors: True
+  register: result
+
+- name: Extract the tarball
+  unarchive: 
+    src=~/hadoop-2.8.5.tar.gz
+    dest=~/
+    copy=no
+    owner=cse
+  when: result is failed
+
+- name: Add core-site
+  template:
+    src=core-site.j2 
+    dest=~/hadoop-2.8.5/etc/hadoop/core-site.xml
+    mode=0644
+  
+- name: Add hdfs-site
+  template:
+    src=hdfs-site.j2 
+    dest=~/hadoop-2.8.5/etc/hadoop/hdfs-site.xml
+    mode=0644
+
+- name: modify hadoop env sh
+  copy:
+    src=./hadoop-env.sh
+    dest=~/hadoop-2.8.5/etc/hadoop/hadoop-env.sh
+    owner=cse
+    mode=0644

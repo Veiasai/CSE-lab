@@ -1,0 +1,439 @@
+syntax = "proto2";
+
+/**
+ * RpcKind determine the rpcEngine and the serialization of the rpc request
+ */
+enum RpcKindProto {
+  RPC_BUILTIN          = 0;  // Used for built in calls by tests
+  RPC_WRITABLE         = 1;  // Use WritableRpcEngine 
+  RPC_PROTOCOL_BUFFER  = 2;  // Use ProtobufRpcEngine
+}
+
+/**
+ * Used to pass through the information necessary to continue
+ * a trace after an RPC is made. All we need is the traceid
+ * (so we know the overarching trace this message is a part of), and
+ * the id of the current span when this message was sent, so we know
+ * what span caused the new span we will create when this message is received.
+ */
+message RPCTraceInfoProto {
+    optional int64 traceId = 1; // parentIdHigh
+    optional int64 parentId = 2; // parentIdLow
+
+}
+
+/**
+ * Used to pass through the call context entry after an RPC is made.
+ */
+message RPCCallerContextProto {
+  required string context = 1;
+  optional bytes signature = 2;
+}
+
+message RpcRequestHeaderProto { // the header for the RpcRequest
+  enum OperationProto {
+    RPC_FINAL_PACKET        = 0; // The final RPC Packet
+    RPC_CONTINUATION_PACKET = 1; // not implemented yet
+    RPC_CLOSE_CONNECTION     = 2; // close the rpc connection
+  }
+
+  optional RpcKindProto rpcKind = 1;
+  optional OperationProto rpcOp = 2;
+  required sint32 callId = 3; // a sequence number that is sent back in response
+  required bytes clientId = 4; // Globally unique client ID
+  // clientId + callId uniquely identifies a request
+  // retry count, 1 means this is the first retry
+  optional sint32 retryCount = 5 [default = -1];
+  optional RPCTraceInfoProto traceInfo = 6; // tracing info
+  optional RPCCallerContextProto callerContext = 7; // call context
+}
+
+/**
+ * Rpc Response Header
+ * +------------------------------------------------------------------+
+ * | Rpc total response length in bytes (4 bytes int)                 |
+ * |  (sum of next two parts)                                         |
+ * +------------------------------------------------------------------+
+ * | RpcResponseHeaderProto - serialized delimited ie has len         |
+ * +------------------------------------------------------------------+
+ * | if request is successful:                                        |
+ * |   - RpcResponse -  The actual rpc response  bytes follow         |
+ * |     the response header                                          |
+ * |     This response is serialized based on RpcKindProto            |
+ * | if request fails :                                               |
+ * |   The rpc response header contains the necessary info            |
+ * +------------------------------------------------------------------+
+ *
+ * Note that rpc response header is also used when connection setup fails. 
+ * Ie the response looks like a rpc response with a fake callId.
+ */
+message RpcResponseHeaderProto {
+  /**
+    * 
+    * RpcStastus - success or failure
+    * The reponseHeader's errDetail,  exceptionClassName and errMsg contains
+    * further details on the error
+    **/
+
+  enum RpcStatusProto {
+   SUCCESS = 0;  // RPC succeeded
+   ERROR = 1;    // RPC or error - connection left open for future calls
+   FATAL = 2;    // Fatal error - connection closed
+  }
+
+  enum RpcErrorCodeProto {
+
+   // Non-fatal Rpc error - connection left open for future rpc calls
+   ERROR_APPLICATION = 1;      // RPC Failed - rpc app threw exception
+   ERROR_NO_SUCH_METHOD = 2;   // Rpc error - no such method
+   ERROR_NO_SUCH_PROTOCOL = 3; // Rpc error - no such protocol
+   ERROR_RPC_SERVER  = 4;      // Rpc error on server side
+   ERROR_SERIALIZING_RESPONSE = 5; // error serializign response
+   ERROR_RPC_VERSION_MISMATCH = 6; // Rpc protocol version mismatch
+
+
+   // Fatal Server side Rpc error - connection closed
+   FATAL_UNKNOWN = 10;                   // unknown Fatal error
+   FATAL_UNSUPPORTED_SERIALIZATION = 11; // IPC layer serilization type invalid
+   FATAL_INVALID_RPC_HEADER = 12;        // fields of RpcHeader are invalid
+   FATAL_DESERIALIZING_REQUEST = 13;     // could not deserilize rpc request
+   FATAL_VERSION_MISMATCH = 14;          // Ipc Layer version mismatch
+   FATAL_UNAUTHORIZED = 15;              // Auth failed
+  }
+
+  required uint32 callId = 1; // callId used in Request
+  required RpcStatusProto status = 2;
+  optional uint32 serverIpcVersionNum = 3; // Sent if success or fail
+  optional string exceptionClassName = 4;  // if request fails
+  optional string errorMsg = 5;  // if request fails, often contains strack trace
+  optional RpcErrorCodeProto errorDetail = 6; // in case of error
+  optional bytes clientId = 7; // Globally unique client ID
+  optional sint32 retryCount = 8 [default = -1];
+}
+
+/**
+ * File or Directory permision - same spec as posix
+ */
+message FsPermissionProto {
+  required uint32 perm = 1;       // Actually a short - only 16bits used
+}
+
+/**
+ * Extended block idenfies a block
+ */
+message ExtendedBlockProto {
+  required string poolId = 1;   // Block pool id - gloablly unique across clusters
+  required uint64 blockId = 2;  // the local id within a pool
+  required uint64 generationStamp = 3;
+  optional uint64 numBytes = 4 [default = 0];  // len does not belong in ebid
+                                               // here for historical reasons
+}
+
+/**
+ * Identifies a Datanode
+ */
+message DatanodeIDProto {
+  required string ipAddr = 1;    // IP address
+  required string hostName = 2;  // hostname
+  required string datanodeUuid = 3;     // UUID assigned to the Datanode. For
+                                        // upgraded clusters this is the same
+                                        // as the original StorageID of the
+                                        // Datanode.
+  required uint32 xferPort = 4;  // data streaming port
+  required uint32 infoPort = 5;  // datanode http port
+  required uint32 ipcPort = 6;   // ipc server port
+  optional uint32 infoSecurePort = 7 [default = 0]; // datanode https port
+}
+
+/**
+ * The status of a Datanode
+ */
+message DatanodeInfoProto {
+  required DatanodeIDProto id = 1;
+  optional uint64 capacity = 2 [default = 0];
+  optional uint64 dfsUsed = 3 [default = 0];
+  optional uint64 remaining = 4 [default = 0];
+  optional uint64 blockPoolUsed = 5 [default = 0];
+  optional uint64 lastUpdate = 6 [default = 0];
+  optional uint32 xceiverCount = 7 [default = 0];
+  optional string location = 8;
+  optional uint64 nonDfsUsed = 9;
+  enum AdminState {
+    NORMAL = 0;
+    DECOMMISSION_INPROGRESS = 1;
+    DECOMMISSIONED = 2;
+  }
+
+  optional AdminState adminState = 10 [default = NORMAL];
+  optional uint64 cacheCapacity = 11 [default = 0];
+  optional uint64 cacheUsed = 12 [default = 0];
+  optional uint64 lastUpdateMonotonic = 13 [default = 0];
+  optional string upgradeDomain = 14;
+}
+
+/**
+ * Security token identifier
+ */
+message TokenProto {
+  required bytes identifier = 1;
+  required bytes password = 2;
+  required string kind = 3;
+  required string service = 4;
+}
+
+/**
+ * Types of recognized storage media.
+ */
+enum StorageTypeProto {
+  DISK = 1;
+  SSD = 2;
+  ARCHIVE = 3;
+  RAM_DISK = 4;
+}
+
+/**
+ * Cipher suite.
+ */
+enum CipherSuiteProto {
+    UNKNOWN = 1;
+    AES_CTR_NOPADDING = 2;
+}
+
+/**
+ * Crypto protocol version used to access encrypted files.
+ */
+enum CryptoProtocolVersionProto {
+    UNKNOWN_PROTOCOL_VERSION = 1;
+    ENCRYPTION_ZONES = 2;
+}
+
+/**
+ * Encryption information for a file.
+ */
+message FileEncryptionInfoProto {
+  required CipherSuiteProto suite = 1;
+  required CryptoProtocolVersionProto cryptoProtocolVersion = 2;
+  required bytes key = 3;
+  required bytes iv = 4;
+  required string keyName = 5;
+  required string ezKeyVersionName = 6;
+}
+
+/**
+ * A LocatedBlock gives information about a block and its location.
+ */
+message LocatedBlockProto {
+  required ExtendedBlockProto b  = 1;
+  required uint64 offset = 2;           // offset of first byte of block in the file
+  repeated DatanodeInfoProto locs = 3;  // Locations ordered by proximity to client ip
+  required bool corrupt = 4;            // true if all replicas of a block are corrupt, else false
+                                        // If block has few corrupt replicas, they are filtered and
+                                        // their locations are not part of this object
+
+  required TokenProto blockToken = 5;
+  repeated bool isCached = 6 [packed=true]; // if a location in locs is cached
+  repeated StorageTypeProto storageTypes = 7;
+  repeated string storageIDs = 8;
+}
+
+/**
+ * A set of file blocks and their locations.
+ */
+message LocatedBlocksProto {
+  required uint64 fileLength = 1;
+  repeated LocatedBlockProto blocks = 2;
+  required bool underConstruction = 3;
+  optional LocatedBlockProto lastBlock = 4;
+  required bool isLastBlockComplete = 5;
+  optional FileEncryptionInfoProto fileEncryptionInfo = 6;
+}
+
+/**
+ * This message is the header for the Protobuf Rpc Engine
+ * when sending a RPC request from  RPC client to the RPC server.
+ * The actual request (serialized as protobuf) follows this request.
+ *
+ * No special header is needed for the Rpc Response for Protobuf Rpc Engine.
+ * The normal RPC response header (see RpcHeader.proto) are sufficient.
+ */
+message RequestHeaderProto {
+  /** Name of the RPC method */
+  required string methodName = 1;
+
+  /**
+   * RPCs for a particular interface (ie protocol) are done using a
+   * IPC connection that is setup using rpcProxy.
+   * The rpcProxy's has a declared protocol name that is
+   * sent form client to server at connection time.
+   *
+   * Each Rpc call also sends a protocol name
+   * (called declaringClassprotocolName). This name is usually the same
+   * as the connection protocol name except in some cases.
+   * For example metaProtocols such ProtocolInfoProto which get metainfo
+   * about the protocol reuse the connection but need to indicate that
+   * the actual protocol is different (i.e. the protocol is
+   * ProtocolInfoProto) since they reuse the connection; in this case
+   * the declaringClassProtocolName field is set to the ProtocolInfoProto
+   */
+  required string declaringClassProtocolName = 2;
+
+  /** protocol version of class declaring the called method */
+  required uint64 clientProtocolVersion = 3;
+}
+
+/**
+ * Common node information shared by all the nodes in the cluster
+ */
+message StorageInfoProto {
+  required uint32 layoutVersion = 1; // Layout version of the file system
+  required uint32 namespceID = 2;    // File system namespace ID
+  required string clusterID = 3;     // ID of the cluster
+  required uint64 cTime = 4;         // File system creation time
+}
+
+/**
+ * Block access token information
+ */
+message BlockKeyProto {
+  required uint32 keyId = 1;      // Key identifier
+  required uint64 expiryDate = 2; // Expiry time in milliseconds
+  optional bytes keyBytes = 3;    // Key secret
+}
+
+/**
+ * Current key and set of block keys at the namenode.
+ */
+message ExportedBlockKeysProto {
+  required bool isBlockTokenEnabled = 1;
+  required uint64 keyUpdateInterval = 2;
+  required uint64 tokenLifeTime = 3;
+  required BlockKeyProto currentKey = 4;
+  repeated BlockKeyProto allKeys = 5;
+}
+
+/**
+ * Information to identify a datanode to a namenode
+ */
+message DatanodeRegistrationProto {
+  required DatanodeIDProto datanodeID = 1;    // Datanode information
+  optional StorageInfoProto storageInfo = 2;  // Node information
+  optional ExportedBlockKeysProto keys = 3;   // Block keys
+  optional string softwareVersion = 4;        // Software version of the DN, e.g. "2.0.0"
+  optional bool master = 5;
+}
+
+/**
+ * registration - Information of the datanode registering with the namenode
+ */
+message RegisterDatanodeRequestProto {
+  required DatanodeRegistrationProto registration = 1; // Datanode info
+}
+
+/**
+ * registration - Update registration of the datanode that successfully
+ *                registered. StorageInfo will be updated to include new
+ *                storage ID if the datanode did not have one in the request.
+ */
+message RegisterDatanodeResponseProto {
+  required DatanodeRegistrationProto registration = 1; // Datanode info
+}
+
+enum ChecksumTypeProto {
+  CHECKSUM_NULL = 0;
+  CHECKSUM_CRC32 = 1;
+  CHECKSUM_CRC32C = 2;
+}
+
+message DatanodeHeartbeatRequestProto {
+  required DatanodeIDProto id = 1;
+}
+
+message DatanodeHeartbeatResponseProto {
+}
+
+message DataTransferTraceInfoProto {
+  required uint64 traceId = 1;
+  required uint64 parentId = 2;
+}
+
+message BaseHeaderProto {
+  required ExtendedBlockProto block = 1;
+  optional TokenProto token = 2;
+  optional DataTransferTraceInfoProto traceInfo = 3;
+}
+
+message ClientOperationHeaderProto {
+  required BaseHeaderProto baseHeader = 1;
+  required string clientName = 2;
+}
+
+message OpTransferBlockProto {
+  required ClientOperationHeaderProto header = 1;
+  repeated DatanodeInfoProto targets = 2;
+  repeated StorageTypeProto targetStorageTypes = 3;
+}
+
+enum Status {
+  SUCCESS = 0;
+  ERROR = 1;
+  ERROR_CHECKSUM = 2;
+  ERROR_INVALID = 3;
+  ERROR_EXISTS = 4;
+  ERROR_ACCESS_TOKEN = 5;
+  CHECKSUM_OK = 6;
+  ERROR_UNSUPPORTED = 7;
+  OOB_RESTART = 8;            // Quick restart
+  OOB_RESERVED1 = 9;          // Reserved
+  OOB_RESERVED2 = 10;         // Reserved
+  OOB_RESERVED3 = 11;         // Reserved
+  IN_PROGRESS = 12;
+}
+
+message OpBlockChecksumResponseProto {
+  required uint32 bytesPerCrc = 1;
+  required uint64 crcPerBlock = 2;
+  required bytes md5 = 3;
+  optional ChecksumTypeProto crcType = 4;
+}
+
+message ChecksumProto {
+  required ChecksumTypeProto type = 1;
+  required uint32 bytesPerChecksum = 2;
+}
+
+/**
+ * Sent as part of the BlockOpResponseProto
+ * for READ_BLOCK and COPY_BLOCK operations.
+ */
+message ReadOpChecksumInfoProto {
+  required ChecksumProto checksum = 1;
+
+  /**
+   * The offset into the block at which the first packet
+   * will start. This is necessary since reads will align
+   * backwards to a checksum chunk boundary.
+   */
+  required uint64 chunkOffset = 2;
+}
+
+message BlockOpResponseProto {
+  required Status status = 1;
+
+  optional string firstBadLink = 2;
+  optional OpBlockChecksumResponseProto checksumResponse = 3;
+  optional ReadOpChecksumInfoProto readOpChecksumInfo = 4;
+
+  /** explanatory text which may be useful to log on the client side */
+  optional string message = 5;
+
+  /** If the server chooses to agree to the request of a client for
+   * short-circuit access, it will send a response message with the relevant
+   * file descriptors attached.
+   *
+   * In the body of the message, this version number will be set to the
+   * specific version number of the block data that the client is about to
+   * read.
+   */
+  optional uint32 shortCircuitAccessVersion = 6;
+}
+

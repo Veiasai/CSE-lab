@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>dfs.block.size</name>
+        <value>16384</value>
+    </property>
+    
+{% if  ansible_nodename == 'name' %} 
+
+    <property>
+        <name>dfs.namenode.fs-limits.min-block-size</name>
+        <value>16384</value>
+    </property>
+    <property>
+        <name>dfs.replication</name>
+        <value>2</value>
+    </property>    
+    <property>
+        <name>dfs.name.dir</name>
+        <value>/home/cse/hadoop-data</value>
+    </property>
+    <property>
+        <name>dfs.heartbeat.interval</name>
+        <value>1</value>
+    </property>    
+    <property>
+        <name>dfs.namenode.heartbeat.recheck-interval</name>
+        <value>0</value>
+    </property>
+
+{% elif  ansible_nodename == 'app' %} 
+
+<property>
+        <name>dfs.replication</name>
+        <value>2</value>
+</property>    
+<property>
+        <name>dfs.client.max.block.acquire.failures</name>
+        <value>0</value>
+</property>    
+
+{% else %}
+<property>
+        <name>dfs.namenode.fs-limits.min-block-size</name>
+        <value>16384</value>
+</property>
+<property>
+        <name>dfs.data.dir</name>
+        <value>/home/cse/hadoop-data</value>
+</property>
+<property>
+        <name>dfs.heartbeat.interval</name>
+        <value>1</value>
+</property>  
+
+{% endif %}
+</configuration>

@@ -1,0 +1,80 @@
+syntax = "proto2";
+
+import "common.proto";
+
+message CachingStrategyProto {
+  optional bool dropBehind = 1;
+  optional int64 readahead = 2;
+}
+
+message OpReadBlockProto {
+  required ClientOperationHeaderProto header = 1;
+  required uint64 offset = 2;
+  required uint64 len = 3;
+  optional bool sendChecksums = 4 [default = true];
+  optional CachingStrategyProto cachingStrategy = 5;
+}
+
+message PacketHeaderProto {
+  // All fields must be fixed-length!
+  required sfixed64 offsetInBlock = 1;
+  required sfixed64 seqno = 2;
+  required bool lastPacketInBlock = 3;
+  required sfixed32 dataLen = 4;
+  optional bool syncBlock = 5 [default = false];
+}
+
+message OpWriteBlockProto {
+  required ClientOperationHeaderProto header = 1;
+  repeated DatanodeInfoProto targets = 2;
+  optional DatanodeInfoProto source = 3;
+  enum BlockConstructionStage {
+    PIPELINE_SETUP_APPEND = 0;
+    // pipeline set up for failed PIPELINE_SETUP_APPEND recovery
+    PIPELINE_SETUP_APPEND_RECOVERY = 1;
+    // data streaming
+    DATA_STREAMING = 2;
+    // pipeline setup for failed data streaming recovery
+    PIPELINE_SETUP_STREAMING_RECOVERY = 3;
+    // close the block and pipeline
+    PIPELINE_CLOSE = 4;
+    // Recover a failed PIPELINE_CLOSE
+    PIPELINE_CLOSE_RECOVERY = 5;
+    // pipeline set up for block creation
+    PIPELINE_SETUP_CREATE = 6;
+    // transfer RBW for adding datanodes
+    TRANSFER_RBW = 7;
+    // transfer Finalized for adding datanodes
+    TRANSFER_FINALIZED = 8;
+  }
+  required BlockConstructionStage stage = 4;
+  required uint32 pipelineSize = 5;
+  required uint64 minBytesRcvd = 6;
+  required uint64 maxBytesRcvd = 7;
+  required uint64 latestGenerationStamp = 8;
+
+  /**
+   * The requested checksum mechanism for this block write.
+   */
+  required ChecksumProto requestedChecksum = 9;
+  optional CachingStrategyProto cachingStrategy = 10;
+  optional StorageTypeProto storageType = 11 [default = DISK];
+  repeated StorageTypeProto targetStorageTypes = 12;
+
+  /**
+   * Hint to the DataNode that the block can be allocated on transient
+   * storage i.e. memory and written to disk lazily. The DataNode is free
+   * to ignore this hint.
+   */
+  optional bool allowLazyPersist = 13 [default = false];
+  //whether to pin the block, so Balancer won't move it.
+  optional bool pinning = 14 [default = false];
+  repeated bool targetPinnings = 15;
+}
+
+message PipelineAckProto {
+  required sint64 seqno = 1;
+  repeated Status reply = 2;
+  optional uint64 downstreamAckTimeNanos = 3 [default = 0];
+  repeated uint32 flag = 4 [packed=true];
+}

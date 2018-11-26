@@ -1,0 +1,39 @@
+---
+- name: Add User
+  user: 
+      name=cse 
+      shell=/bin/bash
+      state=present
+
+- name: Add cse user to the sudoers
+  copy:
+      dest: "/etc/sudoers.d/cse"
+      content: "cse  ALL=(ALL)  NOPASSWD: ALL"
+
+- name: Add TA's key
+  authorized_key: 
+      user=cse
+      key="{{TA_pub}}"
+      state=present
+  when:
+      TA_pub != 0
+      
+- name: Add your key
+  authorized_key: 
+      user=cse
+      key="{{Test_pub}}"
+      state=present
+  when:
+      Test_pub != 0
+      
+
+- name: modify hostname
+  hostname: name="{{ansible_nodename}}"
+
+- name: modify hosts
+  template: src=hosts.j2 dest=/etc/hosts mode=0644
+
+- name: Install Java
+  apt:
+      name=openjdk-8-jre-headless
+      state=present
