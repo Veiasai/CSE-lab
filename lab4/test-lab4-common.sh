@@ -41,13 +41,13 @@ safe_run() {
 }
 
 wait_port() {
-  while  !(telnet $1 $2 </dev/null 2>&1 | grep "Connection refused" >/dev/null); do
+  while (telnet $1 $2 </dev/null 2>&1 | grep "Connection refused" >/dev/null); do
     sleep 1
   done
 }
 
 wait_port_dead() {
-  while (telnet $1 $2 </dev/null 2>&1 | grep "Connection refused" >/dev/null); do
+  while ! (telnet $1 $2 </dev/null 2>&1 | grep "Connection refused" >/dev/null); do
     sleep 1
   done
 }

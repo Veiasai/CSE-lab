@@ -58,6 +58,18 @@ getattr(yfs_client::inum inum, struct stat &st)
         st.st_ctime = info.ctime;
         st.st_size = info.size;
         printf("   getattr -> %llu\n", info.size);
+    } else if (yfs->issymlink(inum)){
+        yfs_client::symlinkinfo info;
+        ret = yfs->getsymlink(inum, info);
+        if(ret != yfs_client::OK)
+            return ret;
+        st.st_mode = S_IFLNK | 0777;
+        st.st_nlink = 1;
+        st.st_size = info.size;
+        st.st_atime = info.atime;
+        st.st_mtime = info.mtime;
+        st.st_ctime = info.ctime;
+        printf("   getattr -> %llu\n", info.size);
     } else {
         yfs_client::dirinfo info;
         ret = yfs->getdir(inum, info);
@@ -457,6 +469,51 @@ fuseserver_statfs(fuse_req_t req)
     fuse_reply_statfs(req, &buf);
 }
 
+void
+fuseserver_symlink(fuse_req_t req, const char *link, fuse_ino_t parent, const char *name)
+{
+    int r;
+    yfs_client::inum ino;
+    if ((r = yfs->symlink(link, parent, name, ino)) == yfs_client::OK) {
+        struct fuse_entry_param e;
+        // In yfs, timeouts are always set to 0.0, and generations are always set to 0
+        e.attr_timeout = 0.0;
+        e.entry_timeout = 0.0;
+        e.generation = 0;
+        e.ino = ino;
+        (void) e;
+        getattr(ino, e.attr);
+        fuse_reply_entry(req, &e);
+    } else {
+        if (r == yfs_client::NOENT) {
+            fuse_reply_err(req, ENOENT);
+        } 
+        else if (r == yfs_client::EXIST){
+            fuse_reply_err(req, EEXIST);
+        }
+        else {
+            fuse_reply_err(req, ENOTEMPTY);
+        }
+    }
+}
+
+void
+fuseserver_readlink(fuse_req_t req, fuse_ino_t ino)
+{
+    int r;
+    std::string link;
+    if ((r = yfs->readlink(ino, link)) == yfs_client::OK) {
+        // use the function
+        fuse_reply_readlink(req, link.data());
+    } else {
+        if (r == yfs_client::NOENT) {
+            fuse_reply_err(req, ENOENT);
+        } else {
+            fuse_reply_err(req, ENOTEMPTY);
+        }
+    }
+}
+
 struct fuse_lowlevel_ops fuseserver_oper;
 
 int
@@ -500,6 +557,8 @@ main(int argc, char *argv[])
     fuseserver_oper.setattr    = fuseserver_setattr;
     fuseserver_oper.unlink     = fuseserver_unlink;
     fuseserver_oper.mkdir      = fuseserver_mkdir;
+    fuseserver_oper.symlink    = fuseserver_symlink;
+    fuseserver_oper.readlink   = fuseserver_readlink;
     /** Your code here for Lab.
      * you may want to add
      * routines here to implement symbolic link,

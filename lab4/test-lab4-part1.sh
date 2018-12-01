@@ -11,7 +11,6 @@ check_hdfs_param_on() {
   if [ "x$result" != "x$3" ]; then
     echo "failed"
     echo "$2 on $1 is incorrect"
-    echo "x$result != x$3"
     exit 1
   fi
 }

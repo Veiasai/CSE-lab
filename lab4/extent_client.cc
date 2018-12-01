@@ -18,11 +18,18 @@ extent_client::extent_client(std::string dst)
 }
 
 // a demo to show how to use RPC
+extent_client::extent_client()
+{
+  //es = new extent_server();
+}
+
 extent_protocol::status
 extent_client::create(uint32_t type, extent_protocol::extentid_t &id)
 {
   extent_protocol::status ret = extent_protocol::OK;
   // Your lab2 part1 code goes here
+  // ret = es->create(type, id);
+  ret = cl->call(extent_protocol::create, type, id);
   return ret;
 }
 
@@ -31,6 +38,8 @@ extent_client::get(extent_protocol::extentid_t eid, std::string &buf)
 {
   extent_protocol::status ret = extent_protocol::OK;
   // Your lab2 part1 code goes here
+  // ret = es->get(eid, buf);
+  ret = cl->call(extent_protocol::get, eid, buf);
   return ret;
 }
 
@@ -48,6 +57,9 @@ extent_client::put(extent_protocol::extentid_t eid, std::string buf)
 {
   extent_protocol::status ret = extent_protocol::OK;
   // Your lab2 part1 code goes here
+  int r;
+  // ret = es->put(eid, buf, r);
+  ret = cl->call(extent_protocol::put, eid, buf, r);
   return ret;
 }
 
@@ -56,48 +68,10 @@ extent_client::remove(extent_protocol::extentid_t eid)
 {
   extent_protocol::status ret = extent_protocol::OK;
   // Your lab2 part1 code goes here
-  return ret;
-}
-
-extent_protocol::status
-extent_client::get_block_ids(extent_protocol::extentid_t eid, std::list<blockid_t> &block_ids)
-{
-  extent_protocol::status ret = extent_protocol::OK;
-  ret = cl->call(extent_protocol::get_block_ids, eid, block_ids);
-  return ret;
-}
-
-extent_protocol::status
-extent_client::read_block(blockid_t bid, std::string &buf)
-{
-  extent_protocol::status ret = extent_protocol::OK;
-  ret = cl->call(extent_protocol::read_block, bid, buf);
-  return ret;
-}
-
-extent_protocol::status
-extent_client::write_block(blockid_t bid, const std::string &buf)
-{
-  extent_protocol::status ret = extent_protocol::OK;
   int r;
-  ret = cl->call(extent_protocol::write_block, bid, buf, r);
+  // ret = es->remove(eid, r);
+  ret = cl->call(extent_protocol::remove, eid, r);
   return ret;
 }
 
-extent_protocol::status
-extent_client::append_block(extent_protocol::extentid_t eid, blockid_t &bid)
-{
-  extent_protocol::status ret = extent_protocol::OK;
-  ret = cl->call(extent_protocol::append_block, eid, bid);
-  return ret;
-}
-
-extent_protocol::status
-extent_client::complete(extent_protocol::extentid_t eid, uint32_t size)
-{
-  extent_protocol::status ret = extent_protocol::OK;
-  int r;
-  ret = cl->call(extent_protocol::complete, eid, size, r);
-  return ret;
-}
 
