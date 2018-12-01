@@ -4,7 +4,7 @@
 
   1. 下载hadoop-2.8.5.tar.gz，放在roles/hadoop/files目录下。
   2. 腾讯云ssh密钥对功能，新建一对公私钥，并且绑定到四台目标机器。（完全是在腾讯云控制台操作的）
-  3. 将私钥放置在根目录（lab4-deploy）下。
+  3. 将私钥放置在根目录（lab4-deploy）下，**权限改为600**。
   4. 修改group_vars/cse文件。
         ``` yml
         ansible_ssh_private_key_file: ./cselab.isa
@@ -25,13 +25,14 @@
         - 我给出了一份样例配置ssh-config。
         - 填充了Test_pub，并在config中配置好私钥，运行部署脚本（第8步）后，可以在command中ssh app或者ssh name等，能连接上就算成功。
         - **测试脚本是远程执行的，在lab目录下，写一个文件app_public_ip，这里面的ip应该是app机器的ip，但配置了ssh config之后，写app的host名字就可以。这意味着从自己的电脑能够连接到app机器，测试脚本会把测试与编译后的执行文件，拷贝到app机器上，然后执行，那么app机器也需要能够免密码登陆name和data节点，所以对应Test_pub的密钥，在app节点再放置一份。**
-  7. 有一个问题是，一般公钥认证都是开启的，所以第一次ssh连接，会出现一个ssh交互，yes or no，这让脚本无法运行，有两个办法。
-      - 手动先连上去一次。
-      - 配置文件/etc/ansible/ansible.cfg的[defaults]中打开注释
-        ``` yml
-        # uncomment this to disable SSH key host checking
-        host_key_checking = False
-        ```
+  7. (optional)
+      - 有一个问题是，一般公钥认证都是开启的，所以第一次ssh连接，会出现一个ssh交互，yes or no，这让脚本无法运行，有两个办法。（我已经写了该配置在目录下，ansible会优先读取，所以这一条可以不做）
+        - 手动先连上去一次。
+        - 配置文件/etc/ansible/ansible.cfg的[defaults]中打开注释
+            ``` yml
+            # uncomment this to disable SSH key host checking
+            host_key_checking = False
+            ```
   8. 在根目录（lab4-deploy）下运行。
         ``` shell
         ansible-playbook -i hosts site.yml

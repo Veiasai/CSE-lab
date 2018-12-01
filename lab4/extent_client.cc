@@ -74,4 +74,35 @@ extent_client::remove(extent_protocol::extentid_t eid)
   return ret;
 }
 
+extent_protocol::status extent_client::get_block_ids(extent_protocol::extentid_t eid, std::list<blockid_t> &block_ids){
+  extent_protocol::status ret = extent_protocol::OK;
+  ret = cl->call(extent_protocol::get_block_ids, eid, block_ids);
+  return ret;
+}
+
+extent_protocol::status extent_client::read_block(blockid_t bid, std::string &buf){
+  extent_protocol::status ret = extent_protocol::OK;
+  ret = cl->call(extent_protocol::read_block, buf);
+  return ret;
+}
+extent_protocol::status extent_client::write_block(blockid_t bid, const std::string &buf){
+  extent_protocol::status ret = extent_protocol::OK;
+  int r;
+  ret = cl->call(extent_protocol::write_block, bid, buf, r);
+  return ret;
+}
+
+extent_protocol::status extent_client::append_block(extent_protocol::extentid_t eid, blockid_t &bid){
+  extent_protocol::status ret = extent_protocol::OK;
+  ret = cl->call(extent_protocol::append_block, eid, bid);
+  return ret;
+}
+
+extent_protocol::status extent_client::complete(extent_protocol::extentid_t eid, uint32_t size){
+  extent_protocol::status ret = extent_protocol::OK;
+  int r;
+  ret = cl->call(extent_protocol::complete, eid, size, r);
+  return ret;
+}
+
 

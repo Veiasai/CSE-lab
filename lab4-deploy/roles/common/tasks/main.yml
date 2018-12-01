@@ -28,7 +28,7 @@
       
 
 - name: modify hostname
-  hostname: name="{{ansible_nodename}}"
+  hostname: name="{{name}}"
 
 - name: modify hosts
   template: src=hosts.j2 dest=/etc/hosts mode=0644

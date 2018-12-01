@@ -17,7 +17,7 @@ typedef uint32_t blockid_t;
 class disk {
  private:
   unsigned char blocks[BLOCK_NUM][BLOCK_SIZE];
-
+  
  public:
   disk();
   void read_block(uint32_t id, char *buf);
@@ -79,6 +79,7 @@ typedef struct inode {
 class inode_manager {
  private:
   block_manager *bm;
+  std::map <uint32_t, int> using_ino;
   struct inode* get_inode(uint32_t inum);
   void put_inode(uint32_t inum, struct inode *ino);
 

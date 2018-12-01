@@ -1,5 +1,5 @@
 [cse] 
-app     ansible_ssh_host=129.211.101.125    private_ip=192.168.0.15
-name    ansible_ssh_host=129.211.101.244    private_ip=192.168.0.7
-data1   ansible_ssh_host=212.129.143.248    private_ip=192.168.0.5
-data2   ansible_ssh_host=129.211.102.206    private_ip=192.168.0.17
+app     ansible_ssh_host=212.64.13.62    private_ip=172.17.0.14 name=app
+name    ansible_ssh_host=118.25.189.51    private_ip=172.17.0.10 name=name
+data1   ansible_ssh_host=118.25.151.207    private_ip=172.17.0.13 name=data1
+data2   ansible_ssh_host=212.64.14.118   private_ip=172.17.0.5 name=data2

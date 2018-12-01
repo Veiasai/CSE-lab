@@ -14,10 +14,6 @@ yfs_client::yfs_client(std::string extent_dst, std::string lock_dst)
     ec = new extent_client(extent_dst);
     //lc = new lock_client(lock_dst);
     lc = new lock_client_cache(lock_dst);
-    lc->acquire(1);
-    if (ec->put(1, "") != extent_protocol::OK)
-        printf("error init root dir\n"); // XYB: init root dir
-    lc->release(1);
 }
 
 
@@ -248,7 +244,6 @@ yfs_client::mkdir(inum parent, const char *name, mode_t mode, inum &ino_out)
 int
 yfs_client::lookup(inum parent, const char *name, bool &found, inum &ino_out)
 {
-    
     int r = OK;
     std::string buf;
     r = ec->get(parent, buf);

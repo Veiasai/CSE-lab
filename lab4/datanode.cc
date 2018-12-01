@@ -41,12 +41,18 @@ int DataNode::init(const string &extent_dst, const string &namenode, const struc
 }
 
 bool DataNode::ReadBlock(blockid_t bid, uint64_t offset, uint64_t len, string &buf) {
+  string raw_buf;
+  ec->read_block(bid, raw_buf);
+  buf = raw_buf.substr(offset, len);
   /* Your lab4 part 2 code */
   return false;
 }
 
 bool DataNode::WriteBlock(blockid_t bid, uint64_t offset, uint64_t len, const string &buf) {
-  /* Your lab4 part 2 code */
+  string wbuf;
+  ec->read_block(bid, wbuf);
+  wbuf = wbuf.substr(0, offset) + buf + wbuf.substr(offset + len);
+  ec->write_block(bid, wbuf);
   return false;
 }
 
