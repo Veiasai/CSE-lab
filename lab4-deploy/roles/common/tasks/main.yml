@@ -37,3 +37,8 @@
   apt:
       name=openjdk-8-jre-headless
       state=present
+
+- name: Install fuse
+  apt:
+      name=fuse
+      state=present
