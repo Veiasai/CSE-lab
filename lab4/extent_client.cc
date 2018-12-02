@@ -82,7 +82,7 @@ extent_protocol::status extent_client::get_block_ids(extent_protocol::extentid_t
 
 extent_protocol::status extent_client::read_block(blockid_t bid, std::string &buf){
   extent_protocol::status ret = extent_protocol::OK;
-  ret = cl->call(extent_protocol::read_block, buf);
+  ret = cl->call(extent_protocol::read_block, bid, buf);
   return ret;
 }
 extent_protocol::status extent_client::write_block(blockid_t bid, const std::string &buf){

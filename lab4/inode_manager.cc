@@ -451,7 +451,6 @@ inode_manager::write_block(blockid_t id, const char buf[BLOCK_SIZE])
   /*
    * your code goes here.
    */
-
 }
 
 void

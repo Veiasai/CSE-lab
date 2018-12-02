@@ -250,16 +250,17 @@ test_interoperability() {
   quiet rm -rf yfs/*
   test_hdfs_to_yfs
   quiet $HADOOP/bin/hdfs dfs -rm -r -f /test4 /test7 /testdir2
+  quiet rm -rf test4 test7
 }
 
 if [ -f app_public_ip ]; then
   compile
-  scp namenode datanode lock_server extent_server yfs_client test-lab4-part2.sh test-lab4-common.sh cse@$(cat app_public_ip): >/dev/null 2>&1
+  safe_run $SCP namenode datanode lock_server extent_server yfs_client test-lab4-part2.sh test-lab4-common.sh cse@$(cat app_public_ip): >/dev/null 2>&1
   remote_grade /home/cse/test-lab4-part2.sh
   ret=$?
-  scp cse@$(cat app_public_ip):*.log ./ >/dev/null 2>&1
-  ssh cse@$(cat app_public_ip) rm namenode datanode yfs_client lock_server extent_server test-lab4-part2.sh test-lab4-common.sh *.log >/dev/null 2>&1
-  atexit $ret
+  safe_run $SCP cse@$(cat app_public_ip):*.log ./ >/dev/null 2>&1
+  safe_run $SSH cse@$(cat app_public_ip) rm namenode datanode yfs_client lock_server extent_server test-lab4-part2.sh test-lab4-common.sh *.log >/dev/null 2>&1
+  exit $ret
 fi
 
 trap "stop_yfs; exit 1" INT

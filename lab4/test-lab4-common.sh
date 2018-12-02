@@ -188,6 +188,6 @@ test_mapreduce() {
 }
 
 remote_grade() {
-  ssh -t cse@$(cat app_public_ip) bash -c "\"VERBOSE=$VERBOSE $1\""
+  $SSH -t cse@$(cat app_public_ip) bash -c "\"VERBOSE=$VERBOSE $1\""
   return $?
 }

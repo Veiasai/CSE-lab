@@ -330,12 +330,12 @@ test_recovery_clean() {
 
 if [ -f app_public_ip ]; then
   compile
-  scp namenode datanode lock_server extent_server yfs_client test-lab4-part3.sh test-lab4-common.sh cse@$(cat app_public_ip): >/dev/null 2>&1
+  safe_run $SCP namenode datanode lock_server extent_server yfs_client test-lab4-part3.sh test-lab4-common.sh cse@$(cat app_public_ip): >/dev/null 2>&1
   remote_grade /home/cse/test-lab4-part3.sh
   ret=$?
-  scp cse@$(cat app_public_ip):*.log ./ >/dev/null 2>&1
-  ssh cse@$(cat app_public_ip) rm namenode datanode yfs_client lock_server extent_server test-lab4-part3.sh test-lab4-common.sh *.log >/dev/null 2>&1
-  atexit $ret
+  safe_run $SCP cse@$(cat app_public_ip):*.log ./ >/dev/null 2>&1
+  safe_run $SSH cse@$(cat app_public_ip) rm namenode datanode yfs_client lock_server extent_server test-lab4-part3.sh test-lab4-common.sh *.log >/dev/null 2>&1
+  exit $ret
 fi
 
 trap "atexit 1" INT

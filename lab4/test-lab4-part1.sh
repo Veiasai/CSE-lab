@@ -77,12 +77,28 @@ cleanup() {
   echo "done"
 }
 
+wait_dead() {
+  timeout=$(($2 + 1))
+  while ! ($HADOOP/bin/hdfs dfsadmin -report -dead 2>&1 | grep $1 >/dev/null 2>&1); do
+    timeout=$(($timeout - 1))
+    if [ $timeout -eq 0 ]; then
+      return 1
+    fi
+    sleep 1
+  done
+  return 0
+}
+
 crash_data1() {
   echo -n "Crash data1... "
   safe_run stop_data1
   safe_run $SSH data1 rm -rf /home/cse/hadoop-data
-  wait_port_dead data1 50010
+  if ! wait_dead data1 10; then
+    echo "failed"
+    return 1
+  fi
   echo "done"
+  return 0
 }
 
 recovery_data1() {
@@ -94,8 +110,12 @@ crash_data2() {
   echo -n "Crash data2... "
   safe_run stop_data2
   safe_run $SSH data2 rm -rf /home/cse/hadoop-data
-  wait_port_dead data2 50010
+  if ! wait_dead data2 10; then
+    echo "failed"
+    return 1
+  fi
   echo "done"
+  return 0
 }
 
 recovery_data2() {
@@ -110,16 +130,20 @@ wait_recovery() {
     timeout=$(($timeout - 1))
     if [ $timeout -eq 0 ]; then
       echo "timeout"
-      print_score
-      exit 1
+      return 1
     fi
-    result=$(hadoop-2.8.5/bin/hdfs fsck / -blocks 2>/dev/null | grep -P -o "(?<=Under-replicated blocks:\t)[0-9]+")
+    result=$($HADOOP/bin/hdfs fsck / -blocks 2>/dev/null | grep -P -o "(?<=Under-replicated blocks:\t)[0-9]+")
+    if [ $? -ne 0 ]; then
+      echo "failed"
+      return 1
+    fi
     if [ "x$result" == "x0" ]; then
       break
     fi
     sleep 1
   done
   echo "done"
+  return 0
 }
 
 check_recovery() {
@@ -144,7 +168,7 @@ check_recovery() {
 
 check_dead() {
   echo -n "Check whether HDFS is completely corrupted... "
-  result=$(hadoop-2.8.5/bin/hdfs fsck / -blocks 2>/dev/null | grep -P -o "(?<=Minimally replicated blocks:\t)[0-9]+")
+  result=$($HADOOP/bin/hdfs fsck / -blocks 2>/dev/null | grep -P -o "(?<=Minimally replicated blocks:\t)[0-9]+")
   if [ "x$result" != "x0" ]; then
     echo "no"
     echo "Some blocks are still available after two datanodes crash?"
@@ -159,15 +183,19 @@ import_random() {
   echo -n "Import random file into HDFS... "
   quiet dd if=/dev/urandom of=random bs=4096 count=13
   quiet $HADOOP/bin/hdfs dfs -put random /random
+  if [ $? -ne 0 ]; then
+    echo "failed"
+    return 1
+  fi
   echo "ok"
+  return 0
 }
 
 if [ -f app_public_ip ]; then
-  scp test-lab4-part1.sh test-lab4-common.sh cse@$(cat app_public_ip): >/dev/null 2>&1
+  safe_run $SCP test-lab4-part1.sh test-lab4-common.sh cse@$(cat app_public_ip): >/dev/null 2>&1
   remote_grade /home/cse/test-lab4-part1.sh
   ret=$?
-  scp cse@$(cat app_public_ip):*.log ./ >/dev/null 2>&1
-  ssh cse@$(cat app_public_ip) rm namenode datanode yfs_client lock_server extent_server test-lab4-part2.sh test-lab4-common.sh *.log >/dev/null 2>&1
+  safe_run $SSH cse@$(cat app_public_ip) rm test-lab4-part1.sh test-lab4-common.sh >/dev/null 2>&1
   exit $ret
 fi
 
@@ -177,16 +205,20 @@ if (check_hdfs_param); then
 fi
 cleanup
 start_hdfs
-import_random
-crash_data2
-recovery_data2
-wait_recovery 60
-crash_data1
-check_recovery
-crash_data2
-recovery_data1
-recovery_data2
-check_dead
+if import_random; then
+  if crash_data2; then
+    recovery_data2
+    if wait_recovery 60; then
+      if crash_data1; then
+        check_recovery
+      fi
+      crash_data2
+      recovery_data1
+      recovery_data2
+      check_dead
+    fi
+  fi
+fi
 rm -f random random.get >/dev/null 2>&1
 stop_hdfs
 print_score

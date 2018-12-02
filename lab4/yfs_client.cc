@@ -9,6 +9,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+#define DB 1
+
 yfs_client::yfs_client(std::string extent_dst, std::string lock_dst)
 {
     ec = new extent_client(extent_dst);
@@ -89,18 +91,20 @@ yfs_client::isdir(inum inum)
 {
     // Oops! is this still correct when you implement symlink?
     extent_protocol::attr a;
-    
+    lc->acquire(inum);
     if (ec->getattr(inum, a) != extent_protocol::OK) {
         printf("error getting attr\n");
+        lc->release(inum);
         return false;
     }
 
     if (a.type == extent_protocol::T_DIR) {
         printf("isfile: %lld is a dir\n", inum);
+        lc->release(inum);
         return true;
     } 
     printf("isfile: %lld is not a dir\n", inum);
-    
+    lc->release(inum);
     return false;
 }
 
@@ -197,9 +201,7 @@ yfs_client::create(inum parent, const char *name, mode_t mode, inum &ino_out)
     printf("create name: %s \n", name);
     int r = OK;
     bool found = false;
-
     lc->acquire(parent);
-
     lookup(parent, name, found, ino_out);
     if (found == true){
         lc->release(parent);
@@ -248,6 +250,10 @@ yfs_client::lookup(inum parent, const char *name, bool &found, inum &ino_out)
     std::string buf;
     r = ec->get(parent, buf);
 
+    #if DB
+    std::cout << "lookup:" << name << " buf:" << buf << std::endl;
+    #endif
+    
     int pos = 0;
     while(pos < buf.size()){
         const char * t = buf.c_str()+pos;

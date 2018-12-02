@@ -23,6 +23,7 @@ int lock_server_cache::acquire(lock_protocol::lockid_t lid, std::string id, int 
   pthread_mutex_lock(&mutex);
   if (lock[lid].empty()){
     lock[lid].push(id);
+    wait_set[lid].insert(id);
     r = lock_protocol::OK;
     std::cout <<  lid << " "<< id <<" "<< "a1\n";
   }else if (find(wait_set[lid].begin(), wait_set[lid].end(), id) == wait_set[lid].end()){
