@@ -18,3 +18,4 @@
 
 - inode_manager
   - remove_file，free direct block循环，i赋值错误。
+  - 修改了bitmap的数据结构，原本是几个block，现在直接用了std::map。

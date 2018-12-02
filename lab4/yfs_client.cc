@@ -18,6 +18,12 @@ yfs_client::yfs_client(std::string extent_dst, std::string lock_dst)
     lc = new lock_client_cache(lock_dst);
 }
 
+yfs_client::yfs_client(extent_client * nec, lock_client* nlc){
+    ec = nec;
+    //lc = new lock_client(lock_dst);
+    lc = nlc;
+}
+
 
 yfs_client::inum
 yfs_client::n2i(std::string n)
@@ -185,6 +191,11 @@ release:
 int
 yfs_client::setattr(inum ino, size_t size)
 {
+    #if DB
+    std::cout << "setattr:" << ino << " size:" << size << std::endl;
+    std::cout.flush();
+    #endif
+
     lc->acquire(ino);
     int r = OK;
     std::string buf;
@@ -198,7 +209,11 @@ yfs_client::setattr(inum ino, size_t size)
 int
 yfs_client::create(inum parent, const char *name, mode_t mode, inum &ino_out)
 {
-    printf("create name: %s \n", name);
+    #if DB
+    std::cout << "create:" << name << " parent:" << parent << std::endl;
+    std::cout.flush();
+    #endif
+  
     int r = OK;
     bool found = false;
     lc->acquire(parent);
@@ -252,6 +267,7 @@ yfs_client::lookup(inum parent, const char *name, bool &found, inum &ino_out)
 
     #if DB
     std::cout << "lookup:" << name << " buf:" << buf << std::endl;
+    std::cout.flush();
     #endif
     
     int pos = 0;
@@ -311,6 +327,11 @@ int
 yfs_client::write(inum ino, size_t size, off_t off, const char *data,
         size_t &bytes_written)
 {
+    #if DB
+    std::cout << "write:" << ino  << std::endl;
+    std::cout.flush();
+    #endif
+
     lc->acquire(ino);
 
     int r = OK;

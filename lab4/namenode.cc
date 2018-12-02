@@ -12,37 +12,61 @@ using namespace std;
 void NameNode::init(const string &extent_dst, const string &lock_dst) {
   ec = new extent_client(extent_dst);
   lc = new lock_client_cache(lock_dst);
-  yfs = new yfs_client(extent_dst, lock_dst);
+  yfs = new yfs_client(ec, lc);
 
-  lc->acquire(1);
-  if (ec->put(1, "") != extent_protocol::OK)
-      printf("error init root dir\n"); // XYB: init root dir
-  lc->release(1);
   /* Add your init logic here */
 }
 
 list<NameNode::LocatedBlock> NameNode::GetBlockLocations(yfs_client::inum ino) {
-  return list<LocatedBlock>();
+  #if DB 
+  std::cout << "get locations:" << ino << std::endl;
+  #endif
+
+  list<NameNode::LocatedBlock> l;
+  long long size = 0;
+  list<blockid_t> block_ids;
+  ec->get_block_ids(ino, block_ids);
+  int i = 0;
+  for(auto item : block_ids){
+    LocatedBlock lb(item, i++, BLOCK_SIZE, master_datanode);
+    l.push_back(lb);
+    size += BLOCK_SIZE;
+  }
+  return l;
 }
 
 bool NameNode::Complete(yfs_client::inum ino, uint32_t new_size) {
-  ec->complete(ino, new_size);
-  return false;
+  #if DB 
+  std::cout << "complete:" << ino << std::endl;
+  #endif
+
+  bool res = !ec->complete(ino, new_size);
+  lc->release(ino);
+  return res;
 }
 
 NameNode::LocatedBlock NameNode::AppendBlock(yfs_client::inum ino) {
-  
+  #if DB 
+  std::cout << "append:" << ino << std::endl;
+  #endif
+
   blockid_t bid;
-  ec->append_block(ino, bid);
   extent_protocol::attr attr;
   ec->getattr(ino, attr);
-  LocatedBlock lb(bid, attr.size, BLOCK_SIZE, master_datanode);
+  ec->append_block(ino, bid);
+  LocatedBlock lb(bid, attr.size / BLOCK_SIZE + attr.size % BLOCK_SIZE, BLOCK_SIZE, master_datanode);
   return lb;
   // throw HdfsException("Not implemented");
 }
 
 bool NameNode::Rename(yfs_client::inum src_dir_ino, string src_name, yfs_client::inum dst_dir_ino, string dst_name) {
+  #if DB 
+  std::cout << "rename:" << src_dir_ino << " dst:" << dst_dir_ino << std::endl;
+  #endif
+
   string src_buf, dst_buf;
+  if (src_dir_ino == dst_dir_ino)
+    return false;
   ec->get(src_dir_ino, src_buf);
   ec->get(dst_dir_ino, dst_buf);
   bool found = false;
@@ -72,38 +96,109 @@ bool NameNode::Mkdir(yfs_client::inum parent, string name, mode_t mode, yfs_clie
   #if DB 
   std::cout << "mkdir:" << name << "mode:" << mode << std::endl;
   #endif
-  return !yfs->create(parent, name.c_str(), extent_protocol::T_DIR, ino_out);
+
+  return !yfs->mkdir(parent, name.c_str(), mode, ino_out);
 }
 
 bool NameNode::Create(yfs_client::inum parent, string name, mode_t mode, yfs_client::inum &ino_out) {
   #if DB 
   std::cout << "create:" << name << "mode:" << mode << std::endl;
   #endif
-  return !yfs->create(parent, name.c_str(), extent_protocol::T_FILE, ino_out);
+  
+  bool res =  !yfs->create(parent, name.c_str(), mode, ino_out);
+  if (res) lc->acquire(ino_out);
+  return res;
 }
 
-bool NameNode::Isfile(yfs_client::inum ino) {
-  return yfs->isfile(ino);
+bool NameNode::Isfile(yfs_client::inum inum) {
+  extent_protocol::attr a;
+  if (ec->getattr(inum, a) != extent_protocol::OK) {
+      printf("error getting attr\n");
+      return false;
+  }
+
+  if (a.type == extent_protocol::T_FILE) {
+      printf("isfile: %lld is a file\n", inum);
+      return true;
+  }else if (a.type == extent_protocol::T_SYMLK) {
+      printf("isfile: %lld is a symlink\n", inum);
+      return false;
+  } 
+  return false;
 }
 
-bool NameNode::Isdir(yfs_client::inum ino) {
-  return yfs->isdir(ino);
+bool NameNode::Isdir(yfs_client::inum inum) {
+  extent_protocol::attr a;
+  if (ec->getattr(inum, a) != extent_protocol::OK) {
+      printf("error getting attr\n");
+      return false;
+  }
+  if (a.type == extent_protocol::T_DIR) {
+      printf("isfile: %lld is a dir\n", inum);
+      return true;
+  } 
+  printf("isfile: %lld is not a dir\n", inum);
+  return false;
 }
 
-bool NameNode::Getfile(yfs_client::inum ino, yfs_client::fileinfo &info) {
-  return !yfs->getfile(ino, info);
+bool NameNode::Getfile(yfs_client::inum ino, yfs_client::fileinfo &fin) {
+  extent_protocol::attr a;
+  if (ec->getattr(ino, a) != extent_protocol::OK) {
+      return false;
+  }
+
+  fin.atime = a.atime;
+  fin.mtime = a.mtime;
+  fin.ctime = a.ctime;
+  fin.size = a.size;
+
+  return true;
 }
 
-bool NameNode::Getdir(yfs_client::inum ino, yfs_client::dirinfo &info) {
-  return !yfs->getdir(ino, info);
+bool NameNode::Getdir(yfs_client::inum ino, yfs_client::dirinfo &din) {
+    extent_protocol::attr a;
+    if (ec->getattr(ino, a) != extent_protocol::OK) {
+        return false;
+    }
+    din.atime = a.atime;
+    din.mtime = a.mtime;
+    din.ctime = a.ctime;
+    return true;
 }
 
 bool NameNode::Readdir(yfs_client::inum ino, std::list<yfs_client::dirent> &dir) {
-  return !yfs->readdir(ino, dir);
+  std::string buf;
+  ec->get(ino, buf);
+  int pos = 0;
+  while(pos < buf.size()){
+      struct yfs_client::dirent temp;
+      temp.name = std::string(buf.c_str()+pos);
+      temp.inum = *(uint32_t *)(buf.c_str() + pos + temp.name.size() + 1);
+      dir.push_back(temp);
+      pos += temp.name.size() + 1 + sizeof(uint32_t);
+  }
+  return true;
 }
 
 bool NameNode::Unlink(yfs_client::inum parent, string name, yfs_client::inum ino) {
-  return !yfs->unlink(parent, name.c_str());
+  std::string buf;
+  ec->get(parent, buf);
+
+  int pos = 0;
+  while(pos < buf.size()){
+      const char * t = buf.c_str()+pos;
+      if (strcmp(t, name.c_str()) == 0){
+          uint32_t ino = *(uint32_t *)(buf.c_str() + pos + strlen(t) + 1);
+          buf.erase(pos, strlen(t) + 1 + sizeof(uint32_t));
+          ec->put(parent, buf);
+          lc->acquire(ino);
+          ec->remove(ino);
+          lc->release(ino);
+          break;
+      }
+      pos += strlen(t) + 1 + sizeof(uint32_t);
+  }
+  return true;
 }
 
 void NameNode::DatanodeHeartbeat(DatanodeIDProto id) {
