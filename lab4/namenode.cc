@@ -29,11 +29,18 @@ list<NameNode::LocatedBlock> NameNode::GetBlockLocations(yfs_client::inum ino) {
   ec->get_block_ids(ino, block_ids);
   extent_protocol::attr attr;
   ec->getattr(ino, attr);
-  
+  #if DB 
+    std::cout << "get locations attr size:" << attr.size << std::endl;
+    cout.flush();
+  #endif
   int i = 0;
   for(auto item : block_ids){
+    #if DB 
+    std::cout << "get locations block id:" << item << std::endl;
+    cout.flush();
+    #endif
     i++;
-    LocatedBlock lb(item, i, i < block_ids.size() ? BLOCK_SIZE : (attr.size - size), master_datanode);
+    LocatedBlock lb(item, size, i < block_ids.size() ? BLOCK_SIZE : (attr.size - size), master_datanode);
     l.push_back(lb);
     size += BLOCK_SIZE;
   }
@@ -63,7 +70,7 @@ NameNode::LocatedBlock NameNode::AppendBlock(yfs_client::inum ino) {
   ec->getattr(ino, attr);
   ec->append_block(ino, bid);
   // pendingWrite[ino] += BLOCK_SIZE;
-  LocatedBlock lb(bid, attr.size / BLOCK_SIZE, BLOCK_SIZE, master_datanode);
+  LocatedBlock lb(bid, attr.size, (attr.size % BLOCK_SIZE) ? attr.size % BLOCK_SIZE : BLOCK_SIZE, master_datanode);
   return lb;
   // throw HdfsException("Not implemented");
 }
@@ -214,13 +221,13 @@ bool NameNode::Unlink(yfs_client::inum parent, string name, yfs_client::inum ino
           uint32_t ino = *(uint32_t *)(buf.c_str() + pos + strlen(t) + 1);
           buf.erase(pos, strlen(t) + 1 + sizeof(uint32_t));
           ec->put(parent, buf);
-          lc->acquire(ino);
           ec->remove(ino);
-          lc->release(ino);
-          break;
+          goto done;
       }
       pos += strlen(t) + 1 + sizeof(uint32_t);
   }
+  return false;
+  done:
   return true;
 }
 

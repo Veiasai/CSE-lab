@@ -349,7 +349,7 @@ inode_manager::remove_file(uint32_t inum)
   if (ino->type == extent_protocol::T_DIR){
     assert(0);
   }
-    
+  
   int NIN[NINDIRECT];
   
   int blocks = ino->size / BLOCK_SIZE + (ino->size % BLOCK_SIZE > 0);
