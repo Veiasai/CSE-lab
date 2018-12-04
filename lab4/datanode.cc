@@ -61,28 +61,34 @@ int DataNode::init(const string &extent_dst, const string &namenode, const struc
 }
 
 bool DataNode::ReadBlock(blockid_t bid, uint64_t offset, uint64_t len, string &buf) {
-  string raw_buf;
-  int r;
-  r = ec->read_block(bid, raw_buf);
-  buf = raw_buf.substr(offset, len);
   #if DB
   cout << "read block:" << bid << " offset:" << offset << " len:" << len << endl;
   cout.flush();
   #endif
+
+  string raw_buf;
+  int r;
+  r = ec->read_block(bid, raw_buf);
+  if (offset > raw_buf.size())
+    buf = "";
+  else
+    buf = raw_buf.substr(offset, len);
+  
   /* Your lab4 part 2 code */
   return true;
 }
 
 bool DataNode::WriteBlock(blockid_t bid, uint64_t offset, uint64_t len, const string &buf) {
+  #if DB
+  cout << "write block:" << bid << " offset:" << offset << " len:" << len << "buf size" << buf.size() << endl;
+  cout.flush();
+  #endif
+
   string wbuf;
   ec->read_block(bid, wbuf);
   wbuf = wbuf.substr(0, offset) + buf + wbuf.substr(offset + len);
   ec->write_block(bid, wbuf);
 
-  #if DB
-  cout << "write block:" << bid << " offset:" << offset << " len:" << len << endl;
-  cout.flush();
-  #endif
   return true;
 }
 

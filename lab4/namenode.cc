@@ -20,15 +20,20 @@ void NameNode::init(const string &extent_dst, const string &lock_dst) {
 list<NameNode::LocatedBlock> NameNode::GetBlockLocations(yfs_client::inum ino) {
   #if DB 
   std::cout << "get locations:" << ino << std::endl;
+  cout.flush();
   #endif
 
   list<NameNode::LocatedBlock> l;
   long long size = 0;
   list<blockid_t> block_ids;
   ec->get_block_ids(ino, block_ids);
+  extent_protocol::attr attr;
+  ec->getattr(ino, attr);
+  
   int i = 0;
   for(auto item : block_ids){
-    LocatedBlock lb(item, i++, BLOCK_SIZE, master_datanode);
+    i++;
+    LocatedBlock lb(item, i, i < block_ids.size() ? BLOCK_SIZE : (attr.size - size), master_datanode);
     l.push_back(lb);
     size += BLOCK_SIZE;
   }
@@ -37,43 +42,47 @@ list<NameNode::LocatedBlock> NameNode::GetBlockLocations(yfs_client::inum ino) {
 
 bool NameNode::Complete(yfs_client::inum ino, uint32_t new_size) {
   #if DB 
-  std::cout << "complete:" << ino << std::endl;
+  std::cout << "complete:" << ino << "size:" << new_size << std::endl;
+  cout.flush();
   #endif
 
   bool res = !ec->complete(ino, new_size);
-  lc->release(ino);
+  if (res)
+    lc->release(ino);
   return res;
 }
 
 NameNode::LocatedBlock NameNode::AppendBlock(yfs_client::inum ino) {
   #if DB 
   std::cout << "append:" << ino << std::endl;
+  cout.flush();
   #endif
 
   blockid_t bid;
   extent_protocol::attr attr;
   ec->getattr(ino, attr);
   ec->append_block(ino, bid);
-  LocatedBlock lb(bid, attr.size / BLOCK_SIZE + attr.size % BLOCK_SIZE, BLOCK_SIZE, master_datanode);
+  // pendingWrite[ino] += BLOCK_SIZE;
+  LocatedBlock lb(bid, attr.size / BLOCK_SIZE, BLOCK_SIZE, master_datanode);
   return lb;
   // throw HdfsException("Not implemented");
 }
 
 bool NameNode::Rename(yfs_client::inum src_dir_ino, string src_name, yfs_client::inum dst_dir_ino, string dst_name) {
   #if DB 
-  std::cout << "rename:" << src_dir_ino << " dst:" << dst_dir_ino << std::endl;
+  std::cout << "rename:" << src_dir_ino << src_name << " dst:" << dst_dir_ino << dst_name << std::endl;
+  cout.flush();
   #endif
 
   string src_buf, dst_buf;
-  if (src_dir_ino == dst_dir_ino)
-    return false;
   ec->get(src_dir_ino, src_buf);
   ec->get(dst_dir_ino, dst_buf);
   bool found = false;
   int pos = 0;
   int dst_ino;
+  const char * t;
   while(pos < src_buf.size()){
-      const char * t = src_buf.c_str()+pos;
+      t = src_buf.c_str()+pos;
       if (strcmp(t, src_name.c_str()) == 0){
           found = true;
           dst_ino = *(uint32_t *)(t + strlen(t) + 1);
@@ -83,11 +92,16 @@ bool NameNode::Rename(yfs_client::inum src_dir_ino, string src_name, yfs_client:
       pos += strlen(t) + 1 + sizeof(uint);
   }
   if (found){
+    if (src_dir_ino == dst_dir_ino){
+      dst_buf = src_buf;
+    }
     dst_buf += dst_name;
     dst_buf.resize(dst_buf.size() + 5, 0);
     *(uint32_t *)(dst_buf.c_str()+dst_buf.size()-4) = dst_ino;
-    ec->put(dst_dir_ino, dst_buf);
     ec->put(src_dir_ino, src_buf);
+    ec->put(dst_dir_ino, dst_buf);
+    // pendingWrite.insert(make_pair(src_dir_ino, src_buf.size()));
+    // pendingWrite.insert(make_pair(dst_dir_ino, dst_buf.size()));
   }
   return found;
 }
@@ -95,18 +109,27 @@ bool NameNode::Rename(yfs_client::inum src_dir_ino, string src_name, yfs_client:
 bool NameNode::Mkdir(yfs_client::inum parent, string name, mode_t mode, yfs_client::inum &ino_out) {
   #if DB 
   std::cout << "mkdir:" << name << "mode:" << mode << std::endl;
+  cout.flush();
   #endif
 
-  return !yfs->mkdir(parent, name.c_str(), mode, ino_out);
+  bool res = !yfs->mkdir(parent, name.c_str(), mode, ino_out);
+  // if (res){
+  //   pendingWrite.insert(make_pair(ino_out, 0));
+  // }
+  return res;
 }
 
 bool NameNode::Create(yfs_client::inum parent, string name, mode_t mode, yfs_client::inum &ino_out) {
   #if DB 
   std::cout << "create:" << name << "mode:" << mode << std::endl;
+  cout.flush();
   #endif
-  
+
   bool res =  !yfs->create(parent, name.c_str(), mode, ino_out);
-  if (res) lc->acquire(ino_out);
+  if (res) {
+    lc->acquire(ino_out);
+    pendingWrite.insert(make_pair(ino_out, 0));
+  }
   return res;
 }
 
@@ -208,5 +231,7 @@ void NameNode::RegisterDatanode(DatanodeIDProto id) {
 }
 
 list<DatanodeIDProto> NameNode::GetDatanodes() {
-  return list<DatanodeIDProto>();
+  list<DatanodeIDProto> l;
+  l.push_back(master_datanode);
+  return l;
 }
