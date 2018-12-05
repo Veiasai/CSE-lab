@@ -116,8 +116,9 @@ inode_manager::alloc_inode(uint32_t type)
       ino_disk = (struct inode*)buf + (j)%IPB;
       struct inode n;
       n.type = type;
-      n.ctime = my_time;
-      my_time++;
+      n.ctime = my_time++;
+      n.atime = 0;
+      n.mtime = 0;
       n.size = 0;
       *ino_disk = n;
       bm->write_block(IBLOCK(j, bm->sb.nblocks), buf);
@@ -302,7 +303,7 @@ inode_manager::write_file(uint32_t inum, const char *buf, int size)
       write_n += BLOCK_SIZE;
   }
 
-  ino->mtime = my_time++;
+  ino->mtime = my_time;
   ino->ctime = my_time++;
   ino->size = size;
   put_inode(inum, ino);
@@ -346,29 +347,30 @@ inode_manager::remove_file(uint32_t inum)
   struct inode * ino = get_inode(inum);
   if (ino->type == 0)
     return;
-  if (ino->type == extent_protocol::T_DIR){
-    assert(0);
-  }
+  
+  // if (ino->type == extent_protocol::T_DIR){
+  //   assert(0);
+  // }
   
   int NIN[NINDIRECT];
   
   int blocks = ino->size / BLOCK_SIZE + (ino->size % BLOCK_SIZE > 0);
   
   if (blocks <= NDIRECT){
-      for (int i=0;i<blocks;i++){
-        bm->free_block(ino->blocks[i]);
-      }
+    for (int i=0;i<blocks;i++){
+      bm->free_block(ino->blocks[i]);
+    }
   }else{
-      bm->read_block(ino->blocks[NDIRECT], (char *)NIN);
-      int i;
-      for (i=0;i<NDIRECT;i++){
-        bm->free_block(ino->blocks[i]);
-      }
-      for (i;i<blocks;i++){
-        bm->free_block(NIN[i-NDIRECT]);
-      }
-      bm->free_block(ino->blocks[NDIRECT]);
-      }
+    bm->read_block(ino->blocks[NDIRECT], (char *)NIN);
+    int i;
+    for (i=0;i<NDIRECT;i++){
+      bm->free_block(ino->blocks[i]);
+    }
+    for (i;i<blocks;i++){
+      bm->free_block(NIN[i-NDIRECT]);
+    }
+    bm->free_block(ino->blocks[NDIRECT]);
+  }
   ino->type = 0;
   put_inode(inum, ino);
   free_inode(inum);

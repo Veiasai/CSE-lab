@@ -61,10 +61,7 @@ int extent_server::getattr(extent_protocol::extentid_t id, extent_protocol::attr
 
   id &= 0x7fffffff;
   
-  extent_protocol::attr attr;
-  memset(&attr, 0, sizeof(attr));
-  im->getattr(id, attr);
-  a = attr;
+  im->getattr(id, a);
 
   return extent_protocol::OK;
 }

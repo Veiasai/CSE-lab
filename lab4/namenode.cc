@@ -218,7 +218,7 @@ bool NameNode::Unlink(yfs_client::inum parent, string name, yfs_client::inum ino
   while(pos < buf.size()){
       const char * t = buf.c_str()+pos;
       if (strcmp(t, name.c_str()) == 0){
-          uint32_t ino = *(uint32_t *)(buf.c_str() + pos + strlen(t) + 1);
+          uint32_t ino = *(uint32_t *)(t + strlen(t) + 1);
           buf.erase(pos, strlen(t) + 1 + sizeof(uint32_t));
           ec->put(parent, buf);
           ec->remove(ino);

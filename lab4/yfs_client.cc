@@ -237,6 +237,11 @@ yfs_client::create(inum parent, const char *name, mode_t mode, inum &ino_out)
 int
 yfs_client::mkdir(inum parent, const char *name, mode_t mode, inum &ino_out)
 {
+    #if DB
+    std::cout << "mkdir:" << name << " parent:" << parent << std::endl;
+    std::cout.flush();
+    #endif
+
     lc->acquire(parent);
     bool found = false;
     lookup(parent, name, found, ino_out);

@@ -7,11 +7,12 @@
 #include <iostream>
 #include <stdio.h>
 #include "tprintf.h"
+#include <unistd.h>
 
 int lock_client_cache::last_port = 0;
 
 static u_int sendtime=5;
-enum {unlock, locked, apply, revoke, hold, discard} state;
+enum {unlock, locked, apply, revokee, hold, discard} state;
 
 lock_client_cache::lock_client_cache(std::string xdst, 
 				     class lock_release_user *_lu)
@@ -24,9 +25,8 @@ lock_client_cache::lock_client_cache(std::string xdst,
   std::cerr << "client init" << '\n';
   srand(time(NULL)^last_port);
   rlock_port = ((rand()%32000) | (0x1 << 10));
-  const char *hname;
-  // VERIFY(gethostname(hname, 100) == 0);
-  hname = "127.0.0.1";
+  char hname[100];
+  VERIFY(gethostname(hname, sizeof(hname)) == 0);
   std::ostringstream host;
   host << hname << ":" << rlock_port;
   id = host.str();
@@ -53,14 +53,14 @@ lock_client_cache::acquire(lock_protocol::lockid_t lid)
     pthread_mutex_unlock(&mutex);
     ac_ret = cl->call(lock_protocol::acquire, lid, id, tr);
     pthread_mutex_lock(&mutex);
-    if (lock[lid] == revoke){
+    if (lock[lid] == revokee){
       std::cerr << "applying revoke\n"; 
     }
     else if (ac_ret == lock_protocol::RETRY){
       std::cerr << "applying retry\n"; 
       pthread_cond_wait(&cond[lid], &mutex);
     }else if(ac_ret == rlock_protocol::REVOKE){
-      lock[lid] = revoke;
+      lock[lid] = revokee;
     }else if (lock[lid] == apply){
       std::cerr << "applying ok\n"; 
       lock[lid] = locked;
@@ -82,7 +82,7 @@ lock_client_cache::release(lock_protocol::lockid_t lid)
   pthread_mutex_lock(&mutex);
   if (!pthread_cond_destroy(&cond[lid])){
     pthread_cond_init(&cond[lid], NULL);
-    if (lock[lid] == revoke){
+    if (lock[lid] == revokee){
       lock[lid] = discard;
       pthread_mutex_unlock(&mutex);
       int tr = 9;
@@ -118,7 +118,7 @@ lock_client_cache::revoke_handler(lock_protocol::lockid_t lid, int & r)
     lock[lid] = unlock;
     pthread_cond_broadcast(&cond[lid]);
   }else if (lock[lid] > unlock){
-    lock[lid] = revoke;
+    lock[lid] = revokee;
     std::cerr << "revoke 2" << '\n';
   }
   std::cerr << "revoke done" << '\n';
@@ -133,7 +133,7 @@ lock_client_cache::retry_handler(lock_protocol::lockid_t lid,  int state, int & 
   pthread_mutex_lock(&mutex);
   int ret = rlock_protocol::OK;
   if (lock[lid] == apply){
-    if (state) lock[lid] = revoke;
+    if (state) lock[lid] = revokee;
     else lock[lid] = locked;
     pthread_cond_signal(&cond[lid]);
     r = rlock_protocol::OK;
