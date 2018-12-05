@@ -460,6 +460,7 @@ void NameNode::PBCreate(const CreateRequestProto &req, CreateResponseProto &resp
     string component = path.substr(lastpos);
     if (!Create(ino, component.c_str(), 0666, ino))
       throw HdfsException("Create file failed");
+    pendingWrite.insert(make_pair(ino, 0));
     if (!PBGetFileInfoFromInum(ino, *resp.mutable_fs()))
       resp.clear_fs();
   } else

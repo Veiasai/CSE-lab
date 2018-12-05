@@ -403,6 +403,7 @@ inode_manager::append_block(uint32_t inum, blockid_t &bid)
     bm->write_block(ino->blocks[NDIRECT], (char *) NIN);
   }
   blocks++;
+  ino->size += BLOCK_SIZE;
   put_inode(inum, ino);
 }
 

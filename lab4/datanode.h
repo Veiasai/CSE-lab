@@ -24,6 +24,7 @@ private:
   bool ReadBlock(blockid_t bid, uint64_t offset, uint64_t len, std::string &buf);
   bool WriteBlock(blockid_t bid, uint64_t offset, uint64_t len, const std::string &buf);
   bool SendHeartbeat();
+  void heart();
 
   /* Feel free to add your member variables/functions here */
 public:

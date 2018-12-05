@@ -14,7 +14,16 @@ void NameNode::init(const string &extent_dst, const string &lock_dst) {
   lc = new lock_client_cache(lock_dst);
   yfs = new yfs_client(ec, lc);
 
+  heart = 0;
+  NewThread(this, &NameNode::countbeat);
   /* Add your init logic here */
+}
+
+void NameNode::countbeat(){
+  while(true){
+    this->heart++;
+    sleep(1);
+  }
 }
 
 list<NameNode::LocatedBlock> NameNode::GetBlockLocations(yfs_client::inum ino) {
@@ -40,7 +49,7 @@ list<NameNode::LocatedBlock> NameNode::GetBlockLocations(yfs_client::inum ino) {
     cout.flush();
     #endif
     i++;
-    LocatedBlock lb(item, size, i < block_ids.size() ? BLOCK_SIZE : (attr.size - size), master_datanode);
+    LocatedBlock lb(item, size, i < block_ids.size() ? BLOCK_SIZE : (attr.size - size), GetDatanodes());
     l.push_back(lb);
     size += BLOCK_SIZE;
   }
@@ -69,8 +78,10 @@ NameNode::LocatedBlock NameNode::AppendBlock(yfs_client::inum ino) {
   extent_protocol::attr attr;
   ec->getattr(ino, attr);
   ec->append_block(ino, bid);
+
+  modified_blocks.insert(bid);
   // pendingWrite[ino] += BLOCK_SIZE;
-  LocatedBlock lb(bid, attr.size, (attr.size % BLOCK_SIZE) ? attr.size % BLOCK_SIZE : BLOCK_SIZE, master_datanode);
+  LocatedBlock lb(bid, attr.size, (attr.size % BLOCK_SIZE) ? attr.size % BLOCK_SIZE : BLOCK_SIZE, GetDatanodes());
   return lb;
   // throw HdfsException("Not implemented");
 }
@@ -135,7 +146,7 @@ bool NameNode::Create(yfs_client::inum parent, string name, mode_t mode, yfs_cli
   bool res =  !yfs->create(parent, name.c_str(), mode, ino_out);
   if (res) {
     lc->acquire(ino_out);
-    pendingWrite.insert(make_pair(ino_out, 0));
+    // pendingWrite.insert(make_pair(ino_out, 0));
   }
   return res;
 }
@@ -232,13 +243,32 @@ bool NameNode::Unlink(yfs_client::inum parent, string name, yfs_client::inum ino
 }
 
 void NameNode::DatanodeHeartbeat(DatanodeIDProto id) {
+  int m = 0;
+  for (auto i : datanodes){
+    m = max(m, i.second);
+  }
+  datanodes[id] = this->heart;
 }
 
 void NameNode::RegisterDatanode(DatanodeIDProto id) {
+  if (this->heart > 5){
+    #if DB 
+    cout << "recovery !!!!!!" << datanodes.size() << endl;
+    cout.flush();
+    #endif
+    for(auto b : modified_blocks){
+      ReplicateBlock(b, master_datanode, id);
+    }
+  }
+  datanodes.insert(make_pair(id, this->heart));
 }
 
 list<DatanodeIDProto> NameNode::GetDatanodes() {
   list<DatanodeIDProto> l;
-  l.push_back(master_datanode);
+  for (auto i : datanodes){
+    if (i.second >= this->heart - 3){
+      l.push_back(i.first);
+    }
+  }
   return l;
 }

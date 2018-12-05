@@ -51,9 +51,13 @@ private:
   yfs_client *yfs;
   DatanodeIDProto master_datanode;
   std::map<yfs_client::inum, uint32_t> pendingWrite;
-
+  unsigned long long heart;
   /* Add your member variables/functions here */
+  std::map<DatanodeIDProto, int> datanodes;
+  std::set<blockid_t> modified_blocks;
+  std::list<DatanodeIDProto> ldatanodes;
 private:
+  void countbeat();
   void GetFileInfo();
   bool RecursiveLookup(const std::string &path, yfs_client::inum &ino, yfs_client::inum &last);
   bool RecursiveLookup(const std::string &path, yfs_client::inum &ino);
