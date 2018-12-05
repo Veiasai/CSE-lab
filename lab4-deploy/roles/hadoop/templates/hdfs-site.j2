@@ -29,6 +29,10 @@
         <name>dfs.namenode.heartbeat.recheck-interval</name>
         <value>0</value>
     </property>
+    <property>
+        <name>dfs.namenode.replication.pending.timeout-sec</name>
+        <value>3</value>
+    </property>
 
 {% elif  ansible_nodename == 'app' %} 
 
